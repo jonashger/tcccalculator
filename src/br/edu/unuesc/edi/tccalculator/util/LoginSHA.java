@@ -6,7 +6,7 @@ package br.edu.unuesc.edi.tccalculator.util;
 	  import java.security.NoSuchAlgorithmException;
 
 	  public class LoginSHA{
-	   public static String Login(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException{
+	   public static String login(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException{
 	            {     
 	            	MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
                     byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));

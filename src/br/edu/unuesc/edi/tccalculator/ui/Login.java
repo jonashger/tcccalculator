@@ -16,11 +16,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import br.edu.unuesc.edi.tccalculator.util.CadastrarUser;
 import br.edu.unuesc.edi.tccalculator.util.LoginPass;
 import br.edu.unuesc.edi.tccalculator.util.LoginSHA;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+import java.awt.Toolkit;
 
 public class Login extends JFrame {
 
@@ -54,6 +58,8 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources\\logoimg.jpg"));
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setPreferredSize(new Dimension(500, 300));
 		setMinimumSize(new Dimension(500, 300));
@@ -81,14 +87,13 @@ public class Login extends JFrame {
 				try {
 					JLabel lblSenhaIncorreta = new JLabel("");
 					lblSenhaIncorreta.setForeground(Color.RED);
-					lblSenhaIncorreta.setBounds(219, 207, 133, 25);
+					lblSenhaIncorreta.setBounds(299, 197, 133, 25);
 					panel.add(lblSenhaIncorreta);
-					if (textFieldSenha.getText().equals("") || textFieldUser.equals("")) {
+					if (textFieldSenha.getText().equals("") || textFieldUser.getText().equals("")) {
 						lblSenhaIncorreta.setText("Campos Vazios!!");
-						
 					} else {
-						String senha = LoginSHA.Login(textFieldSenha.getText());
-						boolean pass = LoginPass.login(textFieldUser.getText(), senha);
+						String senha = LoginSHA.login(textFieldSenha.getText());
+						boolean pass = LoginPass.login(textFieldUser.getText().toLowerCase(), senha);
 						if (pass){
 							Home.init();
 							dispose();
@@ -104,7 +109,7 @@ public class Login extends JFrame {
 			}
 		});
 		btnEntrar.setIcon(new ImageIcon("resources\\login.jpg"));
-		btnEntrar.setBounds(313, 207, 94, 30);
+		btnEntrar.setBounds(332, 221, 94, 30);
 		panel.add(btnEntrar);
 
 		textFieldSenha = new JTextField();
@@ -136,6 +141,18 @@ public class Login extends JFrame {
 		panel.add(label_1);
 
 		getRootPane().setDefaultButton(btnEntrar);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadastrarUser.init();
+			}
+		});
+		btnCadastrar.setIcon(null);
+		btnCadastrar.setMnemonic(KeyEvent.VK_ENTER);
+		btnCadastrar.setBounds(229, 221, 94, 30);
+		panel.add(btnCadastrar);
+		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{textFieldUser, textFieldSenha, btnEntrar}));
 		
 	}
 }
