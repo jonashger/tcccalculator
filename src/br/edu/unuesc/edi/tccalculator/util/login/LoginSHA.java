@@ -1,4 +1,4 @@
-package br.edu.unuesc.edi.tccalculator.util;
+package br.edu.unuesc.edi.tccalculator.util.login;
 
 
 	import java.io.UnsupportedEncodingException;

@@ -7,22 +7,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.edu.unuesc.edi.tccalculator.util.CadastrarUser;
-import br.edu.unuesc.edi.tccalculator.util.LoginPass;
-import br.edu.unuesc.edi.tccalculator.util.LoginSHA;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
+
+import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
+import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
+import br.edu.unuesc.edi.tccalculator.util.login.LoginTrue;
+
 import java.awt.Component;
 import java.awt.Toolkit;
 
@@ -35,7 +39,7 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 
-	private JTextField textFieldSenha;
+	private JPasswordField textFieldSenha;
 	private JTextField textFieldUser;
 
 	/**
@@ -88,20 +92,26 @@ public class Login extends JFrame {
 					JLabel lblSenhaIncorreta = new JLabel("");
 					lblSenhaIncorreta.setForeground(Color.RED);
 					lblSenhaIncorreta.setBounds(299, 197, 133, 25);
-					panel.add(lblSenhaIncorreta);
-					if (textFieldSenha.getText().equals("") || textFieldUser.getText().equals("")) {
+					if (new String(textFieldSenha.getPassword()).trim().equals("") || textFieldUser.getText().equals("")) {
+					
 						lblSenhaIncorreta.setText("Campos Vazios!!");
+					
 					} else {
-						String senha = LoginSHA.login(textFieldSenha.getText());
+						String senha = LoginSHA.login(new String(textFieldSenha.getPassword()).trim());
 						boolean pass = LoginPass.login(textFieldUser.getText().toLowerCase(), senha);
 						if (pass){
 							Home.init();
 							dispose();
 						}else{
+							
 							lblSenhaIncorreta.setText("Senha Incorreta!!");
+					
 						}
 					}
 				} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -109,10 +119,10 @@ public class Login extends JFrame {
 			}
 		});
 		btnEntrar.setIcon(new ImageIcon("resources\\login.jpg"));
-		btnEntrar.setBounds(332, 221, 94, 30);
+		btnEntrar.setBounds(332, 215, 109, 36);
 		panel.add(btnEntrar);
 
-		textFieldSenha = new JTextField();
+		textFieldSenha = new JPasswordField();
 		textFieldSenha.setBounds(293, 176, 133, 20);
 		panel.add(textFieldSenha);
 		textFieldSenha.setColumns(10);
@@ -123,7 +133,7 @@ public class Login extends JFrame {
 		panel.add(textFieldUser);
 
 		JLabel lblUsurio = new JLabel("Usu\u00E1rio:");
-		lblUsurio.setBounds(237, 148, 46, 14);
+		lblUsurio.setBounds(237, 148, 59, 14);
 		panel.add(lblUsurio);
 
 		JLabel lblSenha = new JLabel("Senha:");
@@ -150,7 +160,7 @@ public class Login extends JFrame {
 		});
 		btnCadastrar.setIcon(null);
 		btnCadastrar.setMnemonic(KeyEvent.VK_ENTER);
-		btnCadastrar.setBounds(229, 221, 94, 30);
+		btnCadastrar.setBounds(214, 215, 109, 36);
 		panel.add(btnCadastrar);
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{textFieldUser, textFieldSenha, btnEntrar}));
 		

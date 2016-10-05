@@ -1,4 +1,4 @@
-package br.edu.unuesc.edi.tccalculator.util;
+package br.edu.unuesc.edi.tccalculator.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -8,18 +8,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import br.edu.unuesc.edi.tccalculator.ui.Home;
+import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
+import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
+import br.edu.unuesc.edi.tccalculator.util.login.LoginTrue;
+import br.edu.unuesc.edi.tccalculator.util.login.UsrExiste;
 
 public class CadastrarUser extends JDialog {
 
@@ -32,9 +37,9 @@ public class CadastrarUser extends JDialog {
 	 */
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textFieldUser;
-	private JTextField textFieldSenha;
+	private  JPasswordField  textFieldSenha;
 	private JTextField textFieldUserEspecial;
-	private JTextField textFieldSenhaEspecial;
+	private  JPasswordField  textFieldSenhaEspecial;
 	private JButton okButton;
 	private JButton cancelButton;
 
@@ -66,7 +71,7 @@ public class CadastrarUser extends JDialog {
 		contentPanel.setLayout(null);
 		
 		JLabel lblCadastrarNovoUsu = new JLabel("<html>Lembre-se que necessitar\u00E1 de usu\u00E1rio especial para poder cadastrar novo usu\u00E1rio!");
-		lblCadastrarNovoUsu.setBounds(10, 11, 414, 14);
+		lblCadastrarNovoUsu.setBounds(10, 11, 414, 27);
 		contentPanel.add(lblCadastrarNovoUsu);
 		{
 			JLabel lblUsurio = new JLabel("Usu\u00E1rio");
@@ -85,7 +90,7 @@ public class CadastrarUser extends JDialog {
 			textFieldUser.setColumns(10);
 		}
 		{
-			textFieldSenha = new JTextField();
+			textFieldSenha = new  JPasswordField ();
 			textFieldSenha.setBounds(195, 184, 86, 20);
 			contentPanel.add(textFieldSenha);
 			textFieldSenha.setColumns(10);
@@ -107,7 +112,7 @@ public class CadastrarUser extends JDialog {
 			contentPanel.add(textFieldUserEspecial);
 		}
 		{
-			textFieldSenhaEspecial = new JTextField();
+			textFieldSenhaEspecial = new  JPasswordField ();
 			textFieldSenhaEspecial.setColumns(10);
 			textFieldSenhaEspecial.setBounds(195, 92, 86, 20);
 			contentPanel.add(textFieldSenhaEspecial);
@@ -130,16 +135,46 @@ public class CadastrarUser extends JDialog {
 				okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(!((textFieldSenha.getText().equals(""))|| (textFieldSenhaEspecial.getText().equals(""))|| (textFieldUser.getText().equals(""))||(textFieldUserEspecial.getText().equals("")))){
+						if(!(((new String(textFieldSenha.getPassword()).trim()).equals(""))|| ((new String(textFieldSenhaEspecial.getPassword()).trim()).equals(""))|| (textFieldUser.getText().equals(""))||(textFieldUserEspecial.getText().equals("")))){
 							String senha = null;
 							try {
-								senha = LoginSHA.login(textFieldSenhaEspecial.getText());
+								senha = LoginSHA.login((new String(textFieldSenhaEspecial.getPassword()).trim()));
 							} catch (NoSuchAlgorithmException | UnsupportedEncodingException e1) {
 								JOptionPane.showMessageDialog(null, "Algo aconteceu de errado.");
 							}
-							boolean pass = LoginPass.login(textFieldUserEspecial.getText().toLowerCase(), senha);
+							boolean pass = false;
+							try {
+								pass = LoginPass.login(textFieldUserEspecial.getText().toLowerCase(), senha);
+							} catch (SQLException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							
 							if (pass){
-								//TODO
+								boolean usrExistente = false;
+								try {
+									usrExistente = UsrExiste.login(textFieldUser.getText().toLowerCase(), "Ex");
+								} catch (SQLException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								if(!usrExistente){
+									try {
+										LoginTrue.init(textFieldUser.getText().toLowerCase(), LoginSHA.login((new String(textFieldSenha.getPassword()).trim())));
+										textFieldSenha.setText("");
+										textFieldSenhaEspecial.setText("");
+										textFieldUser.setText("");
+										textFieldUserEspecial.setText("");
+									} catch (NoSuchAlgorithmException | UnsupportedEncodingException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+								}else{
+									JOptionPane.showMessageDialog(contentPanel, "Esse usuário já existe!");
+								}
+								
+								
+								
 							}else{
 								JOptionPane.showMessageDialog(null,"Usuário Especial Inválido");
 							}
