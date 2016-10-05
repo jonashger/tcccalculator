@@ -6,7 +6,7 @@ import com.j256.ormlite.table.DatabaseTable;
 /**
  * Classe que reprenta um aviario
  * 
- * @author Edueferson
+ * @author 
  * @since 31/08/2016
  *
  */

@@ -11,6 +11,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
@@ -61,6 +62,23 @@ public class Home extends JFrame {
 		});
 		mnArquivo.add(mntmSair);
 		
+		JMenu mnCadastrar = new JMenu("Cadastrar");
+		menuBar.add(mnCadastrar);
+		
+		JMenuItem mnCadastrarAluno = new JMenuItem("Cadastrar aluno");
+		mnCadastrarAluno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					CadastrarAluno cadastro = new CadastrarAluno();
+					add(cadastro);
+				} catch (PropertyVetoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		mnCadastrar.add(mnCadastrarAluno);
+		
 		JMenu mnSobre = new JMenu("Sobre");
 		menuBar.add(mnSobre);
 		
@@ -79,13 +97,7 @@ public class Home extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.WEST);
-		
-		JButton btnNewButton = new JButton("New button");
-		panel.add(btnNewButton);
-		
-		
 	}
+
 
 }

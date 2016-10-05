@@ -151,17 +151,6 @@ public class Login extends JFrame {
 		panel.add(label_1);
 
 		getRootPane().setDefaultButton(btnEntrar);
-		
-		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CadastrarUser.init();
-			}
-		});
-		btnCadastrar.setIcon(null);
-		btnCadastrar.setMnemonic(KeyEvent.VK_ENTER);
-		btnCadastrar.setBounds(214, 215, 109, 36);
-		panel.add(btnCadastrar);
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{textFieldUser, textFieldSenha, btnEntrar}));
 		
 	}
