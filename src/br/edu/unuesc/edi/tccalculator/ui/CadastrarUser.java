@@ -153,7 +153,7 @@ public class CadastrarUser extends JDialog {
 							if (pass){
 								boolean usrExistente = false;
 								try {
-									usrExistente = UsrExiste.login(textFieldUser.getText().toLowerCase(), "Ex");
+									usrExistente = UsrExiste.login(textFieldUser.getText().toLowerCase());
 								} catch (SQLException e1) {
 									// TODO Auto-generated catch block
 									e1.printStackTrace();

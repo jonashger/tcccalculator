@@ -9,7 +9,7 @@ import br.edu.unuesc.edi.tccalculator.db.Usuario;
 
 public class UsrExisteAluno {
 
-	public static boolean login(String usuario,String senha) throws SQLException {
+	public static boolean login(String usuario) throws SQLException {
 
 		List<Aluno> a = DAOManager.alunoDAO.queryForAll();
 		

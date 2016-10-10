@@ -78,7 +78,12 @@ public class Login extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
-
+		
+		JLabel lblSenhaIncorreta = new JLabel("");
+		lblSenhaIncorreta.setForeground(Color.RED);
+		lblSenhaIncorreta.setBounds(299, 193, 133, 25);
+		panel.add(lblSenhaIncorreta);
+		
 		JButton btnEntrar = new JButton("");
 		btnEntrar.addKeyListener(new KeyAdapter() {
 			@Override
@@ -89,11 +94,9 @@ public class Login extends JFrame {
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					JLabel lblSenhaIncorreta = new JLabel("");
-					lblSenhaIncorreta.setForeground(Color.RED);
-					lblSenhaIncorreta.setBounds(299, 197, 133, 25);
+					lblSenhaIncorreta.setText("");
 					if (new String(textFieldSenha.getPassword()).trim().equals("") || textFieldUser.getText().equals("")) {
-					
+						
 						lblSenhaIncorreta.setText("Campos Vazios!!");
 					
 					} else {
@@ -103,8 +106,9 @@ public class Login extends JFrame {
 							Home.init();
 							dispose();
 						}else{
-							
 							lblSenhaIncorreta.setText("Senha Incorreta!!");
+
+
 					
 						}
 					}

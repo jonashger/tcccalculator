@@ -6,7 +6,7 @@ import br.edu.unuesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.db.Usuario;
 
 public class UsrExiste {
-	public static boolean login(String usr,String senha) throws SQLException {
+	public static boolean login(String usr) throws SQLException {
 
 		java.util.List<Usuario> a = DAOManager.usuarioDAO.queryForAll();
 		

@@ -6,14 +6,21 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "usuarioAluno")
 
 public class Aluno {
-	
+	@DatabaseField(generatedId = true)
+	private Integer nUsuario;
 	@DatabaseField
 	private String aluno;
 	@DatabaseField
 	private String senha;
-	@DatabaseField(generatedId = true)
-	private Integer nUsuario;
+	@DatabaseField
+	private String assunto;
 	
+	public String getAssunto() {
+		return assunto;
+	}
+	public void setAssunto(String assunto) {
+		this.assunto = assunto;
+	}
 	public String getAluno() {
 		return aluno;
 	}
@@ -32,5 +39,6 @@ public class Aluno {
 	public void setnUsuario(Integer nUsuario) {
 		this.nUsuario = nUsuario;
 	}
+	
 	
 }

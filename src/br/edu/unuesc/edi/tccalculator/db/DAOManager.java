@@ -17,7 +17,6 @@ public class DAOManager {
 			TableUtils.createTableIfNotExists(Conexao.getConexao(), Aluno.class);
 			
 			usuarioDAO = DaoManager.createDao(Conexao.getConexao(), Usuario.class);
-			
 			alunoDAO = DaoManager.createDao(Conexao.getConexao(), Aluno.class);
 			
 		} catch (SQLException e) {
