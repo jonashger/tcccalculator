@@ -14,6 +14,8 @@ public class Aluno {
 	private String senha;
 	@DatabaseField
 	private String assunto;
+	@DatabaseField
+	private String tcc;
 	
 	public String getAssunto() {
 		return assunto;
@@ -38,6 +40,12 @@ public class Aluno {
 	}
 	public void setnUsuario(Integer nUsuario) {
 		this.nUsuario = nUsuario;
+	}
+	public String getTcc() {
+		return tcc;
+	}
+	public void setTcc(String tcc) {
+		this.tcc = tcc;
 	}
 	
 	
