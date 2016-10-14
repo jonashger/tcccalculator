@@ -11,7 +11,9 @@ public class Aluno {
 	@DatabaseField
 	private String aluno;
 	@DatabaseField
-	private String senha;
+	private String nota;
+	@DatabaseField
+	private String curso;
 	@DatabaseField
 	private String assunto;
 	@DatabaseField
@@ -29,12 +31,6 @@ public class Aluno {
 	public void setAluno(String aluno) {
 		this.aluno = aluno;
 	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 	public Integer getnUsuario() {
 		return nUsuario;
 	}
@@ -46,6 +42,18 @@ public class Aluno {
 	}
 	public void setTcc(String tcc) {
 		this.tcc = tcc;
+	}
+	public String getNota() {
+		return nota;
+	}
+	public void setNota(String nota) {
+		this.nota = nota;
+	}
+	public String getCurso() {
+		return curso;
+	}
+	public void setCurso(String curso) {
+		this.curso = curso;
 	}
 	
 	

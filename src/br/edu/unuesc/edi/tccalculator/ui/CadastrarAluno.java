@@ -10,10 +10,13 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -21,6 +24,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import br.edu.unuesc.edi.tccalculator.db.Curso;
+import br.edu.unuesc.edi.tccalculator.db.DAOManager;
+import br.edu.unuesc.edi.tccalculator.db.Usuario;
 import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
 import br.edu.unuesc.edi.tccalculator.util.login.LoginTrueAluno;
 import javax.swing.border.BevelBorder;
@@ -42,7 +48,6 @@ public class CadastrarAluno extends JInternalFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtUsuario;
-	private JTextField txtSenha;
 	private final JPanel contentPane = new JPanel();
 	private JEditorPane textAssunto; 
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -68,8 +73,9 @@ public class CadastrarAluno extends JInternalFrame {
 	 * Create the frame.
 	 * 
 	 * @throws PropertyVetoException
+	 * @throws SQLException 
 	 */
-	public CadastrarAluno()  throws PropertyVetoException {
+	public CadastrarAluno()  throws PropertyVetoException, SQLException {
 		setSelected(true);
 		setFrameIcon(new ImageIcon("resources\\cadastroaluno].png"));
 		setClosable(true);
@@ -89,22 +95,26 @@ public class CadastrarAluno extends JInternalFrame {
 		lblCadastro.setBounds(28, 26, 82, 36);
 		panel.add(lblCadastro);
 
-		JLabel lblNewLabel = new JLabel("Senha:");
+		JLabel lblNewLabel = new JLabel("Curso");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(28, 73, 74, 36);
 		panel.add(lblNewLabel);
 
+		JComboBox<String> curso = new JComboBox<>();
+		List<Curso> a = DAOManager.cursoDAO.queryForAll();
+		for (int i = 0; i < a.size(); i++) {
+			curso.addItem(a.get(i).getCurso());
+		}
+		curso.setBounds(120, 83, 166, 20);
+		panel.add(curso);
+		
+		
 		txtUsuario = new JTextField();
 		txtUsuario.setBorder(new LineBorder(new Color(171, 173, 179)));
 		txtUsuario.setBounds(120, 36, 166, 20);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
 
-		txtSenha = new JTextField();
-		txtSenha.setBorder(new LineBorder(new Color(171, 173, 179)));
-		txtSenha.setBounds(120, 83, 166, 20);
-		panel.add(txtSenha);
-		txtSenha.setColumns(10);
 		JButton btnCadastrar = new JButton("Cadastrar");
 		
 		btnCadastrar.setBounds(263, 236, 151, 23);
@@ -152,22 +162,15 @@ public class CadastrarAluno extends JInternalFrame {
 				else
 					return;
 				
-				if (txtUsuario.getText().equals("") || txtSenha.getText().equals("")|| textAssunto.getText().equals("")) {
+				if (txtUsuario.getText().equals("") || curso.getSelectedItem().toString().equals("")|| textAssunto.getText().equals("")) {
 					JLabel lblSenhaIncorreta = new JLabel("");
 					lblSenhaIncorreta.setForeground(Color.RED);
 					lblSenhaIncorreta.setBounds(299, 197, 133, 25);
-					lblSenhaIncorreta.setText("Senha Incorreta !!");
+					lblSenhaIncorreta.setText("Espaços em Brancos!!");
 				} else {
-					String senha = null;
-					try {
-						senha = LoginSHA.login(new String(txtSenha.getText()));
-					} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-						LoginTrueAluno.init(txtUsuario.getText().toLowerCase(), senha, textAssunto.getText());
+						LoginTrueAluno.init(txtUsuario.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc);
 						txtUsuario.setText("");
-						txtSenha.setText("");
+						curso.setSelectedIndex(1);
 						textAssunto.setText("");
 
 				}

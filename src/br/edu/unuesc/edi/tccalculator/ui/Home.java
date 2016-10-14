@@ -1,6 +1,7 @@
 package br.edu.unuesc.edi.tccalculator.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -8,9 +9,10 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
+import java.sql.SQLException;
 
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -22,7 +24,7 @@ public class Home extends JFrame {
 	private static final long serialVersionUID = 4613687046894259317L;
 
 	private JPanel contentPane;
-	JPanel cadastroAluno = null;
+	JDesktopPane cadastroAluno = null;
 
 	/**
 	 * Launch the application.
@@ -79,12 +81,12 @@ public class Home extends JFrame {
 					CadastrarAluno cadastro = new CadastrarAluno();
 					for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
 						if (cadastroAluno.getComponent(i).equals(cadastro)) {
-							cadastro = (CadastrarAluno) cadastroAluno.getComponent(i);
+							cadastro = (CadastrarAluno) cadastroAluno.getComponent(i++);
 							cadastro.requestFocus();
 							return;
 						}
 					}
-					
+
 					cadastro.setMinimumSize(new Dimension(350, 500));
 					cadastroAluno.add(cadastro).setBounds(10, 10, 450, 300);
 					cadastro.setVisible(true);
@@ -92,15 +94,65 @@ public class Home extends JFrame {
 				} catch (PropertyVetoException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		});
 		mnCadastrar.add(mnCadastrarAluno);
+		
+		JMenuItem mntmCurso = new JMenuItem("Curso");
+		mntmCurso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NewCurso curso = new NewCurso();
+
+				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
+					if (cadastroAluno.getComponent(i).equals(curso)) {
+						curso = (NewCurso) cadastroAluno.getComponent(i);
+						curso.requestFocus();
+						return;
+
+					}
+				}
+
+				curso.setMinimumSize(new Dimension(450, 300));
+				cadastroAluno.add(curso).setBounds(10, 10, 450, 300);
+				curso.setVisible(true);
+				curso.requestFocusInWindow();
+			}
+		});
+		mnCadastrar.add(mntmCurso);
 
 		JMenu mnGravarNotas = new JMenu("Gravar Notas");
 		menuBar.add(mnGravarNotas);
 
 		JMenuItem mntmTccI = new JMenuItem("TCC I");
+		mntmTccI.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PegarAlunoTCC1 tcci = null;
+				try {
+					tcci = new PegarAlunoTCC1(cadastroAluno);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
+					if (cadastroAluno.getComponent(i).equals(tcci)) {
+						tcci = (PegarAlunoTCC1) cadastroAluno.getComponent(i);
+						tcci.requestFocus();
+						tcci.requestFocusInWindow();
+						return;
+
+					}
+				}
+
+				tcci.setMinimumSize(new Dimension(350, 500));
+				cadastroAluno.add(tcci).setBounds(10, 10, 309, 113);
+				tcci.setVisible(true);
+			}
+		});
 		mnGravarNotas.add(mntmTccI);
 
 		JMenuItem mntmTccIi = new JMenuItem("TCC II");
@@ -133,12 +185,13 @@ public class Home extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		cadastroAluno = new JPanel();
-		cadastroAluno.setMaximumSize(new Dimension(450, 300));
-		cadastroAluno.setBounds(10, 10, 450, 300);
+		cadastroAluno = new JDesktopPane();
+		cadastroAluno.setMaximumSize(new Dimension(1000, 700));
+		cadastroAluno.setBounds(10, 10, 1000, 700);
 		cadastroAluno.setMinimumSize(new Dimension(400, 280));
 		cadastroAluno.setLayout(null);
+		cadastroAluno.setBackground(new Color(255, 255, 255));
 		getContentPane().add(cadastroAluno, BorderLayout.CENTER);
-	}
 
+	}
 }

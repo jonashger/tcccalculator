@@ -62,7 +62,7 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("resources\\logoimg.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/logoimg.jpg"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setPreferredSize(new Dimension(500, 300));
@@ -122,7 +122,7 @@ public class Login extends JFrame {
 
 			}
 		});
-		btnEntrar.setIcon(new ImageIcon("resources\\login.jpg"));
+		btnEntrar.setIcon(new ImageIcon("resources/login.jpg"));
 		btnEntrar.setBounds(332, 215, 109, 36);
 		panel.add(btnEntrar);
 
@@ -145,12 +145,12 @@ public class Login extends JFrame {
 		panel.add(lblSenha);
 
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("resources\\login_logo.png"));
+		label.setIcon(new ImageIcon("resources/login_logo.png"));
 		label.setBounds(195, 29, 279, 100);
 		panel.add(label);
 
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon("resources\\boneco-not.jpg"));
+		label_1.setIcon(new ImageIcon("resources/boneco-not.jpg"));
 		label_1.setBounds(0, 0, 204, 251);
 		panel.add(label_1);
 
