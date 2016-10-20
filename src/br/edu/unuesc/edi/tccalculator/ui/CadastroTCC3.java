@@ -1,5 +1,9 @@
 package br.edu.unuesc.edi.tccalculator.ui;
 
+/**
+ * @author mathe
+ */
+import java.awt.EventQueue;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -26,12 +30,12 @@ import br.edu.unuesc.edi.tccalculator.db.Aluno;
 import br.edu.unuesc.edi.tccalculator.util.IeValidator;
 import br.edu.unuesc.edi.tccalculator.util.ToDouble;
 import br.edu.unuesc.edi.tccalculator.util.ValidaNumero;
-/**
- * 
- * @author mathe
- *
- */
-public class CadastroTCC1 extends JInternalFrame {
+
+import javax.swing.JInternalFrame;
+
+public class CadastroTCC3 extends JInternalFrame {
+
+
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
 	private final JPanel contentPane = new JPanel();
@@ -77,6 +81,9 @@ public class CadastroTCC1 extends JInternalFrame {
 	private JLabel lblAluno;
 	private JLabel lblNomeAluno;
 	private JPanel panel_5;
+	private JTextField txtAv1Ep5AP;
+	private JTextField txtAv3Ep5AP;
+	private JTextField txtMedA5AP;
 	/**
 	 * Launch the application.
 	 */
@@ -86,7 +93,7 @@ public class CadastroTCC1 extends JInternalFrame {
 	 * 
 	 * @throws PropertyVetoException
 	 */
-	public CadastroTCC1(String usr) throws PropertyVetoException {
+	public CadastroTCC3(String usr) throws PropertyVetoException {
 		setFrameIcon(
 				new ImageIcon(CadastroTCC1.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
 		setTitle(" C\u00E1lculo das Avalia\u00E7\u00F5es TCC1");
@@ -98,14 +105,14 @@ public class CadastroTCC1 extends JInternalFrame {
 		getContentPane().add(contentPane, BorderLayout.CENTER);
 
 		panel = new JPanel();
-		panel.setBounds(26, 10, 684, 133);
+		panel.setBounds(26, 10, 684, 169);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JLabel lblAP = new JLabel("Avalia\u00E7\u00E3o do Projeto - AP");
-		lblAP.setBounds(2, 0, 226, 21);
-		panel.add(lblAP);
-		lblAP.setFont(new Font("Tahoma", Font.BOLD, 16));
+		JLabel lblmonografia = new JLabel("Avalia\u00E7\u00E3o da Monografia");
+		lblmonografia.setBounds(2, 0, 226, 21);
+		panel.add(lblmonografia);
+		lblmonografia.setFont(new Font("Tahoma", Font.BOLD, 16));
 
 		JLabel lblNotasAP = new JLabel("Notas");
 		lblNotasAP.setBounds(481, 2, 72, 14);
@@ -137,7 +144,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		panel.add(lblMediaAP);
 		lblMediaAP.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		JLabel lblAvalizao = new JLabel("2) Fundamenta\u00E7\u00E3o Te\u00F3rica.");
+		JLabel lblAvalizao = new JLabel("2) Grau de ader\u00EAncia entre os desafios anunciados e os resultados alcan\u00E7ados (adequa\u00E7\u00E3o das conclus\u00F5es)");
 		lblAvalizao.setBounds(0, 73, 332, 21);
 		panel.add(lblAvalizao);
 
@@ -223,20 +230,41 @@ public class CadastroTCC1 extends JInternalFrame {
 		panel.add(txtMedA4AP);
 		txtMedA4AP.setEditable(false);
 
-		JLabel label = new JLabel("1) Formula\u00E7\u00E3o clara da introdu\u00E7\u00E3o, objetivos e justificativa.");
-		label.setBounds(0, 56, 332, 21);
-		panel.add(label);
+		JLabel lblQualidadeDo = new JLabel("1) Qualidade do trabalho, relev\u00E2ncia, coer\u00EAncia e aspectos metodol\u00F3gicos");
+		lblQualidadeDo.setBounds(0, 56, 332, 21);
+		panel.add(lblQualidadeDo);
 
-		JLabel lblMateriaisE = new JLabel("3) Materiais e M\u00E9todos.");
+		JLabel lblMateriaisE = new JLabel("3) Adequa\u00E7\u00E3o da estrutura de cap\u00EDtulos (estrutura\u00E7\u00E3o l\u00F3gica da monografia)");
 		lblMateriaisE.setBounds(0, 93, 332, 21);
 		panel.add(lblMateriaisE);
 
-		JLabel lblFormataoE = new JLabel("4) Formata\u00E7\u00E3o e organiza\u00E7\u00E3o do texto.");
+		JLabel lblFormataoE = new JLabel("4) Adequa\u00E7\u00E3o do tema, abrang\u00EAncia e atualidade da bibliografia utilizada\r\n");
 		lblFormataoE.setBounds(0, 112, 332, 21);
 		panel.add(lblFormataoE);
+		
+		JLabel lblArticulacaotexto = new JLabel("5) Articula\u00E7\u00E3o do texto apresentado e a sua rela\u00E7\u00E3o com a pr\u00E1tica\r\n");
+		lblArticulacaotexto.setBounds(2, 129, 330, 25);
+		panel.add(lblArticulacaotexto);
+		
+		txtAv1Ep5AP = new JTextField();
+		txtAv1Ep5AP.setBounds(323, 131, 86, 20);
+		panel.add(txtAv1Ep5AP);
+		
+		JTextField txtAv2Ep5AP = new JTextField();
+		txtAv2Ep5AP.setBounds(416, 131, 86, 20);
+		panel.add(txtAv2Ep5AP);
+		
+		txtAv3Ep5AP = new JTextField();
+		txtAv3Ep5AP.setBounds(507, 131, 86, 20);
+		panel.add(txtAv3Ep5AP);
+		
+		txtMedA5AP = new JTextField();
+		txtMedA5AP.setEditable(false);
+		txtMedA5AP.setBounds(598, 131, 86, 20);
+		panel.add(txtMedA5AP);
 
 		panel_1 = new JPanel();
-		panel_1.setBounds(25, 167, 680, 107);
+		panel_1.setBounds(25, 190, 680, 112);
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 
@@ -275,18 +303,18 @@ public class CadastroTCC1 extends JInternalFrame {
 		panel_1.add(lblMediaAA);
 		lblMediaAA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		JLabel label_1 = new JLabel(
-				"1) Formula\u00E7\u00E3o clara da introdu\u00E7\u00E3o, objetivos e justificativa.");
-		label_1.setBounds(3, 49, 332, 21);
-		panel_1.add(label_1);
+		JLabel lblUtilizaoDo = new JLabel(
+				"1) Utiliza\u00E7\u00E3o do tempo dispon\u00EDvel");
+		lblUtilizaoDo.setBounds(3, 49, 332, 21);
+		panel_1.add(lblUtilizaoDo);
 
-		JLabel label_2 = new JLabel("2) Fundamenta\u00E7\u00E3o Te\u00F3rica.");
-		label_2.setBounds(3, 67, 333, 21);
-		panel_1.add(label_2);
+		JLabel lblDominioDo = new JLabel("2) Dominio do conte\u00FAdo\r\n");
+		lblDominioDo.setBounds(3, 67, 333, 21);
+		panel_1.add(lblDominioDo);
 
-		JLabel label_3 = new JLabel("3) Materiais e M\u00E9todos.");
-		label_3.setBounds(3, 86, 332, 21);
-		panel_1.add(label_3);
+		JLabel lblLinguagemclareza = new JLabel("3) Linguagem (clareza, flu\u00EAncia do assunto)");
+		lblLinguagemclareza.setBounds(3, 86, 332, 21);
+		panel_1.add(lblLinguagemclareza);
 
 		txtAv01E1AA = new JTextField();
 		((AbstractDocument) txtAv01E1AA.getDocument()).setDocumentFilter(new IeValidator(3));
