@@ -12,4 +12,6 @@ Alunos: Jonas Halmenschlager e Matheus Endler Haas.
 
 Professor: Roberson Junior Fernandes Alves.
 
-Trabalho: TCCalculator, 
+Trabalho: TCCalculator, Sistema para controle de notas de trabalho de conclusão de curso(tcc).
+
+Bibliotecas:
