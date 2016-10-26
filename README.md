@@ -11,3 +11,5 @@ Matéria de Estrutura de Dados I(EDI) e Laboratório de Prática de Estrutura de
 Alunos: Jonas Halmenschlager e Matheus Endler Haas.
 
 Professor: Roberson Junior Fernandes Alves.
+
+Trabalho: TCCalculator, 
