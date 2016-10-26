@@ -25,7 +25,7 @@ import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
 import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
-import br.edu.unuesc.edi.tccalculator.util.login.LoginTrue;
+import br.edu.unuesc.edi.tccalculator.util.login.CadastroUserEspecial;
 
 import java.awt.Component;
 import java.awt.Toolkit;

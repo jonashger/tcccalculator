@@ -23,7 +23,7 @@ import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
 import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
-import br.edu.unuesc.edi.tccalculator.util.login.LoginTrue;
+import br.edu.unuesc.edi.tccalculator.util.login.CadastroUserEspecial;
 import br.edu.unuesc.edi.tccalculator.util.login.UsrExiste;
 
 public class CadastrarUser extends JDialog {
@@ -160,7 +160,7 @@ public class CadastrarUser extends JDialog {
 								}
 								if(!usrExistente){
 									try {
-										LoginTrue.init(textFieldUser.getText().toLowerCase(), LoginSHA.login((new String(textFieldSenha.getPassword()).trim())));
+										CadastroUserEspecial.init(textFieldUser.getText().toLowerCase(), LoginSHA.login((new String(textFieldSenha.getPassword()).trim())));
 										textFieldSenha.setText("");
 										textFieldSenhaEspecial.setText("");
 										textFieldUser.setText("");

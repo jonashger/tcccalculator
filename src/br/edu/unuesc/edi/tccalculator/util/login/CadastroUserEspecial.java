@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.db.Usuario;
 
-public class LoginTrue {
+public class CadastroUserEspecial {
 	public static String init(String usr,String senha) {
 		Usuario a = new Usuario();
 		a.setUserName(usr);

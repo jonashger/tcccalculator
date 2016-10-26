@@ -28,7 +28,7 @@ import br.edu.unuesc.edi.tccalculator.db.Curso;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.db.Usuario;
 import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
-import br.edu.unuesc.edi.tccalculator.util.login.LoginTrueAluno;
+import br.edu.unuesc.edi.tccalculator.util.login.CadastroAluno;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.ButtonUI;
@@ -168,7 +168,7 @@ public class CadastrarAluno extends JInternalFrame {
 					lblSenhaIncorreta.setBounds(299, 197, 133, 25);
 					lblSenhaIncorreta.setText("Espaços em Brancos!!");
 				} else {
-						LoginTrueAluno.init(txtUsuario.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc);
+						CadastroAluno.init(txtUsuario.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc);
 						txtUsuario.setText("");
 						curso.setSelectedIndex(1);
 						textAssunto.setText("");
