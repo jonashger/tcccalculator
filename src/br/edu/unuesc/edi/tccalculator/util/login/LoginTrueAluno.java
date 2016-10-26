@@ -13,8 +13,10 @@ public class LoginTrueAluno {
 		a.setCurso(curso);
 		a.setAssunto(tese);
 		a.setTcc(tcc);
+	
 		try {
 			DAOManager.alunoDAO.create(a);
+	
 		} catch (SQLException e) {;
 			e.printStackTrace();
 		}

@@ -130,9 +130,9 @@ public class Home extends JFrame {
 		JMenuItem mntmTccI = new JMenuItem("TCC I");
 		mntmTccI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PegarAlunoTCC1 tcci = null;
+				PegarAluno tcci = null;
 				try {
-					tcci = new PegarAlunoTCC1(cadastroAluno);
+					tcci = new PegarAluno(cadastroAluno,"tcc1");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -140,7 +140,7 @@ public class Home extends JFrame {
 
 				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
 					if (cadastroAluno.getComponent(i).equals(tcci)) {
-						tcci = (PegarAlunoTCC1) cadastroAluno.getComponent(i);
+						tcci = (PegarAluno) cadastroAluno.getComponent(i);
 						tcci.requestFocus();
 						tcci.requestFocusInWindow();
 						return;
@@ -156,9 +156,59 @@ public class Home extends JFrame {
 		mnGravarNotas.add(mntmTccI);
 
 		JMenuItem mntmTccIi = new JMenuItem("TCC II");
+		mntmTccIi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PegarAluno tcci = null;
+				try {
+					tcci = new PegarAluno(cadastroAluno,"tcc2");
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
+					if (cadastroAluno.getComponent(i).equals(tcci)) {
+						tcci = (PegarAluno) cadastroAluno.getComponent(i);
+						tcci.requestFocus();
+						tcci.requestFocusInWindow();
+						return;
+
+					}
+				}
+
+				tcci.setMinimumSize(new Dimension(350, 500));
+				cadastroAluno.add(tcci).setBounds(10, 10, 309, 113);
+				tcci.setVisible(true);
+			}
+		});
 		mnGravarNotas.add(mntmTccIi);
 
 		JMenuItem mntmTccIii = new JMenuItem("TCC III");
+		mntmTccIii.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PegarAluno tcci = null;
+				try {
+					tcci = new PegarAluno(cadastroAluno,"tcc3");
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
+					if (cadastroAluno.getComponent(i).equals(tcci)) {
+						tcci = (PegarAluno) cadastroAluno.getComponent(i);
+						tcci.requestFocus();
+						tcci.requestFocusInWindow();
+						return;
+
+					}
+				}
+
+				tcci.setMinimumSize(new Dimension(350, 500));
+				cadastroAluno.add(tcci).setBounds(10, 10, 309, 113);
+				tcci.setVisible(true);
+			}
+		});
 		mnGravarNotas.add(mntmTccIii);
 
 		JMenu mnRelatrio = new JMenu("Relat\u00F3rio");
@@ -192,6 +242,8 @@ public class Home extends JFrame {
 		cadastroAluno.setLayout(null);
 		cadastroAluno.setBackground(new Color(255, 255, 255));
 		getContentPane().add(cadastroAluno, BorderLayout.CENTER);
+		JPanel panel = new JPanel();
+	
 
 	}
 }

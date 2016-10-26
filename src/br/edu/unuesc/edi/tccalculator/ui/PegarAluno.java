@@ -17,7 +17,7 @@ import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class PegarAlunoTCC1 extends JInternalFrame {
+public class PegarAluno extends JInternalFrame {
 
 
 	/**
@@ -37,7 +37,7 @@ public class PegarAlunoTCC1 extends JInternalFrame {
 	 * Create the frame.
 	 * @throws SQLException 
 	 */
-	public PegarAlunoTCC1(JDesktopPane pane) throws SQLException {
+	public PegarAluno(JDesktopPane pane, String tcc) throws SQLException {
 		setFrameIcon(new ImageIcon("resources/boneco-not.jpg"));
 		setTitle("Aluno para TCC I");
 		setResizable(true);
@@ -49,7 +49,7 @@ public class PegarAlunoTCC1 extends JInternalFrame {
 		JComboBox<String> comboBox = new JComboBox<String>();
 		List<Aluno> a = DAOManager.alunoDAO.queryForAll();
 		for (int i = 0; i < a.size(); i++) {
-			if (a.get(i).getTcc().equals("tcc1")) {
+			if (a.get(i).getTcc().equals(tcc)) {
 				comboBox.addItem(a.get(i).getAluno());
 			}
 		}
@@ -60,24 +60,58 @@ public class PegarAlunoTCC1 extends JInternalFrame {
 		JButton btnGravarNotas = new JButton("Gravar Notas");
 		btnGravarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
-				CadastroTCC1 cadastro = null;
+				
+				
 				try {
-					cadastro = new CadastroTCC1(comboBox.getSelectedItem().toString());
+					if (tcc.equals("tcc1")) {
+						CadastroTCC1 cadastro = null;
+						cadastro = new CadastroTCC1(comboBox.getSelectedItem().toString());
+						for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
+							if (cadastroAluno.getComponent(i).equals(cadastro)) {
+								cadastro = (CadastroTCC1) cadastroAluno.getComponent(i++);
+								cadastro.requestFocus();
+								return;
+							}
+						}
+						dispose();
+						cadastro.setMinimumSize(new Dimension(350, 500));
+						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
+						cadastro.setVisible(true);
+					}else if(tcc.equals("tcc2")){
+						CadastroTCC2 cadastro = null;
+						cadastro = new CadastroTCC2(comboBox.getSelectedItem().toString());
+						for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
+							if (cadastroAluno.getComponent(i).equals(cadastro)) {
+								cadastro = (CadastroTCC2) cadastroAluno.getComponent(i++);
+								cadastro.requestFocus();
+								return;
+							}
+						}
+						dispose();
+						cadastro.setMinimumSize(new Dimension(350, 500));
+						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
+						cadastro.setVisible(true);
+					}else{
+
+						CadastroTCC3 cadastro = null;
+						cadastro = new CadastroTCC3(comboBox.getSelectedItem().toString());
+						for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
+							if (cadastroAluno.getComponent(i).equals(cadastro)) {
+								cadastro = (CadastroTCC3) cadastroAluno.getComponent(i++);
+								cadastro.requestFocus();
+								return;
+							}
+						}
+						dispose();
+						cadastro.setMinimumSize(new Dimension(350, 500));
+						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
+						cadastro.setVisible(true);
+					}
+					
 				} catch (PropertyVetoException e) {
 					e.printStackTrace();
 				}
-				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
-					if (cadastroAluno.getComponent(i).equals(cadastro)) {
-						cadastro = (CadastroTCC1) cadastroAluno.getComponent(i++);
-						cadastro.requestFocus();
-						return;
-					}
-				}
-				dispose();
-				cadastro.setMinimumSize(new Dimension(350, 500));
-				cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
-				cadastro.setVisible(true);
+			
 
 			}
 		});
@@ -87,6 +121,6 @@ public class PegarAlunoTCC1 extends JInternalFrame {
 	}
 	@Override
 	public boolean equals(Object cad) {
-		return (cad instanceof PegarAlunoTCC1);
+		return (cad instanceof PegarAluno);
 	}
 }
