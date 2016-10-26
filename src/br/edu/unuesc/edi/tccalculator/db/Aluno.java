@@ -11,6 +11,8 @@ public class Aluno {
 	@DatabaseField
 	private String aluno;
 	@DatabaseField
+	private String aluno2;
+	@DatabaseField
 	private String nota;
 	@DatabaseField
 	private String curso;
@@ -55,6 +57,12 @@ public class Aluno {
 	public void setCurso(String curso) {
 		this.curso = curso;
 	}
-	
+
+	public String getAluno2() {
+		return aluno2;
+	}
+	public void setAluno2(String aluno2) {
+		this.aluno2 = aluno2;
+	}
 	
 }

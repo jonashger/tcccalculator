@@ -149,7 +149,7 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				cadastroAluno.add(tcci).setBounds(10, 10, 309, 113);
+				cadastroAluno.add(tcci).setBounds(10, 10,  521, 127);
 				tcci.setVisible(true);
 			}
 		});
@@ -177,7 +177,7 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				cadastroAluno.add(tcci).setBounds(10, 10, 309, 113);
+				cadastroAluno.add(tcci).setBounds(10, 10,  521, 127);
 				tcci.setVisible(true);
 			}
 		});
@@ -205,7 +205,7 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				cadastroAluno.add(tcci).setBounds(10, 10, 309, 113);
+				cadastroAluno.add(tcci).setBounds(10, 10,  521, 127);
 				tcci.setVisible(true);
 			}
 		});

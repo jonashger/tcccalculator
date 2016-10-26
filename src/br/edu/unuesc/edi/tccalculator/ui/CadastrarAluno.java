@@ -35,6 +35,8 @@ import javax.swing.plaf.ButtonUI;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
 
 /**
  * Classe para cadatrar aluno
@@ -52,6 +54,7 @@ public class CadastrarAluno extends JInternalFrame {
 	private JEditorPane textAssunto; 
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	ArrayList<JRadioButton> arrayRadios = new ArrayList<>();
+	private JTextField textAluno2;
 	
 	/**
 	 * Launch the application.
@@ -90,12 +93,12 @@ public class CadastrarAluno extends JInternalFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JLabel lblCadastro = new JLabel("Aluno:");
+		JLabel lblCadastro = new JLabel("Aluno 1:");
 		lblCadastro.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCadastro.setBounds(28, 26, 82, 36);
+		lblCadastro.setBounds(28, 11, 82, 36);
 		panel.add(lblCadastro);
 
-		JLabel lblNewLabel = new JLabel("Curso");
+		JLabel lblNewLabel = new JLabel("Curso:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(28, 73, 74, 36);
 		panel.add(lblNewLabel);
@@ -105,13 +108,13 @@ public class CadastrarAluno extends JInternalFrame {
 		for (int i = 0; i < a.size(); i++) {
 			curso.addItem(a.get(i).getCurso());
 		}
-		curso.setBounds(120, 83, 166, 20);
+		curso.setBounds(89, 83, 166, 20);
 		panel.add(curso);
 		
 		
 		txtUsuario = new JTextField();
 		txtUsuario.setBorder(new LineBorder(new Color(171, 173, 179)));
-		txtUsuario.setBounds(120, 36, 166, 20);
+		txtUsuario.setBounds(89, 21, 166, 20);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
 
@@ -136,19 +139,45 @@ public class CadastrarAluno extends JInternalFrame {
 		JRadioButton radioTCCI = new JRadioButton("TCC I");
 		radioTCCI.setSelected(true);
 		buttonGroup.add(radioTCCI);
-		radioTCCI.setBounds(305, 35, 109, 23);
+		radioTCCI.setBounds(315, 36, 109, 23);
 		panel.add(radioTCCI);
 		
 		JRadioButton radioTCCII = new JRadioButton("TCC II");
 		buttonGroup.add(radioTCCII);
-		radioTCCII.setBounds(305, 61, 109, 23);
+		radioTCCII.setBounds(315, 62, 109, 23);
 		panel.add(radioTCCII);
 		radioTCCII.setToolTipText("TESC");
 		
 		JRadioButton radioTCCIII = new JRadioButton("TCC III");
 		buttonGroup.add(radioTCCIII);
-		radioTCCIII.setBounds(305, 86, 109, 23);
+		radioTCCIII.setBounds(315, 87, 109, 23);
 		panel.add(radioTCCIII);
+		
+		textAluno2 = new JTextField();
+		JButton btnAddAluno = new JButton("");
+		btnAddAluno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textAluno2.isDisplayable()) {
+					return;
+				}
+				JLabel label = new JLabel("Aluno 2:");
+				label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				label.setBounds(28, 40, 82, 36);
+				panel.add(label);
+				
+				textAluno2 = new JTextField();
+				textAluno2.setColumns(10);
+				textAluno2.setBorder(new LineBorder(new Color(171, 173, 179)));
+				textAluno2.setBounds(89, 52, 166, 20);
+				panel.add(textAluno2);
+				repaint();
+				revalidate();
+			}
+		});
+		btnAddAluno.setIcon(new ImageIcon("resources/more.png"));
+		btnAddAluno.setBounds(260, 11, 36, 36);
+		panel.add(btnAddAluno);
+		
 		
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -168,8 +197,9 @@ public class CadastrarAluno extends JInternalFrame {
 					lblSenhaIncorreta.setBounds(299, 197, 133, 25);
 					lblSenhaIncorreta.setText("Espaços em Brancos!!");
 				} else {
-						CadastroAluno.init(txtUsuario.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc);
+						CadastroAluno.init(txtUsuario.getText(),textAluno2.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc);
 						txtUsuario.setText("");
+						textAluno2.setText("");
 						curso.setSelectedIndex(1);
 						textAssunto.setText("");
 

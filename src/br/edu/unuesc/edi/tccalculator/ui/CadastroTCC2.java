@@ -10,7 +10,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,9 +25,8 @@ import javax.swing.text.AbstractDocument;
 
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import com.j256.ormlite.stmt.UpdateBuilder;
-
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
+import br.edu.unuesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.util.IeValidator;
 import br.edu.unuesc.edi.tccalculator.util.ToDouble;
 import br.edu.unuesc.edi.tccalculator.util.ValidaNumero;
@@ -85,8 +86,9 @@ public class CadastroTCC2 extends JInternalFrame {
 	 * Create the frame.
 	 * 
 	 * @throws PropertyVetoException
+	 * @throws SQLException 
 	 */
-	public CadastroTCC2(String usr) throws PropertyVetoException {
+	public CadastroTCC2(int usr) throws PropertyVetoException, SQLException {
 		setFrameIcon(
 				new ImageIcon(CadastroTCC1.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
 		setTitle(" C\u00E1lculo das Avalia\u00E7\u00F5es TCC2");
@@ -474,7 +476,7 @@ public class CadastroTCC2 extends JInternalFrame {
 		getContentPane().add(btnGravarNotas);
 
 		panel_5 = new JPanel();
-		panel_5.setBounds(26, 472, 328, 22);
+		panel_5.setBounds(26, 472, 416, 22);
 		getContentPane().add(panel_5);
 		panel_5.setLayout(null);
 
@@ -483,9 +485,16 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel_5.add(lblAluno);
 		lblAluno.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+
+		Aluno a = DAOManager.alunoDAO.queryForId(usr);
+		
 		lblNomeAluno = new JLabel();
-		lblNomeAluno.setText(usr);
-		lblNomeAluno.setBounds(60, 0, 240, 22);
+		if(a.getAluno2().equals(""))
+		lblNomeAluno.setText(a.getAluno());
+		else{
+		lblNomeAluno.setText(a.getAluno()+" e "+ a.getAluno2());
+		}
+		lblNomeAluno.setBounds(60, 0, 440, 22);
 		panel_5.add(lblNomeAluno);
 		lblNomeAluno.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP,
