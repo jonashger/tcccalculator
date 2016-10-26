@@ -229,6 +229,11 @@ public class Home extends JFrame {
 		mnSobre.add(mntmSobre);
 
 		JMenuItem mntmAjuda = new JMenuItem("Ajuda");
+		mntmAjuda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Ajuda.init();
+			}
+		});
 		mnSobre.add(mntmAjuda);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -15,6 +15,10 @@ import java.awt.CardLayout;
 import javax.swing.JEditorPane;
 import javax.swing.JToolBar;
 import java.awt.Button;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
 
 public class About extends JDialog {
 
@@ -37,11 +41,19 @@ public class About extends JDialog {
 	 * Create the dialog.
 	 */
 	public About() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources\\sobre.png"));
+		setTitle("Sobre TCCalculator");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("<html>TCCalculator:  <br>\r\n\r\n<br> Sistema para controle de notas de trabalho de <br>\r\n conclus\u00E3o de curso - tcc. <br>\r\n\r\n<br>Criado e Desenvolvido por: <br> Jonas Halmenschlager <br> Matheus Endler Haas </html>");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setBounds(10, 11, 414, 206);
+		contentPanel.add(lblNewLabel);
 		
 		{
 			JPanel buttonPane = new JPanel();
