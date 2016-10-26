@@ -89,7 +89,7 @@ public class CadastroTCC2 extends JInternalFrame {
 	public CadastroTCC2(String usr) throws PropertyVetoException {
 		setFrameIcon(
 				new ImageIcon(CadastroTCC1.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
-		setTitle(" C\u00E1lculo das Avalia\u00E7\u00F5es TCC1");
+		setTitle(" C\u00E1lculo das Avalia\u00E7\u00F5es TCC2");
 		setSelected(true);
 		setFrameIcon(new ImageIcon("resources/cadastroaluno].png"));
 		setClosable(true);
@@ -601,7 +601,7 @@ public class CadastroTCC2 extends JInternalFrame {
 
 	@Override
 	public boolean equals(Object cad) {
-		return (cad instanceof CadastroTCC1);
+		return (cad instanceof CadastroTCC2);
 	}
 
 }
