@@ -17,7 +17,11 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
-
+/**
+ * Cadastro de novo curso caso o curso que o aluno faça não esteja ali.
+ * @author jonas
+ *
+ */
 public class NewCurso extends JInternalFrame {
 	private JTextField nomeCurso;
 

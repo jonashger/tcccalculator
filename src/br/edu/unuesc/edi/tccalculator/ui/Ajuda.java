@@ -14,7 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
-
+/**
+ * Tela de ajuda ao usuário
+ * @author jonas
+ *
+ */
 public class Ajuda extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -36,7 +40,7 @@ public class Ajuda extends JDialog {
 	 * Create the dialog.
 	 */
 	public Ajuda() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("resources\\about.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/about.png"));
 		setTitle("Ajuda TCCalculator");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());

@@ -1,25 +1,24 @@
 package br.edu.unuesc.edi.tccalculator.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JSpinner;
-import javax.swing.JPasswordField;
-import java.awt.CardLayout;
-import javax.swing.JEditorPane;
-import javax.swing.JToolBar;
-import java.awt.Button;
-import java.awt.Toolkit;
-import javax.swing.JLabel;
-import java.awt.Color;
-import java.awt.Font;
-
+import javax.swing.ImageIcon;
+/**
+ * Tela do About do projeto
+ * @author jonas
+ *
+ */
 public class About extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -41,7 +40,7 @@ public class About extends JDialog {
 	 * Create the dialog.
 	 */
 	public About() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("resources\\sobre.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/sobre.png"));
 		setTitle("Sobre TCCalculator");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -54,6 +53,12 @@ public class About extends JDialog {
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setBounds(10, 11, 414, 206);
 		contentPanel.add(lblNewLabel);
+		{
+			JLabel label = new JLabel("");
+			label.setIcon(new ImageIcon("C:\\Users\\jonas\\git\\tccalculator\\resources\\Calculator2.png"));
+			label.setBounds(258, 112, 120, 105);
+			contentPanel.add(label);
+		}
 		
 		{
 			JPanel buttonPane = new JPanel();

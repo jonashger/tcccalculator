@@ -2,7 +2,11 @@ package br.edu.unuesc.edi.tccalculator.db;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-
+/**
+ * Classe que reprenta um tabela de cursos
+ * @author jonas
+ *
+ */
 @DatabaseTable(tableName = "curso")
 public class Curso {
 

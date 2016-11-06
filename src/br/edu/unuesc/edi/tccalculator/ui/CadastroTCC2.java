@@ -27,6 +27,7 @@ import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
+import br.edu.unuesc.edi.tccalculator.tcc.CadastroNotaTCC;
 import br.edu.unuesc.edi.tccalculator.util.IeValidator;
 import br.edu.unuesc.edi.tccalculator.util.ToDouble;
 import br.edu.unuesc.edi.tccalculator.util.ValidaNumero;
@@ -467,7 +468,14 @@ public class CadastroTCC2 extends JInternalFrame {
 		btnGravarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				gerarMedias();
-				
+				try {
+					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr);
+		 		} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(panel, "Nota do Aluno foi Cadastrado. Aperte em OK para fechar");
+				dispose();
 			}
 		});
 		btnGravarNotas.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -503,7 +511,9 @@ public class CadastroTCC2 extends JInternalFrame {
 				txtAv02E3AA, txtAv03E3AA, txtNotaAO, txtNotaAAA, btnGerarMedias, btnGravarNotas }));
 
 	}
-
+	/**
+	 * Gera as médias dos alunos
+	 */
 	public void gerarMedias() {
 		ArrayList<Boolean> valida = new ArrayList<>();
 		valida.add(ValidaNumero.validaNumero(txtAv01E1AA));
@@ -527,7 +537,6 @@ public class CadastroTCC2 extends JInternalFrame {
 		valida.add(ValidaNumero.validaNumero(txtAv1Ep4AP));
 		valida.add(ValidaNumero.validaNumero(txtAv2Ep4AP));
 		valida.add(ValidaNumero.validaNumero(txtAv3Ep4AP));
-
 		valida.add(ValidaNumero.validaNumero(txtNotaAAA));
 		valida.add(ValidaNumero.validaNumero(txtNotaAO));
 		boolean pass = true;
@@ -584,7 +593,7 @@ public class CadastroTCC2 extends JInternalFrame {
 			double valorFinalAP = 0;
 			double valorFinalAA = 0;
 			if ((valorEx1 != 0)) {
-				valorFinalAP = (2 * valorFinal1 + 4 * valorFinal2 + 2 * valorFinal3 + 2 * valorFinal4) / 10;
+				valorFinalAP = (2 * valorFinal1 + 3 * valorFinal2 + 3 * valorFinal3 + 2 * valorFinal4) / 10;
 			} else {
 				System.err.println("dwd");
 				return;

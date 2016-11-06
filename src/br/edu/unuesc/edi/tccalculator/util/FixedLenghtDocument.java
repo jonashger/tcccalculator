@@ -2,7 +2,7 @@ package br.edu.unuesc.edi.tccalculator.util;
 
 /*
  * Esta classe limita o número de caracteres inseridos em um JTextField
- * Para usar este Document: ((AbstractDocument)jTextField.getDocuement()).setDocumentFilter(new FixedLengthDocument(5));
+ * 
  */
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;

@@ -4,7 +4,11 @@ import java.sql.SQLException;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
-
+/**
+ * conexao do db
+ * @author jonas
+ *
+ */
 public class Conexao {
 	private static final String DB_URL = "jdbc:sqlite:db/tccalculator.db";
 	private static ConnectionSource connectionSource = null;

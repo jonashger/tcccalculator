@@ -18,7 +18,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
+/**
+ * Home
+ * Essa é a tela inicial responsavel para o usuario inserir as informações
+ * @author jonas
+ *
+ */
 public class Home extends JFrame {
 
 	private static final long serialVersionUID = 4613687046894259317L;
@@ -50,7 +55,7 @@ public class Home extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources\\logoimg.jpg"));
 		setTitle("TCCalculator");
 		setVisible(true);
-		setMinimumSize(new Dimension(580, 380));
+		setMinimumSize(new Dimension(900, 600));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);
 
@@ -247,7 +252,7 @@ public class Home extends JFrame {
 		cadastroAluno.setLayout(null);
 		cadastroAluno.setBackground(new Color(255, 255, 255));
 		getContentPane().add(cadastroAluno, BorderLayout.CENTER);
-		JPanel panel = new JPanel();
+
 	
 
 	}

@@ -24,7 +24,7 @@ import java.awt.event.KeyAdapter;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
-import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
+import br.edu.unuesc.edi.tccalculator.util.login.GeradorSHA;
 import br.edu.unuesc.edi.tccalculator.util.login.CadastroUserEspecial;
 
 import java.awt.Component;
@@ -100,7 +100,7 @@ public class Login extends JFrame {
 						lblSenhaIncorreta.setText("Campos Vazios!!");
 					
 					} else {
-						String senha = LoginSHA.login(new String(textFieldSenha.getPassword()).trim());
+						String senha = GeradorSHA.login(new String(textFieldSenha.getPassword()).trim());
 						boolean pass = LoginPass.login(textFieldUser.getText().toLowerCase(), senha);
 						if (pass){
 							Home.init();

@@ -1,3 +1,4 @@
+
 package br.edu.unuesc.edi.tccalculator.ui;
 
 import java.awt.BorderLayout;
@@ -8,35 +9,25 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 import br.edu.unuesc.edi.tccalculator.db.Curso;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
-import br.edu.unuesc.edi.tccalculator.db.Usuario;
-import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
 import br.edu.unuesc.edi.tccalculator.util.login.CadastroAluno;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.plaf.ButtonUI;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
-import javax.swing.event.AncestorListener;
-import javax.swing.event.AncestorEvent;
 
 /**
  * Classe para cadatrar aluno
@@ -73,10 +64,9 @@ public class CadastrarAluno extends JInternalFrame {
 	}
 
 	/**
-	 * Create the frame.
-	 * 
+	 * Cria o Frame.
 	 * @throws PropertyVetoException
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	public CadastrarAluno()  throws PropertyVetoException, SQLException {
 		setSelected(true);
@@ -134,8 +124,7 @@ public class CadastrarAluno extends JInternalFrame {
 		panel.add(textAssunto);
 		getContentPane().add(panel);
 		
-		ArrayList<JRadioButton> arrayRadios = new ArrayList<>();
-		
+	
 		JRadioButton radioTCCI = new JRadioButton("TCC I");
 		radioTCCI.setSelected(true);
 		buttonGroup.add(radioTCCI);

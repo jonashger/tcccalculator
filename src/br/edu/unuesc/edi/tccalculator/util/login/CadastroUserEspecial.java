@@ -4,9 +4,18 @@ import java.sql.SQLException;
 
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.db.Usuario;
-
+/**
+ * Classe para realizar o cadastro de novo super user no sistema
+ * @author jonas
+ *
+ */
 public class CadastroUserEspecial {
-	public static String init(String usr,String senha) {
+	/**
+	 * 
+	 * @param usr Novo user para realizar o cadastro
+	 * @param senha Nova senha em sha-256 do usr
+	 */
+	public static void init(String usr,String senha) {
 		Usuario a = new Usuario();
 		a.setUserName(usr);
 		a.setUserPass(senha);
@@ -16,7 +25,5 @@ public class CadastroUserEspecial {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
-		
 	}
 }

@@ -5,7 +5,11 @@ import java.sql.SQLException;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.table.TableUtils;
-
+/**
+ * Classe que reprenta um Banco de Dados
+ * @author jonas
+ *
+ */
 public class DAOManager {
 	
 	public static Dao<Usuario, Integer> usuarioDAO;

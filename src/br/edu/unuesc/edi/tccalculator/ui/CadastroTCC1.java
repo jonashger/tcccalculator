@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,21 +21,22 @@ import javax.swing.text.AbstractDocument;
 
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.stmt.UpdateBuilder;
-
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
-import br.edu.unuesc.edi.tccalculator.db.Curso;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
+import br.edu.unuesc.edi.tccalculator.tcc.CadastroNotaTCC;
 import br.edu.unuesc.edi.tccalculator.util.IeValidator;
 import br.edu.unuesc.edi.tccalculator.util.ToDouble;
 import br.edu.unuesc.edi.tccalculator.util.ValidaNumero;
 /**
- * 
+ * Frama para a inserção de dados sobre as notas dos alunos
  * @author mathe
  *
  */
 public class CadastroTCC1 extends JInternalFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
 	private final JPanel contentPane = new JPanel();
@@ -460,7 +460,6 @@ public class CadastroTCC1 extends JInternalFrame {
 		btnGerarMedias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				gerarMedias();
-				return;
 			}
 
 		});
@@ -472,7 +471,14 @@ public class CadastroTCC1 extends JInternalFrame {
 		btnGravarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				gerarMedias();
-				
+				try {
+					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr);
+		 		} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(panel, "Nota do Aluno foi Cadastrado. Aperte em OK para fechar");
+				dispose();
 			}
 		});
 		btnGravarNotas.setFont(new Font("Tahoma", Font.PLAIN, 15));

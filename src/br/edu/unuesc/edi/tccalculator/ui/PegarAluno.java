@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
@@ -19,8 +20,13 @@ import java.lang.reflect.Array;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
+/**
+ * Classe que pede o usuario a informar em qual tese ele quer gravar as notas
+ * 
+ * @author jonas
+ *
+ */
 public class PegarAluno extends JInternalFrame {
-
 
 	/**
 	 * 
@@ -30,14 +36,16 @@ public class PegarAluno extends JInternalFrame {
 	 * 
 	 */
 	JDesktopPane cadastroAluno = null;
+
 	/**
 	 * Launch the application.
+	 * 
 	 */
-
 
 	/**
 	 * Create the frame.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	public PegarAluno(JDesktopPane pane, String tcc) throws SQLException {
 		setFrameIcon(new ImageIcon("resources/boneco-not.jpg"));
@@ -46,27 +54,39 @@ public class PegarAluno extends JInternalFrame {
 		setClosable(true);
 		setBounds(100, 100, 521, 127);
 		getContentPane().setLayout(null);
-		
+
 		cadastroAluno = pane;
 		JComboBox<String> comboBox = new JComboBox<String>();
 		List<Aluno> a = DAOManager.alunoDAO.queryForAll();
 		ArrayList<Integer> array = new ArrayList<>();
 		for (int i = 0; i < a.size(); i++) {
 			if (a.get(i).getTcc().equals(tcc)) {
-				comboBox.addItem(a.get(i).getAssunto());
-				array.add(a.get(i).getnUsuario());
+				if (a.get(i).getNota().equals("0")) {
+					comboBox.addItem(a.get(i).getAssunto());
+					array.add(a.get(i).getnUsuario());
+				}
 			}
+		}
+		if (array.isEmpty()) {
+		int ad2 =	JOptionPane.showConfirmDialog(cadastroAluno,
+					"<html>Nenhum aluno cadastrado para ser gerado notas.</br> Entre em Cadastrar -> Cadastrar aluno - e preenche os campos.</html>",
+					"Fechar", 2);
+		if (ad2 == 0) {
+			dispose();
+		}	
 		}
 		comboBox.setBounds(10, 14, 485, 29);
 		getContentPane().add(comboBox);
-		
-		
+
 		JButton btnGravarNotas = new JButton("Gravar Notas");
 		btnGravarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
+
 				try {
+					if (array.isEmpty()) {
+						dispose();
+						return;
+					}
 					if (tcc.equals("tcc1")) {
 						CadastroTCC1 cadastro = null;
 						cadastro = new CadastroTCC1(array.get(comboBox.getSelectedIndex()));
@@ -81,7 +101,7 @@ public class PegarAluno extends JInternalFrame {
 						cadastro.setMinimumSize(new Dimension(350, 500));
 						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
 						cadastro.setVisible(true);
-					}else if(tcc.equals("tcc2")){
+					} else if (tcc.equals("tcc2")) {
 						CadastroTCC2 cadastro = null;
 						cadastro = new CadastroTCC2(array.get(comboBox.getSelectedIndex()));
 						for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
@@ -95,7 +115,7 @@ public class PegarAluno extends JInternalFrame {
 						cadastro.setMinimumSize(new Dimension(350, 500));
 						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
 						cadastro.setVisible(true);
-					}else{
+					} else {
 
 						CadastroTCC3 cadastro = null;
 						cadastro = new CadastroTCC3(array.get(comboBox.getSelectedIndex()));
@@ -108,10 +128,10 @@ public class PegarAluno extends JInternalFrame {
 						}
 						dispose();
 						cadastro.setMinimumSize(new Dimension(350, 500));
-						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
+						cadastroAluno.add(cadastro).setBounds(10, 10, 816, 545);
 						cadastro.setVisible(true);
 					}
-					
+
 				} catch (PropertyVetoException e) {
 					e.printStackTrace();
 				} catch (NumberFormatException e) {
@@ -121,14 +141,14 @@ public class PegarAluno extends JInternalFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			
 
 			}
 		});
 		btnGravarNotas.setBounds(192, 57, 138, 29);
 		getContentPane().add(btnGravarNotas);
-		
+
 	}
+
 	@Override
 	public boolean equals(Object cad) {
 		return (cad instanceof PegarAluno);

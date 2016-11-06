@@ -1,7 +1,6 @@
 package br.edu.unuesc.edi.tccalculator.util;
 /*
  * Esta classe permite que apenas números sejam inseridos em um JTextField
- * Para usar este Document: ((AbstractDocuement) jTextField.getDocument()).setDocumentFilter(new IntegerDocument());
  */
 
 import javax.swing.text.AttributeSet;

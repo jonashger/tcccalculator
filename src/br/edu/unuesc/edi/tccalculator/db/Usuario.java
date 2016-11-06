@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Classe que reprenta um aviario
+ * Classe que reprenta um USUARIO MASTER
  * 
  * @author 
  * @since 31/08/2016

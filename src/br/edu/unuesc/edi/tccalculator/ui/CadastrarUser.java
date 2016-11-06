@@ -22,10 +22,14 @@ import javax.swing.border.EmptyBorder;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
-import br.edu.unuesc.edi.tccalculator.util.login.LoginSHA;
+import br.edu.unuesc.edi.tccalculator.util.login.GeradorSHA;
 import br.edu.unuesc.edi.tccalculator.util.login.CadastroUserEspecial;
 import br.edu.unuesc.edi.tccalculator.util.login.UsrExiste;
-
+/**
+ * Frame para realizar o cadastro de novo user especial
+ * @author jonas
+ *
+ */
 public class CadastrarUser extends JDialog {
 
 	/**
@@ -138,7 +142,7 @@ public class CadastrarUser extends JDialog {
 						if(!(((new String(textFieldSenha.getPassword()).trim()).equals(""))|| ((new String(textFieldSenhaEspecial.getPassword()).trim()).equals(""))|| (textFieldUser.getText().equals(""))||(textFieldUserEspecial.getText().equals("")))){
 							String senha = null;
 							try {
-								senha = LoginSHA.login((new String(textFieldSenhaEspecial.getPassword()).trim()));
+								senha = GeradorSHA.login((new String(textFieldSenhaEspecial.getPassword()).trim()));
 							} catch (NoSuchAlgorithmException | UnsupportedEncodingException e1) {
 								JOptionPane.showMessageDialog(null, "Algo aconteceu de errado.");
 							}
@@ -160,7 +164,7 @@ public class CadastrarUser extends JDialog {
 								}
 								if(!usrExistente){
 									try {
-										CadastroUserEspecial.init(textFieldUser.getText().toLowerCase(), LoginSHA.login((new String(textFieldSenha.getPassword()).trim())));
+										CadastroUserEspecial.init(textFieldUser.getText().toLowerCase(), GeradorSHA.login((new String(textFieldSenha.getPassword()).trim())));
 										textFieldSenha.setText("");
 										textFieldSenhaEspecial.setText("");
 										textFieldUser.setText("");
