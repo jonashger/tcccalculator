@@ -48,7 +48,7 @@ public class Ajuda extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("<html>TCCalculator:  <br>\r\n\r\n<br> Sistema para controle de notas de trabalho de <br>\r\n conclus\u00E3o de curso - tcc. <br>\r\n\r\n</html>");
+		JLabel lblNewLabel = new JLabel("<html>TCCalculator:  <br>\r\n\r\n<br> Sistema para controle de notas de trabalho de <br>\r\n conclus\u00E3o de curso - tcc. <br>\r\n<br> Precisa de Ajuda? Tens uma sujest\u00E3o? Entre em contato: <br>\r\nmatheusendler@hotmail.com\t\t\t<br>jonassjo@outlook.com\r\n\r\n</html>");
 		lblNewLabel.setIcon(new ImageIcon("resources\\ajuda.png"));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setForeground(Color.BLACK);

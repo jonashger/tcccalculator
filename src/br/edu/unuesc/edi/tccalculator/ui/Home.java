@@ -18,6 +18,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 /**
  * Home
  * Essa é a tela inicial responsavel para o usuario inserir as informações
@@ -249,9 +251,14 @@ public class Home extends JFrame {
 		cadastroAluno.setMaximumSize(new Dimension(1000, 700));
 		cadastroAluno.setBounds(10, 10, 1000, 700);
 		cadastroAluno.setMinimumSize(new Dimension(400, 280));
-		cadastroAluno.setLayout(null);
 		cadastroAluno.setBackground(new Color(255, 255, 255));
 		getContentPane().add(cadastroAluno, BorderLayout.CENTER);
+		cadastroAluno.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(353, 11, 989, 663);
+		lblNewLabel.setIcon(new ImageIcon(Home.class.getResource("/imagens/calculatorLema.png")));
+		cadastroAluno.add(lblNewLabel);
 
 	
 

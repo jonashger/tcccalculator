@@ -48,7 +48,7 @@ public class About extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("<html>TCCalculator:  <br>\r\n\r\n<br> Sistema para controle de notas de trabalho de <br>\r\n conclus\u00E3o de curso - tcc. <br>\r\n\r\n<br>Criado e Desenvolvido por: <br> Jonas Halmenschlager <br> Matheus Endler Haas </html>");
+		JLabel lblNewLabel = new JLabel("<html>TCCalculator:  <br>\r\n\r\n<br> Sistema para controle de notas de trabalho de <br>\r\n conclus\u00E3o de curso - tcc. Fa\u00E7a os c\u00E1lculos da nota final referente aos acad\u00EAmicos\r\n da sua turma utilizando o TCCalculator.<br>\r\n\r\n<br>Criado e Desenvolvido por: <br> Jonas Halmenschlager <br> Matheus Endler Haas </html>");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setBounds(10, 11, 414, 206);
