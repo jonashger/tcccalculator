@@ -65,7 +65,7 @@ public class CadastrarUser extends JDialog {
 	 */
 	public CadastrarUser() {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("resources\\logoimg.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarUser.class.getResource("/imagens/logoimg.jpg")));
 		setTitle("Cadastrar Novo Usu\u00E1rio - TTCalculator");
 		setBounds(100, 100, 433, 300);
 		getContentPane().setLayout(new BorderLayout());

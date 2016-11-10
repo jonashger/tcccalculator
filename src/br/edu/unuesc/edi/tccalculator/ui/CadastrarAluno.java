@@ -46,6 +46,7 @@ public class CadastrarAluno extends JInternalFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	ArrayList<JRadioButton> arrayRadios = new ArrayList<>();
 	private JTextField textAluno2;
+	private JTextField txtOrientador;
 	
 	/**
 	 * Launch the application.
@@ -70,7 +71,7 @@ public class CadastrarAluno extends JInternalFrame {
 	 */
 	public CadastrarAluno()  throws PropertyVetoException, SQLException {
 		setSelected(true);
-		setFrameIcon(new ImageIcon("resources\\cadastroaluno].png"));
+		setFrameIcon(new ImageIcon(CadastrarAluno.class.getResource("/imagens/cadastroaluno].png")));
 		setClosable(true);
 		setTitle("Cadastro Aluno");
 		setBounds(100, 100, 450, 300);
@@ -115,12 +116,12 @@ public class CadastrarAluno extends JInternalFrame {
 		
 		JLabel lblTeseDefendida = new JLabel("Tese defendida:");
 		lblTeseDefendida.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTeseDefendida.setBounds(28, 120, 112, 36);
+		lblTeseDefendida.setBounds(27, 152, 112, 36);
 		panel.add(lblTeseDefendida);
 		
 		textAssunto = new JEditorPane();
 		textAssunto.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textAssunto.setBounds(28, 152, 386, 71);
+		textAssunto.setBounds(28, 187, 386, 36);
 		panel.add(textAssunto);
 		getContentPane().add(panel);
 		
@@ -167,6 +168,16 @@ public class CadastrarAluno extends JInternalFrame {
 		btnAddAluno.setBounds(260, 11, 36, 36);
 		panel.add(btnAddAluno);
 		
+		JLabel lblOrientador = new JLabel("Orientador:");
+		lblOrientador.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblOrientador.setBounds(27, 114, 112, 36);
+		panel.add(lblOrientador);
+		
+		txtOrientador = new JTextField();
+		txtOrientador.setBounds(121, 124, 217, 20);
+		panel.add(txtOrientador);
+		txtOrientador.setColumns(10);
+		
 		
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -180,13 +191,13 @@ public class CadastrarAluno extends JInternalFrame {
 				else
 					return;
 				
-				if (txtUsuario.getText().equals("") || curso.getSelectedItem().toString().equals("")|| textAssunto.getText().equals("")) {
+				if (txtOrientador.getText().equals("")|| txtUsuario.getText().equals("") || curso.getSelectedItem().toString().equals("")|| textAssunto.getText().equals("")) {
 					JLabel lblSenhaIncorreta = new JLabel("");
 					lblSenhaIncorreta.setForeground(Color.RED);
 					lblSenhaIncorreta.setBounds(299, 197, 133, 25);
 					lblSenhaIncorreta.setText("Espaços em Brancos!!");
 				} else {
-						CadastroAluno.init(txtUsuario.getText(),textAluno2.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc);
+						CadastroAluno.init(txtUsuario.getText(),textAluno2.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc,txtOrientador.getText());
 						txtUsuario.setText("");
 						textAluno2.setText("");
 						curso.setSelectedIndex(1);

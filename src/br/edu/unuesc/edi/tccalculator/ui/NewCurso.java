@@ -45,7 +45,7 @@ public class NewCurso extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public NewCurso() {
-		setFrameIcon(new ImageIcon("resources/boneco-not.jpg"));
+		setFrameIcon(new ImageIcon(NewCurso.class.getResource("/imagens/cadastroaluno].png")));
 		setTitle("Cadastro de Curso");
 		setResizable(true);
 		setIconifiable(true);

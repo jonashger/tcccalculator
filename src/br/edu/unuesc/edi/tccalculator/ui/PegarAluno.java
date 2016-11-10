@@ -1,11 +1,14 @@
 package br.edu.unuesc.edi.tccalculator.ui;
 
 import java.awt.Dimension;
-import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
@@ -14,11 +17,6 @@ import javax.swing.JOptionPane;
 
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
-import java.awt.event.ActionListener;
-import java.beans.PropertyVetoException;
-import java.lang.reflect.Array;
-import java.awt.event.ActionEvent;
-import javax.swing.ImageIcon;
 
 /**
  * Classe que pede o usuario a informar em qual tese ele quer gravar as notas
@@ -48,7 +46,7 @@ public class PegarAluno extends JInternalFrame {
 	 * @throws SQLException
 	 */
 	public PegarAluno(JDesktopPane pane, String tcc) throws SQLException {
-		setFrameIcon(new ImageIcon("resources/boneco-not.jpg"));
+		setFrameIcon(new ImageIcon(PegarAluno.class.getResource("/imagens/more.png")));
 		setTitle("Aluno para " + tcc);
 		setResizable(true);
 		setClosable(true);
@@ -99,7 +97,7 @@ public class PegarAluno extends JInternalFrame {
 						}
 						dispose();
 						cadastro.setMinimumSize(new Dimension(350, 500));
-						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
+						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 644);
 						cadastro.setVisible(true);
 					} else if (tcc.equals("tcc2")) {
 						CadastroTCC2 cadastro = null;
@@ -113,7 +111,7 @@ public class PegarAluno extends JInternalFrame {
 						}
 						dispose();
 						cadastro.setMinimumSize(new Dimension(350, 500));
-						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 545);
+						cadastroAluno.add(cadastro).setBounds(10, 10, 743, 631);
 						cadastro.setVisible(true);
 					} else {
 
@@ -128,7 +126,7 @@ public class PegarAluno extends JInternalFrame {
 						}
 						dispose();
 						cadastro.setMinimumSize(new Dimension(350, 500));
-						cadastroAluno.add(cadastro).setBounds(10, 10, 816, 545);
+						cadastroAluno.add(cadastro).setBounds(10, 10, 816, 631);
 						cadastro.setVisible(true);
 					}
 

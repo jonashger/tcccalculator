@@ -40,7 +40,7 @@ public class About extends JDialog {
 	 * Create the dialog.
 	 */
 	public About() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/sobre.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(About.class.getResource("/imagens/logoimg.jpg")));
 		setTitle("Sobre TCCalculator");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());

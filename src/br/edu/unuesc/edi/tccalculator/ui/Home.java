@@ -222,6 +222,25 @@ public class Home extends JFrame {
 		menuBar.add(mnRelatrio);
 
 		JMenuItem mntmGerarRelatrioDe = new JMenuItem("Gerar Relat\u00F3rio de Aluno");
+		mntmGerarRelatrioDe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GerarRelatorio cad = null;
+				cad = new GerarRelatorio(cadastroAluno);
+				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
+					if (cadastroAluno.getComponent(i).equals(cad)) {
+						cad = (GerarRelatorio) cadastroAluno.getComponent(i);
+						cad.requestFocus();
+						cad.requestFocusInWindow();
+						return;
+
+					}
+				}
+
+				cad.setMinimumSize(new Dimension(350, 300));
+				cadastroAluno.add(cad).setBounds(10, 10,  450, 300);
+				cad.setVisible(true);
+			}
+		});
 		mnRelatrio.add(mntmGerarRelatrioDe);
 
 		JMenu mnSobre = new JMenu("Sobre");

@@ -40,7 +40,7 @@ public class Ajuda extends JDialog {
 	 * Create the dialog.
 	 */
 	public Ajuda() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/about.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Ajuda.class.getResource("/imagens/logoimg.jpg")));
 		setTitle("Ajuda TCCalculator");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());

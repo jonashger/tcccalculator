@@ -76,11 +76,25 @@ public class CadastroTCC3 extends JInternalFrame {
 	private JButton btnGravarNotas;
 	private JLabel lblAluno;
 	private JLabel lblNomeAluno;
-	private JPanel panel_5;
 	private JTextField txtAv3Ep5AP;
 	private JTextField txtAv1Ep5AP;
 	private JTextField txtMedA5AP;
 	private JTextField txtAv2Ep5AP ;
+	private JLabel lblAvaliador;
+	private JLabel lblAvaliador_1;
+	private JLabel lblAvaliador_2;
+	private JLabel lblNewLabel;
+	private JTextField avaliador1;
+	private JTextField avaliador2;
+	private JTextField avaliador3;
+	private String ntMdAv01AA;
+	private String ntMdAv02AA;
+	private String ntMdAv03AA;
+	private String ntMdAv01AP;
+	private String ntMdAv02AP;
+	private String ntMdAv03AP;
+	private String ntMdAO;
+	private String ntMdAAA;
 	/**
 	 * Launch the application.
 	 */
@@ -98,7 +112,7 @@ public class CadastroTCC3 extends JInternalFrame {
 		setSelected(true);
 		setFrameIcon(new ImageIcon("resources/cadastroaluno].png"));
 		setClosable(true);
-		setBounds(100, 100, 816, 545);
+		setBounds(100, 100, 816, 633);
 		getContentPane().setLayout(null);
 		getContentPane().add(contentPane, BorderLayout.CENTER);
 
@@ -484,7 +498,7 @@ public class CadastroTCC3 extends JInternalFrame {
 
 		});
 		btnGerarMedias.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnGerarMedias.setBounds(452, 471, 128, 32);
+		btnGerarMedias.setBounds(495, 566, 128, 32);
 		getContentPane().add(btnGerarMedias);
 
 		btnGravarNotas = new JButton("Gravar Notas");
@@ -492,7 +506,8 @@ public class CadastroTCC3 extends JInternalFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				gerarMedias();
 				try {
-					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr);
+					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, avaliador1.getText(), avaliador2.getText(),
+							avaliador3.getText(),ntMdAv01AA,ntMdAv02AA,ntMdAv03AA,ntMdAv01AP,ntMdAv02AP,ntMdAv03AP,ntMdAO,ntMdAAA);
 		 		} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -502,31 +517,59 @@ public class CadastroTCC3 extends JInternalFrame {
 			}
 		});
 		btnGravarNotas.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnGravarNotas.setBounds(582, 471, 128, 32);
+		btnGravarNotas.setBounds(633, 565, 128, 32);
 		btnGravarNotas.setBackground(new Color(127, 129, 222));
 		getContentPane().add(btnGravarNotas);
 
-		panel_5 = new JPanel();
-		panel_5.setBounds(26, 472, 416, 22);
-		getContentPane().add(panel_5);
-		panel_5.setLayout(null);
-
-		lblAluno = new JLabel("Aluno:");
-		lblAluno.setBounds(0, 1, 62, 21);
-		panel_5.add(lblAluno);
-		lblAluno.setFont(new Font("Tahoma", Font.BOLD, 16));
-
-		Aluno a = DAOManager.alunoDAO.queryForId(usr);
+		
 		
 		lblNomeAluno = new JLabel();
+		lblNomeAluno.setBounds(82, 570, 440, 22);
+		getContentPane().add(lblNomeAluno);
+		lblNomeAluno.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		
+		Aluno a = DAOManager.alunoDAO.queryForId(usr);
 		if(a.getAluno2().equals(""))
 		lblNomeAluno.setText(a.getAluno());
 		else{
 		lblNomeAluno.setText(a.getAluno()+" e "+ a.getAluno2());
 		}
-		lblNomeAluno.setBounds(60, 0, 440, 22);
-		panel_5.add(lblNomeAluno);
-		lblNomeAluno.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				lblAluno = new JLabel("Aluno:");
+				lblAluno.setBounds(22, 571, 62, 21);
+				getContentPane().add(lblAluno);
+				lblAluno.setFont(new Font("Tahoma", Font.BOLD, 16));
+				
+				lblAvaliador = new JLabel("Avaliador 1:");
+				lblAvaliador.setBounds(136, 477, 86, 21);
+				getContentPane().add(lblAvaliador);
+				
+				lblAvaliador_1 = new JLabel("Avaliador 2:");
+				lblAvaliador_1.setBounds(136, 506, 86, 21);
+				getContentPane().add(lblAvaliador_1);
+				
+				lblAvaliador_2 = new JLabel("Avaliador 3:");
+				lblAvaliador_2.setBounds(136, 538, 86, 21);
+				getContentPane().add(lblAvaliador_2);
+				
+				lblNewLabel = new JLabel("Avaliadores");
+				lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblNewLabel.setBounds(330, 446, 86, 22);
+				getContentPane().add(lblNewLabel);
+				
+				avaliador1 = new JTextField();
+				avaliador1.setBounds(232, 477, 304, 22);
+				getContentPane().add(avaliador1);
+				avaliador1.setColumns(10);
+				
+				avaliador2 = new JTextField();
+				avaliador2.setColumns(10);
+				avaliador2.setBounds(232, 506, 304, 22);
+				getContentPane().add(avaliador2);
+				
+				avaliador3 = new JTextField();
+				avaliador3.setColumns(10);
+				avaliador3.setBounds(232, 537, 304, 22);
+				getContentPane().add(avaliador3);
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP, txtAv1Ep2AP, txtAv2Ep2AP, txtAv3Ep2AP, txtAv1Ep3AP, txtAv2Ep3AP, txtAv3Ep3AP, txtAv1Ep4AP, txtAv2Ep4AP, txtAv3Ep4AP, txtAv1Ep5AP, txtAv2Ep5AP, txtAv3Ep5AP, txtAv01E1AA, txtAv02E1AA, txtAv03E1AA, txtAv01E2AA, txtAv02E2AA, txtAv03E2AA, txtAv01E3AA, txtAv02E3AA, txtAv03E3AA, txtNotaAO, txtNotaAAA, btnGerarMedias, btnGravarNotas}));
 
 	}
@@ -641,7 +684,55 @@ public class CadastroTCC3 extends JInternalFrame {
 			txtNotaFinalAP.repaint();
 			
 			
+			valor1 = ToDouble.init(txtAv01E1AA);
+			valor2 = ToDouble.init(txtAv01E2AA);
+			valor3 = ToDouble.init(txtAv01E3AA);
+			double valorFinal = (valor1 + valor2 + valor3) / 3;
+			ntMdAv01AA=String.format("%.2f",valorFinal);
 			
+			valor1 = ToDouble.init(txtAv02E1AA);
+			valor2 = ToDouble.init(txtAv02E2AA);
+			valor3 = ToDouble.init(txtAv02E3AA);
+		    valorFinal = (valor1 + valor2 + valor3) / 3;
+			ntMdAv02AA=String.format("%.2f",valorFinal);
+			
+			valor1 = ToDouble.init(txtAv03E1AA);
+			valor2 = ToDouble.init(txtAv03E2AA);
+			valor3 = ToDouble.init(txtAv03E3AA);
+			valorFinal = (valor1 + valor2 + valor3) / 3;
+			ntMdAv03AA=String.format("%.2f",valorFinal);
+			
+			double valor4 = 0;
+			double valor5 = 0;
+			valor1 = ToDouble.init(txtAv1Ep1AP);
+			valor2 = ToDouble.init(txtAv1Ep2AP);
+			valor3 = ToDouble.init(txtAv1Ep3AP);
+			valor4 = ToDouble.init(txtAv1Ep4AP);
+			valor5 = ToDouble.init(txtAv1Ep5AP);
+			valorFinal = (valor1 + valor2 + valor3 + valor4 + valor5) / 5;
+			ntMdAv01AP=String.format("%.2f",valorFinal);
+			
+
+			valor1 = ToDouble.init(txtAv2Ep1AP);
+			valor2 = ToDouble.init(txtAv2Ep2AP);
+			valor3 = ToDouble.init(txtAv2Ep3AP);
+			valor4 = ToDouble.init(txtAv2Ep4AP);
+			valor5 = ToDouble.init(txtAv2Ep5AP);
+			valorFinal = (valor1 + valor2 + valor3 + valor4+ valor5) / 5;
+			ntMdAv02AP=String.format("%.2f",valorFinal);
+			
+
+			valor1 = ToDouble.init(txtAv3Ep1AP);
+			valor2 = ToDouble.init(txtAv3Ep2AP);
+			valor3 = ToDouble.init(txtAv3Ep3AP);
+			valor4 = ToDouble.init(txtAv3Ep4AP);
+			valor5 = ToDouble.init(txtAv3Ep5AP);
+			valorFinal = (valor1 + valor2 + valor3 + valor4 + valor5) / 5;
+			ntMdAv03AP=String.format("%.2f",valorFinal); 
+			
+			ntMdAO= txtNotaAO.getText();
+			ntMdAAA = txtNotaAAA.getText() ;
+
 		}
 	}
 
