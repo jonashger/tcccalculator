@@ -22,6 +22,7 @@ import javax.swing.text.AbstractDocument;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
+import br.edu.unuesc.edi.tccalculator.db.Avaliador;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.tcc.CadastroNotaTCC;
 import br.edu.unuesc.edi.tccalculator.util.IeValidator;
@@ -80,6 +81,9 @@ public class CadastroTCC1 extends JInternalFrame {
 	private JPanel panel_2;
 	private JPanel panel_3;
 	private JPanel panel_4;
+	private JLabel lblAval1;
+	private JLabel lblAval3;
+	private JLabel lblAval2;
 	private JButton btnGravarNotas;
 	private JLabel lblAluno;
 	private JLabel lblNomeAluno;
@@ -88,18 +92,7 @@ public class CadastroTCC1 extends JInternalFrame {
 	private JLabel lblAvaliador;
 	private JLabel lblAvaliador_2;
 	private JLabel lblAvaliador_1;
-	private JTextField avaliador1;
-	private JTextField avaliador2;
-	private JTextField avaliador3;
-	private String ntMdAv01AA;
-	private String ntMdAv02AA;
-	private String ntMdAv03AA;
-	private String ntMdAv01AP;
-	private String ntMdAv02AP;
-	private String ntMdAv03AP;
-	private String ntMdAO;
-	private String ntMdAAA;
-	
+	private ArrayList<String> lista = null;
 	/**
 	 * Launch the application.
 	 */
@@ -111,7 +104,7 @@ public class CadastroTCC1 extends JInternalFrame {
 	 * @throws SQLException
 	 * @throws NumberFormatException
 	 */
-	public CadastroTCC1(int usr) throws PropertyVetoException, NumberFormatException, SQLException {
+	public CadastroTCC1(int usr, ArrayList<Integer> arrayIdAval) throws PropertyVetoException, NumberFormatException, SQLException {
 		setFrameIcon(new ImageIcon(CadastroTCC1.class.getResource("/imagens/Calculator2.png")));
 		setTitle(" C\u00E1lculo das Avalia\u00E7\u00F5es TCC1");
 		setSelected(true);
@@ -488,12 +481,37 @@ public class CadastroTCC1 extends JInternalFrame {
 		btnGravarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				gerarMedias();
+				lista = new ArrayList<>();
+				lista.add(txtAv1Ep1AP.getText());
+				lista.add(txtAv2Ep1AP.getText());
+				lista.add(txtAv3Ep1AP.getText());
+				lista.add(txtAv1Ep2AP.getText());
+				lista.add(txtAv2Ep2AP.getText());
+				lista.add(txtAv3Ep2AP.getText());
+				lista.add(txtAv1Ep3AP.getText());
+				lista.add(txtAv2Ep3AP.getText());
+				lista.add(txtAv3Ep3AP.getText());
+				lista.add(txtAv1Ep4AP.getText());
+				lista.add(txtAv2Ep4AP.getText());
+				lista.add(txtAv3Ep4AP.getText());
+				lista.add(null);
+				lista.add(null);
+				lista.add(null);
+				lista.add(txtAv01E1AA.getText());
+				lista.add(txtAv02E1AA.getText());
+				lista.add(txtAv03E1AA.getText());
+				lista.add(txtAv01E2AA.getText());
+				lista.add(txtAv02E2AA.getText());
+				lista.add(txtAv03E2AA.getText());
+				lista.add(txtAv01E3AA.getText());
+				lista.add(txtAv02E3AA.getText());
+				lista.add(txtAv03E3AA.getText());
+				lista.add(txtNotaAO.getText());
+				lista.add(txtNotaAAA.getText());
 				try {
-					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, avaliador1.getText(), avaliador2.getText(),
-							avaliador3.getText(),ntMdAv01AA,ntMdAv02AA,ntMdAv03AA,ntMdAv01AP,ntMdAv02AP,ntMdAv03AP,ntMdAO,ntMdAAA);
+					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, arrayIdAval,lista);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println(e.getErrorCode());
 				}
 				JOptionPane.showMessageDialog(panel, "Nota do Aluno foi Cadastrado. Aperte em OK para fechar");
 				dispose();
@@ -542,21 +560,20 @@ public class CadastroTCC1 extends JInternalFrame {
 		lblAvaliador_1 = new JLabel("Avaliador 2:");
 		lblAvaliador_1.setBounds(150, 515, 69, 22);
 		getContentPane().add(lblAvaliador_1);
-
-		avaliador1 = new JTextField();
-		avaliador1.setBounds(279, 482, 272, 22);
-		getContentPane().add(avaliador1);
-		avaliador1.setColumns(10);
-
-		avaliador2 = new JTextField();
-		avaliador2.setColumns(10);
-		avaliador2.setBounds(279, 515, 272, 22);
-		getContentPane().add(avaliador2);
-
-		avaliador3 = new JTextField();
-		avaliador3.setColumns(10);
-		avaliador3.setBounds(279, 548, 272, 22);
-		getContentPane().add(avaliador3);
+		
+		Avaliador av1 = DAOManager.avaliadorDAO.queryForId(arrayIdAval.get(0));
+		lblAval1 = new JLabel(av1.getAvaliador());
+		lblAval1.setBounds(216, 482, 303, 22);	
+		getContentPane().add(lblAval1);
+		Avaliador av2 = DAOManager.avaliadorDAO.queryForId(arrayIdAval.get(1));
+		lblAval2 = new JLabel(av2.getAvaliador());
+		lblAval2.setBounds(216, 515, 303, 22);
+		getContentPane().add(lblAval2);
+		Avaliador av3 = DAOManager.avaliadorDAO.queryForId(arrayIdAval.get(2));
+		lblAval3 = new JLabel(av3.getAvaliador());
+		lblAval3.setBounds(216, 548, 303, 22);
+		getContentPane().add(lblAval3);
+		
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP,
 				txtAv1Ep2AP, txtAv2Ep2AP, txtAv3Ep2AP, txtAv1Ep3AP, txtAv2Ep3AP, txtAv3Ep3AP, txtAv1Ep4AP, txtAv2Ep4AP,
 				txtAv3Ep4AP, txtAv01E1AA, txtAv02E1AA, txtAv03E1AA, txtAv01E2AA, txtAv02E2AA, txtAv03E2AA, txtAv01E3AA,
@@ -564,7 +581,7 @@ public class CadastroTCC1 extends JInternalFrame {
 
 	}
 
-	public void gerarMedias() {
+	public boolean gerarMedias() {
 		ArrayList<Boolean> valida = new ArrayList<>();
 		valida.add(ValidaNumero.validaNumero(txtAv01E1AA));
 		valida.add(ValidaNumero.validaNumero(txtAv02E1AA));
@@ -587,7 +604,6 @@ public class CadastroTCC1 extends JInternalFrame {
 		valida.add(ValidaNumero.validaNumero(txtAv1Ep4AP));
 		valida.add(ValidaNumero.validaNumero(txtAv2Ep4AP));
 		valida.add(ValidaNumero.validaNumero(txtAv3Ep4AP));
-
 		valida.add(ValidaNumero.validaNumero(txtNotaAAA));
 		valida.add(ValidaNumero.validaNumero(txtNotaAO));
 		boolean pass = true;
@@ -598,9 +614,6 @@ public class CadastroTCC1 extends JInternalFrame {
 				pass = false;
 				break;
 			}
-		}
-		if (avaliador1.getText().equals("") || avaliador2.getText().equals("") || avaliador3.getText().equals("")) {
-			pass = false;
 		}
 		if (pass) {
 			double valorEx1 = ToDouble.init(txtAv1Ep1AP);
@@ -651,70 +664,26 @@ public class CadastroTCC1 extends JInternalFrame {
 				valorFinalAP = (2 * valorFinal1 + 4 * valorFinal2 + 2 * valorFinal3 + 2 * valorFinal4) / 10;
 			} else {
 				System.err.println("dwd");
-				return;
+				return false;
 			}
 			if (valorEx2 != 0) {
 				valorFinalAA = (valorFinal5 * 2 + 6 * valorFinal6 + 2 * valorFinal7) / 10;
 			} else {
 				System.err.println("wdw");
-				return;
+				return false;
 			}
 			txtNotaFinalAP.setText(String.valueOf(valorFinalAP));
 			txtNotaFinalAA.setText(String.valueOf(valorFinalAA));
 			double notaFinalFinal = (valorFinalAA * 2 + valorFinalAP * 5 + ToDouble.init(txtNotaAO) * 1.5
 					+ ToDouble.init(txtNotaAAA) * 1.5) / 10;
 			txtNotaFinal.setText(String.valueOf(notaFinalFinal));
+		
 			txtNotaFinalAA.repaint();
 			txtNotaFinalAP.repaint();
 			
-			valor1 = ToDouble.init(txtAv01E1AA);
-			valor2 = ToDouble.init(txtAv01E2AA);
-			valor3 = ToDouble.init(txtAv01E3AA);
-			double valorFinal = (valor1 + valor2 + valor3) / 3;
-			ntMdAv01AA=String.format("%.2f",valorFinal);
-			
-			valor1 = ToDouble.init(txtAv02E1AA);
-			valor2 = ToDouble.init(txtAv02E2AA);
-			valor3 = ToDouble.init(txtAv02E3AA);
-		    valorFinal = (valor1 + valor2 + valor3) / 3;
-			ntMdAv02AA=String.format("%.2f",valorFinal);
-			
-			valor1 = ToDouble.init(txtAv03E1AA);
-			valor2 = ToDouble.init(txtAv03E2AA);
-			valor3 = ToDouble.init(txtAv03E3AA);
-			valorFinal = (valor1 + valor2 + valor3) / 3;
-			ntMdAv03AA=String.format("%.2f",valorFinal);
-			
-			double valor4 = 0;
-			valor1 = ToDouble.init(txtAv1Ep1AP);
-			valor2 = ToDouble.init(txtAv1Ep2AP);
-			valor3 = ToDouble.init(txtAv1Ep3AP);
-			valor4 = ToDouble.init(txtAv1Ep4AP);
-			valorFinal = (valor1 + valor2 + valor3 + valor4) / 4;
-			ntMdAv01AP=String.format("%.2f",valorFinal);
-			
-
-			valor1 = ToDouble.init(txtAv2Ep1AP);
-			valor2 = ToDouble.init(txtAv2Ep2AP);
-			valor3 = ToDouble.init(txtAv2Ep3AP);
-			valor4 = ToDouble.init(txtAv2Ep4AP);
-			valorFinal = (valor1 + valor2 + valor3 + valor4) / 4;
-			ntMdAv02AP=String.format("%.2f",valorFinal);
-			
-
-			valor1 = ToDouble.init(txtAv3Ep1AP);
-			valor2 = ToDouble.init(txtAv3Ep2AP);
-			valor3 = ToDouble.init(txtAv3Ep3AP);
-			valor4 = ToDouble.init(txtAv3Ep4AP);
-			valorFinal = (valor1 + valor2 + valor3 + valor4) / 4;
-			ntMdAv03AP=String.format("%.2f",valorFinal); 
-			
-			ntMdAO= txtNotaAO.getText();
-			ntMdAAA = txtNotaAAA.getText() ;
-
-			txtNotaFinalAA.repaint();
-			txtNotaFinalAP.repaint();
+			return true;
 		}
+		return true;
 	}
 
 	@Override

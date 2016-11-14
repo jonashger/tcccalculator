@@ -8,5 +8,7 @@
 	<classpathentry kind="lib" path="libs/ormlite-core-5.0.jar"/>
 	<classpathentry kind="lib" path="libs/ormlite-jdbc-5.0.jar"/>
 	<classpathentry kind="lib" path="libs/sqlite-jdbc-3.8.11.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jonas/Desktop/jasperreports-6.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jonas/Desktop/sqlitejdbc-v056.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

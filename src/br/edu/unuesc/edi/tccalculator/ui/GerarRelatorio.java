@@ -4,9 +4,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
+
+import br.edu.unuesc.edi.tccalculator.util.ReportGenerator;
+
 import java.awt.BorderLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GerarRelatorio extends JInternalFrame {
 
@@ -51,7 +57,16 @@ public class GerarRelatorio extends JInternalFrame {
 		JLabel lblAvaliador_2 = new JLabel("Avaliador 3 :");
 		lblAvaliador_2.setBounds(10, 157, 154, 22);
 		panel.add(lblAvaliador_2);
+		
+		JButton btnNewButton = new JButton("Gerar Relat\u00F3rio");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 
+				ReportGenerator.gerar();;
+			}
+		});
+		btnNewButton.setBounds(270, 237, 154, 22);
+		panel.add(btnNewButton);
 	}
 
 	@Override

@@ -23,6 +23,8 @@ public class Aluno {
 	@DatabaseField
 	private String assunto;
 	@DatabaseField
+	private String status;
+	@DatabaseField
 	private String tcc;
 	@DatabaseField
 	private String avaliador1;
@@ -33,21 +35,57 @@ public class Aluno {
 	@DatabaseField
 	private String orientador;
 	@DatabaseField
-	private String ntMdAv02AP;
+	private String nt01av01AP;
 	@DatabaseField
-	private String ntMdAv02AA;
+	private String nt01av02AP;
 	@DatabaseField
-	private String ntMdAv01AP;
+	private String nt01av03AP;
 	@DatabaseField
-	private String ntMdAv01AA;
+	private String nt02av01AP;
 	@DatabaseField
-	private String ntMdAv03AP;
+	private String nt02av02AP;
 	@DatabaseField
-	private String ntMdAv03AA;
+	private String nt02av03AP;
 	@DatabaseField
-	private String ntMdAO;
+	private String nt03av01AP;
 	@DatabaseField
-	private String ntMdAAA;
+	private String nt03av02AP;
+	@DatabaseField
+	private String nt03av03AP;
+	@DatabaseField
+	private String nt04av01AP;
+	@DatabaseField
+	private String nt04av02AP;
+	@DatabaseField
+	private String nt04av03AP;
+	@DatabaseField
+	private String nt05av01AP;
+	@DatabaseField
+	private String nt05av02AP;
+	@DatabaseField
+	private String nt05av03AP;
+	@DatabaseField
+	private String nt01av01AA;
+	@DatabaseField
+	private String nt01av02AA;
+	@DatabaseField
+	private String nt01av03AA;
+	@DatabaseField
+	private String nt02av01AA;
+	@DatabaseField
+	private String nt02av02AA;
+	@DatabaseField
+	private String nt02av03AA;
+	@DatabaseField
+	private String nt03av01AA;
+	@DatabaseField
+	private String nt03av02AA;
+	@DatabaseField
+	private String nt03av03AA;
+	@DatabaseField
+	private String ntAO;
+	@DatabaseField
+	private String ntAAA;
 
 	
 	public String getAssunto() {
@@ -117,53 +155,169 @@ public class Aluno {
 	public void setOrientador(String orientador) {
 		this.orientador = orientador;
 	}
-	public String getNtMdAv02AP() {
-		return ntMdAv02AP;
+	public String getNt01av01AP() {
+		return nt01av01AP;
 	}
-	public void setNtMdAv02AP(String ntMdAv02AP) {
-		this.ntMdAv02AP = ntMdAv02AP;
+	public void setNt01av01AP(String nt01av01ap) {
+		nt01av01AP = nt01av01ap;
 	}
-	public String getNtMdAv02AA() {
-		return ntMdAv02AA;
+	public String getNt01av02AP() {
+		return nt01av02AP;
 	}
-	public void setNtMdAv02AA(String ntMdAv02AA) {
-		this.ntMdAv02AA = ntMdAv02AA;
+	public void setNt01av02AP(String nt01av02ap) {
+		nt01av02AP = nt01av02ap;
 	}
-	public String getNtMdAv01AP() {
-		return ntMdAv01AP;
+	public String getNt01av03AP() {
+		return nt01av03AP;
 	}
-	public void setNtMdAv01AP(String ntMdAv01AP) {
-		this.ntMdAv01AP = ntMdAv01AP;
+	public void setNt01av03AP(String nt01av03ap) {
+		nt01av03AP = nt01av03ap;
 	}
-	public String getNtMdAv01AA() {
-		return ntMdAv01AA;
+	public String getNt02av01AP() {
+		return nt02av01AP;
 	}
-	public void setNtMdAv01AA(String ntMdAv01AA) {
-		this.ntMdAv01AA = ntMdAv01AA;
+	public void setNt02av01AP(String nt02av01ap) {
+		nt02av01AP = nt02av01ap;
 	}
-	public String getNtMdAv03AP() {
-		return ntMdAv03AP;
+	public String getNt02av02AP() {
+		return nt02av02AP;
 	}
-	public void setNtMdAv03AP(String ntMdAv03AP) {
-		this.ntMdAv03AP = ntMdAv03AP;
+	public void setNt02av02AP(String nt02av02ap) {
+		nt02av02AP = nt02av02ap;
 	}
-	public String getNtMdAv03AA() {
-		return ntMdAv03AA;
+	public String getNt02av03AP() {
+		return nt02av03AP;
 	}
-	public void setNtMdAv03AA(String ntMdAv03AA) {
-		this.ntMdAv03AA = ntMdAv03AA;
+	public void setNt02av03AP(String nt02av03ap) {
+		nt02av03AP = nt02av03ap;
 	}
-	public String getNtMdAO() {
-		return ntMdAO;
+	public String getNt03av01AP() {
+		return nt03av01AP;
 	}
-	public void setNtMdAO(String ntMdAO) {
-		this.ntMdAO = ntMdAO;
+	public void setNt03av01AP(String nt03av01ap) {
+		nt03av01AP = nt03av01ap;
 	}
-	public String getNtMdAAA() {
-		return ntMdAAA;
+	public String getNt03av02AP() {
+		return nt03av02AP;
 	}
-	public void setNtMdAAA(String ntMdAAA) {
-		this.ntMdAAA = ntMdAAA;
+	public void setNt03av02AP(String nt03av02ap) {
+		nt03av02AP = nt03av02ap;
 	}
+	public String getNt03av03AP() {
+		return nt03av03AP;
+	}
+	public void setNt03av03AP(String nt03av03ap) {
+		nt03av03AP = nt03av03ap;
+	}
+	public String getNt04av01AP() {
+		return nt04av01AP;
+	}
+	public void setNt04av01AP(String nt04av01ap) {
+		nt04av01AP = nt04av01ap;
+	}
+	public String getNt04av02AP() {
+		return nt04av02AP;
+	}
+	public void setNt04av02AP(String nt04av02ap) {
+		nt04av02AP = nt04av02ap;
+	}
+	public String getNt04av03AP() {
+		return nt04av03AP;
+	}
+	public void setNt04av03AP(String nt04av03ap) {
+		nt04av03AP = nt04av03ap;
+	}
+	public String getNt01av01AA() {
+		return nt01av01AA;
+	}
+	public void setNt01av01AA(String nt01av01aa) {
+		nt01av01AA = nt01av01aa;
+	}
+	public String getNt01av02AA() {
+		return nt01av02AA;
+	}
+	public void setNt01av02AA(String nt01av02aa) {
+		nt01av02AA = nt01av02aa;
+	}
+	public String getNt01av03AA() {
+		return nt01av03AA;
+	}
+	public void setNt01av03AA(String nt01av03aa) {
+		nt01av03AA = nt01av03aa;
+	}
+	public String getNt02av01AA() {
+		return nt02av01AA;
+	}
+	public void setNt02av01AA(String nt02av01aa) {
+		nt02av01AA = nt02av01aa;
+	}
+	public String getNt02av02AA() {
+		return nt02av02AA;
+	}
+	public void setNt02av02AA(String nt02av02aa) {
+		nt02av02AA = nt02av02aa;
+	}
+	public String getNt02av03AA() {
+		return nt02av03AA;
+	}
+	public void setNt02av03AA(String nt02av03aa) {
+		nt02av03AA = nt02av03aa;
+	}
+	public String getNt03av01AA() {
+		return nt03av01AA;
+	}
+	public void setNt03av01AA(String nt03av01aa) {
+		nt03av01AA = nt03av01aa;
+	}
+	public String getNt03av02AA() {
+		return nt03av02AA;
+	}
+	public void setNt03av02AA(String nt03av02aa) {
+		nt03av02AA = nt03av02aa;
+	}
+	public String getNt03av03AA() {
+		return nt03av03AA;
+	}
+	public void setNt03av03AA(String nt03av03aa) {
+		nt03av03AA = nt03av03aa;
+	}
+	public String getNtAO() {
+		return ntAO;
+	}
+	public void setNtAO(String ntAO) {
+		this.ntAO = ntAO;
+	}
+	public String getNtAAA() {
+		return ntAAA;
+	}
+	public void setNtAAA(String ntAAA) {
+		this.ntAAA = ntAAA;
+	}
+	public String getNt05av01AP() {
+		return nt05av01AP;
+	}
+	public void setNt05av01AP(String nt05av01ap) {
+		nt05av01AP = nt05av01ap;
+	}
+	public String getNt05av02AP() {
+		return nt05av02AP;
+	}
+	public void setNt05av02AP(String nt05av02ap) {
+		nt05av02AP = nt05av02ap;
+	}
+	public String getNt05av03AP() {
+		return nt05av03AP;
+	}
+	public void setNt05av03AP(String nt05av03ap) {
+		nt05av03AP = nt05av03ap;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 	
 }

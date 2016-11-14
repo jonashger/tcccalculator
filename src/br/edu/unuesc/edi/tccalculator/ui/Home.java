@@ -11,15 +11,17 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+
+import br.edu.unuesc.edi.tccalculator.ui.cad.CadastroAvaliador;
 /**
  * Home
  * Essa é a tela inicial responsavel para o usuario inserir as informações
@@ -31,7 +33,7 @@ public class Home extends JFrame {
 	private static final long serialVersionUID = 4613687046894259317L;
 
 	private JPanel contentPane;
-	JDesktopPane cadastroAluno = null;
+	JDesktopPane janelas = null;
 
 	/**
 	 * Launch the application.
@@ -86,16 +88,16 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					CadastrarAluno cadastro = new CadastrarAluno();
-					for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
-						if (cadastroAluno.getComponent(i).equals(cadastro)) {
-							cadastro = (CadastrarAluno) cadastroAluno.getComponent(i++);
+					for (int i = 0; i < janelas.getComponents().length; i++) {
+						if (janelas.getComponent(i).equals(cadastro)) {
+							cadastro = (CadastrarAluno) janelas.getComponent(i++);
 							cadastro.requestFocus();
 							return;
 						}
 					}
 
 					cadastro.setMinimumSize(new Dimension(350, 500));
-					cadastroAluno.add(cadastro).setBounds(10, 10, 450, 300);
+					janelas.add(cadastro).setBounds(10, 10, 450, 300);
 					cadastro.setVisible(true);
 
 				} catch (PropertyVetoException e) {
@@ -114,9 +116,9 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				NewCurso curso = new NewCurso();
 
-				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
-					if (cadastroAluno.getComponent(i).equals(curso)) {
-						curso = (NewCurso) cadastroAluno.getComponent(i);
+				for (int i = 0; i < janelas.getComponents().length; i++) {
+					if (janelas.getComponent(i).equals(curso)) {
+						curso = (NewCurso) janelas.getComponent(i);
 						curso.requestFocus();
 						return;
 
@@ -124,11 +126,32 @@ public class Home extends JFrame {
 				}
 
 				curso.setMinimumSize(new Dimension(450, 300));
-				cadastroAluno.add(curso).setBounds(10, 10, 450, 300);
+				janelas.add(curso).setBounds(10, 10, 450, 300);
 				curso.setVisible(true);
 				curso.requestFocusInWindow();
 			}
 		});
+		
+		JMenuItem mntmAvaliador = new JMenuItem("Avaliador");
+		mntmAvaliador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadastroAvaliador avaliador = new CadastroAvaliador();
+				for (int i = 0; i < janelas.getComponents().length; i++) {
+					if (janelas.getComponent(i).equals( avaliador)) {
+						 avaliador = (CadastroAvaliador) janelas.getComponent(i);
+						 avaliador.requestFocus();
+						return;
+
+					}
+				}
+
+				 avaliador.setMinimumSize(new Dimension(450, 300));
+				janelas.add( avaliador).setBounds(10, 10, 450, 167);
+				 avaliador.setVisible(true);
+				 avaliador.requestFocusInWindow();
+			}
+		});
+		mnCadastrar.add(mntmAvaliador);
 		mnCadastrar.add(mntmCurso);
 
 		JMenu mnGravarNotas = new JMenu("Gravar Notas");
@@ -139,15 +162,15 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				PegarAluno tcci = null;
 				try {
-					tcci = new PegarAluno(cadastroAluno,"tcc1");
+					tcci = new PegarAluno(janelas,"tcc1");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
-					if (cadastroAluno.getComponent(i).equals(tcci)) {
-						tcci = (PegarAluno) cadastroAluno.getComponent(i);
+				for (int i = 0; i < janelas.getComponents().length; i++) {
+					if (janelas.getComponent(i).equals(tcci)) {
+						tcci = (PegarAluno) janelas.getComponent(i);
 						tcci.requestFocus();
 						tcci.requestFocusInWindow();
 						return;
@@ -156,7 +179,7 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				cadastroAluno.add(tcci).setBounds(10, 10,  521, 127);
+				janelas.add(tcci).setBounds(10, 10,  521, 263);
 				tcci.setVisible(true);
 			}
 		});
@@ -167,15 +190,15 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				PegarAluno tcci = null;
 				try {
-					tcci = new PegarAluno(cadastroAluno,"tcc2");
+					tcci = new PegarAluno(janelas,"tcc2");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
-					if (cadastroAluno.getComponent(i).equals(tcci)) {
-						tcci = (PegarAluno) cadastroAluno.getComponent(i);
+				for (int i = 0; i < janelas.getComponents().length; i++) {
+					if (janelas.getComponent(i).equals(tcci)) {
+						tcci = (PegarAluno) janelas.getComponent(i);
 						tcci.requestFocus();
 						tcci.requestFocusInWindow();
 						return;
@@ -184,7 +207,7 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				cadastroAluno.add(tcci).setBounds(10, 10,  521, 127);
+				janelas.add(tcci).setBounds(10, 10,  521, 263);
 				tcci.setVisible(true);
 			}
 		});
@@ -195,15 +218,15 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				PegarAluno tcci = null;
 				try {
-					tcci = new PegarAluno(cadastroAluno,"tcc3");
+					tcci = new PegarAluno(janelas,"tcc3");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
-					if (cadastroAluno.getComponent(i).equals(tcci)) {
-						tcci = (PegarAluno) cadastroAluno.getComponent(i);
+				for (int i = 0; i < janelas.getComponents().length; i++) {
+					if (janelas.getComponent(i).equals(tcci)) {
+						tcci = (PegarAluno) janelas.getComponent(i);
 						tcci.requestFocus();
 						tcci.requestFocusInWindow();
 						return;
@@ -212,7 +235,7 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				cadastroAluno.add(tcci).setBounds(10, 10,  521, 127);
+				janelas.add(tcci).setBounds(10, 10,  521, 263);
 				tcci.setVisible(true);
 			}
 		});
@@ -225,10 +248,10 @@ public class Home extends JFrame {
 		mntmGerarRelatrioDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GerarRelatorio cad = null;
-				cad = new GerarRelatorio(cadastroAluno);
-				for (int i = 0; i < cadastroAluno.getComponents().length; i++) {
-					if (cadastroAluno.getComponent(i).equals(cad)) {
-						cad = (GerarRelatorio) cadastroAluno.getComponent(i);
+				cad = new GerarRelatorio(janelas);
+				for (int i = 0; i < janelas.getComponents().length; i++) {
+					if (janelas.getComponent(i).equals(cad)) {
+						cad = (GerarRelatorio) janelas.getComponent(i);
 						cad.requestFocus();
 						cad.requestFocusInWindow();
 						return;
@@ -237,7 +260,7 @@ public class Home extends JFrame {
 				}
 
 				cad.setMinimumSize(new Dimension(350, 300));
-				cadastroAluno.add(cad).setBounds(10, 10,  450, 300);
+				janelas.add(cad).setBounds(10, 10,  450, 300);
 				cad.setVisible(true);
 			}
 		});
@@ -266,18 +289,18 @@ public class Home extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		cadastroAluno = new JDesktopPane();
-		cadastroAluno.setMaximumSize(new Dimension(1000, 700));
-		cadastroAluno.setBounds(10, 10, 1000, 700);
-		cadastroAluno.setMinimumSize(new Dimension(400, 280));
-		cadastroAluno.setBackground(new Color(255, 255, 255));
-		getContentPane().add(cadastroAluno, BorderLayout.CENTER);
-		cadastroAluno.setLayout(null);
+		janelas = new JDesktopPane();
+		janelas.setMaximumSize(new Dimension(1000, 700));
+		janelas.setBounds(10, 10, 1000, 700);
+		janelas.setMinimumSize(new Dimension(400, 280));
+		janelas.setBackground(new Color(255, 255, 255));
+		getContentPane().add(janelas, BorderLayout.CENTER);
+		janelas.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(353, 11, 989, 663);
 		lblNewLabel.setIcon(new ImageIcon(Home.class.getResource("/imagens/calculatorLema.png")));
-		cadastroAluno.add(lblNewLabel);
+		janelas.add(lblNewLabel);
 
 	
 

@@ -20,6 +20,7 @@ import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -40,7 +41,7 @@ public class CadastrarAluno extends JInternalFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField txtUsuario;
+	private JTextField textAluno1;
 	private final JPanel contentPane = new JPanel();
 	private JEditorPane textAssunto; 
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -103,11 +104,11 @@ public class CadastrarAluno extends JInternalFrame {
 		panel.add(curso);
 		
 		
-		txtUsuario = new JTextField();
-		txtUsuario.setBorder(new LineBorder(new Color(171, 173, 179)));
-		txtUsuario.setBounds(89, 21, 166, 20);
-		panel.add(txtUsuario);
-		txtUsuario.setColumns(10);
+		textAluno1 = new JTextField();
+		textAluno1.setBorder(new LineBorder(new Color(171, 173, 179)));
+		textAluno1.setBounds(89, 21, 166, 20);
+		panel.add(textAluno1);
+		textAluno1.setColumns(10);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
 		
@@ -181,6 +182,30 @@ public class CadastrarAluno extends JInternalFrame {
 		
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				String orient = txtOrientador.getText();
+				String aluno1 = textAluno1.getText();
+				String aluno2 = textAluno2.getText();
+				int n = orient.indexOf(" ");
+				int n2 = orient.indexOf("  ");
+				int al1 = aluno1.indexOf(" ");
+				int al12 = aluno1.indexOf("  ");
+				int al2 = aluno2.indexOf(" ");
+				int al22 = aluno2.indexOf("  ");
+				
+				if ((!(n<0)&& (n2<0))&&(!(al1<0)&& (al12<0))) {
+					if(textAluno2.isDisplayable()){
+						if(!(al2<0)&& (al22<0)){
+						}else{
+							JOptionPane.showMessageDialog(null, "Nomes Completos Requeridos no Aluno 2");
+							return;
+						}
+					}
+				}else{
+					JOptionPane.showMessageDialog(null, "Nomes Completos Requeridos");
+					return;
+				}
+			
 				String tcc = null ;
 				if(radioTCCI.isSelected())
 					tcc = "tcc1";
@@ -191,15 +216,18 @@ public class CadastrarAluno extends JInternalFrame {
 				else
 					return;
 				
-				if (txtOrientador.getText().equals("")|| txtUsuario.getText().equals("") || curso.getSelectedItem().toString().equals("")|| textAssunto.getText().equals("")) {
+				
+				
+				if (txtOrientador.getText().trim().equals("")|| textAluno1.getText().trim().equals("") || curso.getSelectedItem().toString().equals("")|| textAssunto.getText().trim().equals("")) {
 					JLabel lblSenhaIncorreta = new JLabel("");
 					lblSenhaIncorreta.setForeground(Color.RED);
 					lblSenhaIncorreta.setBounds(299, 197, 133, 25);
 					lblSenhaIncorreta.setText("Espaços em Brancos!!");
 				} else {
-						CadastroAluno.init(txtUsuario.getText(),textAluno2.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc,txtOrientador.getText());
-						txtUsuario.setText("");
+						CadastroAluno.init(textAluno1.getText(),textAluno2.getText(),curso.getSelectedItem().toString(), textAssunto.getText(),tcc,txtOrientador.getText());
+						textAluno1.setText("");
 						textAluno2.setText("");
+						txtOrientador.setText("");
 						curso.setSelectedIndex(1);
 						textAssunto.setText("");
 
