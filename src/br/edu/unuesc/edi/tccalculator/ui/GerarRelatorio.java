@@ -18,6 +18,9 @@ import javax.swing.JPanel;
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.util.ReportGenerator;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
 /**
  * Classe que gera relatório
  * @author jonas
@@ -40,15 +43,13 @@ public class GerarRelatorio extends JInternalFrame {
 	 * @throws SQLException 
 	 */
 	public GerarRelatorio(JDesktopPane pane) throws SQLException {
+		setTitle("Projeto");
 		setFrameIcon(new ImageIcon(GerarRelatorio.class.getResource("/imagens/logoimg.jpg")));
 		setClosable(true);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 656, 281);
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
-		
-		JComboBox<String> comboBox = new JComboBox<String>();
 		ArrayList<Integer> nArray = new ArrayList<>();
 		List<Aluno> listaAlunos = DAOManager.alunoDAO.queryForAll();
 		for (int i = 0; i < listaAlunos.size(); i++) {
@@ -57,62 +58,51 @@ public class GerarRelatorio extends JInternalFrame {
 				nArray.add(listaAlunos.get(i).getnUsuario());
 			}
 		}
-		comboBox.setBounds(10, 52, 414, 28);
-		panel.add(comboBox);
-		
-		
-
-		
-		JLabel lblSelecioneOProjeto = new JLabel("SELECIONE O PROJETO PARA FAZER O RELAT\u00D3RIO DA NOTA");
-		lblSelecioneOProjeto.setBounds(63, 11, 309, 28);
-		panel.add(lblSelecioneOProjeto);
-		
-		JLabel lblAvaliador = new JLabel("Avaliador 1 :");
-		lblAvaliador.setBounds(10, 91, 61, 22);
-		panel.add(lblAvaliador);
-		
-		JLabel lblAvaliador_1 = new JLabel("Avaliador 2 :");
-		lblAvaliador_1.setBounds(10, 124, 154, 22);
-		panel.add(lblAvaliador_1);
-		
-		JLabel lblAvaliador_2 = new JLabel("Avaliador 3 :");
-		lblAvaliador_2.setBounds(10, 157, 154, 22);
-		panel.add(lblAvaliador_2);
 		
 		JButton btnNewButton = new JButton("Gerar Relat\u00F3rio");
+		btnNewButton.setBounds(447, 202, 154, 22);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 				ReportGenerator.gerar();;
 			}
 		});
-		btnNewButton.setBounds(270, 237, 154, 22);
+		panel.setLayout(null);
 		panel.add(btnNewButton);
 		
-		JLabel avaliador1 = new JLabel("Selecione algum TCC para ver os avaliadores cadastrados");
-		avaliador1.setBounds(81, 91, 328, 22);
+		JList list = new JList();
+		list.setBorder(new TitledBorder(null, "Selecione Projeto", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+		list.setBounds(22, 11, 362, 213);
+		panel.add(list);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setToolTipText("");
+		scrollPane.setBounds(22, 25, 298, 199);
+		panel.add(scrollPane);
+		
+		JComboBox<String> comboAvaliador1 = new JComboBox<String>();
+		comboAvaliador1.setBounds(403, 60, 227, 23);
+		panel.add(comboAvaliador1);
+		
+		JLabel avaliador1 = new JLabel("Avaliador 1");
+		avaliador1.setBounds(394, 41, 83, 22);
 		panel.add(avaliador1);
 		
-		JLabel avaliador2 = new JLabel("");
-		avaliador2.setBounds(81, 124, 261, 22);
+		JLabel avaliador2 = new JLabel("Avaliador 2");
+		avaliador2.setBounds(394, 94, 83, 22);
 		panel.add(avaliador2);
 		
-		JLabel avaliador3 = new JLabel("");
-		avaliador3.setBounds(81, 157, 261, 22);
+		JComboBox<String> comboAvaliador2 = new JComboBox<String>();
+		comboAvaliador2.setBounds(403, 112, 227, 23);
+		panel.add(comboAvaliador2);
+		
+		JLabel avaliador3 = new JLabel("Avaliador 3");
+		avaliador3.setBounds(403, 146, 83, 22);
 		panel.add(avaliador3);
 		
-		comboBox.addActionListener(new ActionListener() {
-		    @Override
-		    public void actionPerformed(ActionEvent e) {
-		        int n = comboBox.getSelectedIndex();
-		        avaliador1.setText(listaAlunos.get(nArray.get(n)-1).getAvaliador1());
-		        avaliador2.setText(listaAlunos.get(nArray.get(n)-1).getAvaliador2());
-		        avaliador3.setText(listaAlunos.get(nArray.get(n)-1).getAvaliador3());
-		        System.out.println(nArray.get(n));
-		        repaint();
-		        revalidate();
-		    }
-		});
+		JComboBox<String> comboAvaliador3 = new JComboBox<String>();
+		comboAvaliador3.setBounds(403, 165, 227, 23);
+		panel.add(comboAvaliador3);
 	}
 
 	@Override
