@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
 /**
  * Tela de ajuda ao usuário
- * @author jonas
+ * @author matheus
  *
  */
 public class Ajuda extends JDialog {

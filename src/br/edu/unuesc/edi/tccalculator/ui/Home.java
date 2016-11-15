@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import br.edu.unuesc.edi.tccalculator.ui.cad.CadastroAvaliador;
+import br.edu.unuesc.edi.tccalculator.ui.remove.Remove;
 /**
  * Home
  * Essa é a tela inicial responsavel para o usuario inserir as informações
@@ -56,7 +57,7 @@ public class Home extends JFrame {
 	 */
 	public Home() {
 
-		setIconImage(Toolkit.getDefaultToolkit().getImage("resources\\logoimg.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Home.class.getResource("/imagens/logoimg.jpg")));
 		setTitle("TCCalculator");
 		setVisible(true);
 		setMinimumSize(new Dimension(900, 600));
@@ -73,6 +74,7 @@ public class Home extends JFrame {
 		menuBar.add(mnArquivo);
 
 		JMenuItem mntmSair = new JMenuItem("Sair");
+		mntmSair.setIcon(new ImageIcon(Home.class.getResource("/imagens/logout.png")));
 		mntmSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(1);
@@ -83,7 +85,8 @@ public class Home extends JFrame {
 		JMenu mnCadastrar = new JMenu("Cadastrar");
 		menuBar.add(mnCadastrar);
 
-		JMenuItem mnCadastrarAluno = new JMenuItem("Cadastrar aluno");
+		JMenuItem mnCadastrarAluno = new JMenuItem("Cadastrar TCC");
+		mnCadastrarAluno.setIcon(new ImageIcon(Home.class.getResource("/imagens/tccCad.png")));
 		mnCadastrarAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -112,6 +115,7 @@ public class Home extends JFrame {
 		mnCadastrar.add(mnCadastrarAluno);
 		
 		JMenuItem mntmCurso = new JMenuItem("Curso");
+		mntmCurso.setIcon(new ImageIcon(Home.class.getResource("/imagens/studentd.png")));
 		mntmCurso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NewCurso curso = new NewCurso();
@@ -133,6 +137,7 @@ public class Home extends JFrame {
 		});
 		
 		JMenuItem mntmAvaliador = new JMenuItem("Avaliador");
+		mntmAvaliador.setIcon(new ImageIcon(Home.class.getResource("/imagens/classroom.png")));
 		mntmAvaliador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CadastroAvaliador avaliador = new CadastroAvaliador();
@@ -158,6 +163,7 @@ public class Home extends JFrame {
 		menuBar.add(mnGravarNotas);
 
 		JMenuItem mntmTccI = new JMenuItem("TCC I");
+		mntmTccI.setIcon(new ImageIcon(Home.class.getResource("/imagens/one.png")));
 		mntmTccI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PegarAluno tcci = null;
@@ -179,13 +185,14 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				janelas.add(tcci).setBounds(10, 10,  521, 263);
+				janelas.add(tcci).setBounds(10, 10,  664, 257);
 				tcci.setVisible(true);
 			}
 		});
 		mnGravarNotas.add(mntmTccI);
 
 		JMenuItem mntmTccIi = new JMenuItem("TCC II");
+		mntmTccIi.setIcon(new ImageIcon(Home.class.getResource("/imagens/two.png")));
 		mntmTccIi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PegarAluno tcci = null;
@@ -199,7 +206,7 @@ public class Home extends JFrame {
 				for (int i = 0; i < janelas.getComponents().length; i++) {
 					if (janelas.getComponent(i).equals(tcci)) {
 						tcci = (PegarAluno) janelas.getComponent(i);
-						tcci.requestFocus();
+						tcci.requestFocus(); 
 						tcci.requestFocusInWindow();
 						return;
 
@@ -207,13 +214,14 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				janelas.add(tcci).setBounds(10, 10,  521, 263);
+				janelas.add(tcci).setBounds(10, 10,  664, 257);
 				tcci.setVisible(true);
 			}
 		});
 		mnGravarNotas.add(mntmTccIi);
 
 		JMenuItem mntmTccIii = new JMenuItem("TCC III");
+		mntmTccIii.setIcon(new ImageIcon(Home.class.getResource("/imagens/three.png")));
 		mntmTccIii.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PegarAluno tcci = null;
@@ -235,7 +243,7 @@ public class Home extends JFrame {
 				}
 
 				tcci.setMinimumSize(new Dimension(350, 500));
-				janelas.add(tcci).setBounds(10, 10,  521, 263);
+				janelas.add(tcci).setBounds(10, 10, 664, 257);
 				tcci.setVisible(true);
 			}
 		});
@@ -245,10 +253,16 @@ public class Home extends JFrame {
 		menuBar.add(mnRelatrio);
 
 		JMenuItem mntmGerarRelatrioDe = new JMenuItem("Gerar Relat\u00F3rio de Aluno");
+		mntmGerarRelatrioDe.setIcon(new ImageIcon(Home.class.getResource("/imagens/search.png")));
 		mntmGerarRelatrioDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GerarRelatorio cad = null;
-				cad = new GerarRelatorio(janelas);
+				try {
+					cad = new GerarRelatorio(janelas);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				for (int i = 0; i < janelas.getComponents().length; i++) {
 					if (janelas.getComponent(i).equals(cad)) {
 						cad = (GerarRelatorio) janelas.getComponent(i);
@@ -265,11 +279,39 @@ public class Home extends JFrame {
 			}
 		});
 		mnRelatrio.add(mntmGerarRelatrioDe);
+		
+		JMenu mnRemover = new JMenu("Remover");
+		menuBar.add(mnRemover);
+		
+		JMenuItem mntmRemover = new JMenuItem("Remover");
+		mntmRemover.setIcon(new ImageIcon(Home.class.getResource("/imagens/remove.png")));
+		mntmRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Remove cad = null;
+					cad = new Remove(janelas);
+				
+				for (int i = 0; i < janelas.getComponents().length; i++) {
+					if (janelas.getComponent(i).equals(cad)) {
+						cad = (Remove) janelas.getComponent(i);
+						cad.requestFocus();
+						cad.requestFocusInWindow();
+						return;
+
+					}
+				}
+
+				cad.setMinimumSize(new Dimension(350, 300));
+				janelas.add(cad).setBounds(10, 10,  509,217);
+				cad.setVisible(true);
+			}
+		});
+		mnRemover.add(mntmRemover);
 
 		JMenu mnSobre = new JMenu("Sobre");
 		menuBar.add(mnSobre);
 
 		JMenuItem mntmSobre = new JMenuItem("Sobre");
+		mntmSobre.setIcon(new ImageIcon(Home.class.getResource("/imagens/letter-i.png")));
 		mntmSobre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				About.init();
@@ -278,6 +320,7 @@ public class Home extends JFrame {
 		mnSobre.add(mntmSobre);
 
 		JMenuItem mntmAjuda = new JMenuItem("Ajuda");
+		mntmAjuda.setIcon(new ImageIcon(Home.class.getResource("/imagens/info.png")));
 		mntmAjuda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Ajuda.init();

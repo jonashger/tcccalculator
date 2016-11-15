@@ -1,6 +1,7 @@
 package br.edu.unuesc.edi.tccalculator.ui;
 
 /**
+ * classe que representa o cadastro de tcc2
  * @author mathe
  */
 import java.awt.BorderLayout;
@@ -12,7 +13,6 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

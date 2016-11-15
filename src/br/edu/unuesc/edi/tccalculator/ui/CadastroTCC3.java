@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,7 +28,11 @@ import br.edu.unuesc.edi.tccalculator.tcc.CadastroNotaTCC;
 import br.edu.unuesc.edi.tccalculator.util.IeValidator;
 import br.edu.unuesc.edi.tccalculator.util.ToDouble;
 import br.edu.unuesc.edi.tccalculator.util.ValidaNumero;
-
+/**
+ * Classe que representa o cadastro de tcc 3
+ * @author matheus
+ *
+ */
 public class CadastroTCC3 extends JInternalFrame {
 
 

@@ -47,7 +47,6 @@ public class NewCurso extends JInternalFrame {
 	public NewCurso() {
 		setFrameIcon(new ImageIcon(NewCurso.class.getResource("/imagens/cadastroaluno].png")));
 		setTitle("Cadastro de Curso");
-		setResizable(true);
 		setIconifiable(true);
 		setClosable(true);
 		setBounds(100, 100, 450, 300);
@@ -73,6 +72,7 @@ public class NewCurso extends JInternalFrame {
 						DAOManager.cursoDAO.create(curso);
 					} catch (SQLException e1) {
 					}
+					JOptionPane.showMessageDialog(null, "Dados do curso \""+nomeCurso.getText()+"\" foram gravadas com sucesso!");
 					nomeCurso.setText("");
 				} else {
 					JOptionPane.showMessageDialog(null, "Insira um nome de qualquer curso");
@@ -84,8 +84,8 @@ public class NewCurso extends JInternalFrame {
 		getContentPane().add(btnNewButton);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("resources\\curso.png"));
-		lblNewLabel.setBounds(98, 11, 267, 173);
+		lblNewLabel.setIcon(new ImageIcon(NewCurso.class.getResource("/imagens/curso.png")));
+		lblNewLabel.setBounds(98, 11, 250, 173);
 		getContentPane().add(lblNewLabel);
 
 	}

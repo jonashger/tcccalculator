@@ -122,7 +122,7 @@ public class Login extends JFrame {
 
 			}
 		});
-		btnEntrar.setIcon(new ImageIcon("resources/login.jpg"));
+		btnEntrar.setIcon(new ImageIcon(Login.class.getResource("/imagens/login.jpg")));
 		btnEntrar.setBounds(332, 215, 109, 36);
 		panel.add(btnEntrar);
 
@@ -145,13 +145,13 @@ public class Login extends JFrame {
 		panel.add(lblSenha);
 
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("resources/login_logo.png"));
+		label.setIcon(new ImageIcon(Login.class.getResource("/imagens/login_logo.png")));
 		label.setBounds(195, 29, 279, 100);
 		panel.add(label);
 
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon("resources/boneco-not.jpg"));
-		label_1.setBounds(0, 0, 204, 251);
+		label_1.setIcon(new ImageIcon(Login.class.getResource("/imagens/boneco-not.jpg")));
+		label_1.setBounds(0, 11, 204, 251);
 		panel.add(label_1);
 
 		getRootPane().setDefaultButton(btnEntrar);

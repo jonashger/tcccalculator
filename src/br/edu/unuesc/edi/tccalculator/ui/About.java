@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
 /**
  * Tela do About do projeto
- * @author jonas
+ * @author matheus
  *
  */
 public class About extends JDialog {

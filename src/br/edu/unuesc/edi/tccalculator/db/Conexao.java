@@ -10,7 +10,7 @@ import com.j256.ormlite.support.ConnectionSource;
  *
  */
 public class Conexao {
-	private static final String DB_URL = "jdbc:sqlite:db/tccalculator.db";
+	private static final String DB_URL = "jdbc:sqlite:src/database/tccalculator.db";
 	private static ConnectionSource connectionSource = null;
 
 	private Conexao() {

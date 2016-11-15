@@ -165,7 +165,7 @@ public class CadastrarAluno extends JInternalFrame {
 				revalidate();
 			}
 		});
-		btnAddAluno.setIcon(new ImageIcon("resources/more.png"));
+		btnAddAluno.setIcon(new ImageIcon(CadastrarAluno.class.getResource("/imagens/more.png")));
 		btnAddAluno.setBounds(260, 11, 36, 36);
 		panel.add(btnAddAluno);
 		
@@ -228,7 +228,7 @@ public class CadastrarAluno extends JInternalFrame {
 						textAluno1.setText("");
 						textAluno2.setText("");
 						txtOrientador.setText("");
-						curso.setSelectedIndex(1);
+						curso.setSelectedIndex(0);
 						textAssunto.setText("");
 
 				}

@@ -15,14 +15,14 @@ public class CadastroNotaTCC {
 
 	public static boolean cadastroTCC(String nota,int id,ArrayList<Integer> lista,ArrayList<String> list) throws SQLException{
 	
-	
+		System.out.println(lista);
 		Aluno aluno = DAOManager.alunoDAO.queryForId(id);
-		Avaliador aval = DAOManager.avaliadorDAO.queryForId(lista.get(0));
 		aluno.setNota(nota);
+		Avaliador aval = DAOManager.avaliadorDAO.queryForId(lista.get(0));
 		aluno.setAvaliador1(aval.getAvaliador());
-		aval = DAOManager.avaliadorDAO.queryForId(lista.get(0));
-		aval = DAOManager.avaliadorDAO.queryForId(lista.get(0));
+		aval = DAOManager.avaliadorDAO.queryForId(lista.get(1));
 		aluno.setAvaliador2(aval.getAvaliador());
+		aval = DAOManager.avaliadorDAO.queryForId(lista.get(2));
 		aluno.setAvaliador3(aval.getAvaliador());
 		aluno.setNt01av01AP((String) list.get(0));	
 		aluno.setNt01av02AP((String) list.get(1));	

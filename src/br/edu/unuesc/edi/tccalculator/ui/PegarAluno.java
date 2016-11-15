@@ -1,6 +1,7 @@
 package br.edu.unuesc.edi.tccalculator.ui;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
@@ -8,13 +9,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
 
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
 import br.edu.unuesc.edi.tccalculator.db.Avaliador;
@@ -56,17 +61,30 @@ public class PegarAluno extends JInternalFrame {
 		setTitle("Aluno para " + tcc);
 		setResizable(true);
 		setClosable(true);
-		setBounds(100, 100, 520, 263);
+		setBounds(100, 100, 664, 257);
 		getContentPane().setLayout(null);
-
+		
+		DefaultListModel<String> model = new DefaultListModel<String>();
+	
+		JList<String> list = new JList<String>();
+		list.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		list.setBorder(new TitledBorder(null, "Selecionar Trabalho", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+		list.setBounds(21, 11, 368, 204);
+		getContentPane().add(list);
+		list.setModel(model);
+		JScrollPane scrollPane = new JScrollPane(list); 
+		scrollPane.setBounds(21, 11, 368, 204);
+		scrollPane.setVisible(true);
+		scrollPane.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		getContentPane().add(scrollPane);
 		cadastroAluno = pane;
-		JComboBox<String> comboBox = new JComboBox<String>();
 		List<Aluno> a = DAOManager.alunoDAO.queryForAll();
 		ArrayList<Integer> array = new ArrayList<>();
 		for (int i = 0; i < a.size(); i++) {
 			if (a.get(i).getTcc().equals(tcc)) {
 				if (a.get(i).getNota().equals("0")) {
-					comboBox.addItem(a.get(i).getAssunto());
+					model.addElement(a.get(i).getAssunto());
 					array.add(a.get(i).getnUsuario());
 				}
 			}
@@ -79,8 +97,6 @@ public class PegarAluno extends JInternalFrame {
 			dispose();
 		}	
 		}
-		comboBox.setBounds(10, 14, 485, 29);
-		getContentPane().add(comboBox);
 
 		JButton btnGravarNotas = new JButton("Gravar Notas");
 		btnGravarNotas.addActionListener(new ActionListener() {
@@ -99,7 +115,7 @@ public class PegarAluno extends JInternalFrame {
 				arrayIdAvali.add(idAvaliadores.get(avaliador1.getSelectedIndex()));
 				arrayIdAvali.add(idAvaliadores.get(avaliador2.getSelectedIndex()));
 				arrayIdAvali.add(idAvaliadores.get(avaliador3.getSelectedIndex()));
-				int idDoAluno = array.get(comboBox.getSelectedIndex());
+				int idDoAluno = array.get(list.getSelectedIndex());
 				
 				try {
 					if (array.isEmpty()) {
@@ -163,19 +179,19 @@ public class PegarAluno extends JInternalFrame {
 
 			}
 		});
-		btnGravarNotas.setBounds(194, 203, 138, 29);
+		btnGravarNotas.setBounds(500, 186, 138, 29);
 		getContentPane().add(btnGravarNotas);
 		
 		JLabel lblAvaliador = new JLabel("Avaliador 1");
-		lblAvaliador.setBounds(10, 54, 83, 22);
+		lblAvaliador.setBounds(399, 37, 83, 22);
 		getContentPane().add(lblAvaliador);
 		
 		JLabel lblAvaliador_1 = new JLabel("Avaliador 2");
-		lblAvaliador_1.setBounds(10, 103, 83, 22);
+		lblAvaliador_1.setBounds(399, 86, 83, 22);
 		getContentPane().add(lblAvaliador_1);
 		
 		JLabel lblAvaliador_2 = new JLabel("Avaliador 3");
-		lblAvaliador_2.setBounds(10, 152, 83, 22);
+		lblAvaliador_2.setBounds(399, 135, 83, 22);
 		getContentPane().add(lblAvaliador_2);
 		
 		List<Avaliador> aval = DAOManager.avaliadorDAO.queryForAll();
@@ -185,11 +201,11 @@ public class PegarAluno extends JInternalFrame {
 			avaliador1.addItem(aval.get(i).getAvaliador());
 			idAvaliadores.add(aval.get(i).getnAvaliador());
 		}
-		avaliador1.setBounds(20, 71, 453, 23);
+		avaliador1.setBounds(409, 54, 227, 23);
 		getContentPane().add(avaliador1);
 		
 		 avaliador2 = new JComboBox<String>();
-		avaliador2.setBounds(20, 120, 453, 23);
+		avaliador2.setBounds(409, 103, 227, 23);
 		for (int i = 0; i < aval.size(); i++) {
 			avaliador2.addItem(aval.get(i).getAvaliador());
 		}
@@ -199,9 +215,12 @@ public class PegarAluno extends JInternalFrame {
 		for (int i = 0; i < aval.size(); i++) {
 			avaliador3.addItem(aval.get(i).getAvaliador());
 		}
-		avaliador3.setBounds(20, 169, 453, 23);
+		avaliador3.setBounds(409, 152, 227, 23);
 		getContentPane().add(avaliador3);
 
+		if (a.size() == 0) {
+			btnGravarNotas.setVisible(false);
+		}
 	}
 
 	@Override

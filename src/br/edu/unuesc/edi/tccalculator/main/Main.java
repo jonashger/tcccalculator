@@ -1,11 +1,19 @@
 package br.edu.unuesc.edi.tccalculator.main;
 
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JWindow;
+import javax.swing.UIManager;
 
 import br.edu.unuesc.edi.tccalculator.ui.Login;
 /**
@@ -41,8 +49,8 @@ public class Main extends JWindow {
         int x = (screen.width-width)/2;
         int y = (screen.height-height)/2;
         setBounds(x,y,width,height);
-        // Constrói o splash screen
-        JLabel label = new JLabel(new ImageIcon("resources\\logo.jpg"));
+        // Constrói o splash screen0
+        JLabel label = new JLabel(new ImageIcon(Main.class.getResource("/imagens/LOGO.jpg")));
         content.add(label, BorderLayout.CENTER);
         content.setBorder(BorderFactory.createLineBorder(new Color(00, 0, 0), 5));        
         // Torna visível
@@ -68,6 +76,7 @@ public class Main extends JWindow {
         try {
 
         	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        	
         	
         } 
         catch (Exception e) {
