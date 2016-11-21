@@ -1,10 +1,15 @@
 package br.edu.unuesc.edi.tccalculator.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -18,17 +23,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyAdapter;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
 import br.edu.unuesc.edi.tccalculator.util.login.GeradorSHA;
-import br.edu.unuesc.edi.tccalculator.util.login.CadastroUserEspecial;
-
-import java.awt.Component;
-import java.awt.Toolkit;
+import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
 
 public class Login extends JFrame {
 

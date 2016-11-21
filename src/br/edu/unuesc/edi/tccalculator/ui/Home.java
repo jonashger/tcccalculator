@@ -151,7 +151,7 @@ public class Home extends JFrame {
 				}
 
 				 avaliador.setMinimumSize(new Dimension(450, 300));
-				janelas.add( avaliador).setBounds(10, 10, 450, 167);
+				janelas.add( avaliador).setBounds(10, 10, 513, 193);
 				 avaliador.setVisible(true);
 				 avaliador.requestFocusInWindow();
 			}
@@ -274,7 +274,7 @@ public class Home extends JFrame {
 				}
 
 				cad.setMinimumSize(new Dimension(350, 300));
-				janelas.add(cad).setBounds(10, 10,  450, 300);
+				janelas.add(cad).setBounds(10, 10, 656, 281);
 				cad.setVisible(true);
 			}
 		});

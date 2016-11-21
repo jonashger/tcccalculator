@@ -2,8 +2,8 @@ package br.edu.unuesc.edi.tccalculator.util.login;
 
 
 	import java.io.UnsupportedEncodingException;
-	  import java.security.MessageDigest;
-	  import java.security.NoSuchAlgorithmException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 	  /**
 	   * Gerador de SHA-256 para fazer a encriptação da senha. 
 	   * A senha passa para Sha-256 e ainda é convertido em String de Hexadecimal. 

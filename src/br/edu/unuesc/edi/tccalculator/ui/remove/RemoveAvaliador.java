@@ -14,8 +14,6 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 import br.edu.unuesc.edi.tccalculator.db.Avaliador;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;

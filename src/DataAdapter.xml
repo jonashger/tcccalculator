@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl"><name>Adapter</name><driver>org.sqlite.JDBC</driver><username></username><password></password><savePassword>true</savePassword><url>jdbc:sqlite:C:/Users/jonas/git/tccalculator/src/database/tccalculator.db</url><database></database><serverAddress></serverAddress><classpath>C:\Users\jonas\git\tccalculator\libs\sqlitejdbc-v056.jar</classpath><classpath>C:\Users\jonas\git\tccalculator\libs\sqlite-jdbc-3.8.11.2.jar</classpath></jdbcDataAdapter>

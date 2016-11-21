@@ -21,9 +21,9 @@ import javax.swing.border.EmptyBorder;
 
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
-import br.edu.unuesc.edi.tccalculator.util.login.GeradorSHA;
 import br.edu.unuesc.edi.tccalculator.util.login.CadastroUserEspecial;
+import br.edu.unuesc.edi.tccalculator.util.login.GeradorSHA;
+import br.edu.unuesc.edi.tccalculator.util.login.LoginPass;
 import br.edu.unuesc.edi.tccalculator.util.login.UsrExiste;
 /**
  * Frame para realizar o cadastro de novo user especial

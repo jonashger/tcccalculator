@@ -1,22 +1,20 @@
 package br.edu.unuesc.edi.tccalculator.ui;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Font;
 import javax.swing.JTextField;
 
 import br.edu.unuesc.edi.tccalculator.db.Curso;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
-
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.awt.event.ActionEvent;
 /**
  * Cadastro de novo curso caso o curso que o aluno faça não esteja ali.
  * @author jonas

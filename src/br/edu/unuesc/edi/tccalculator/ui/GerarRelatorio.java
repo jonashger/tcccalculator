@@ -3,24 +3,27 @@ package br.edu.unuesc.edi.tccalculator.ui;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
 
 import br.edu.unuesc.edi.tccalculator.db.Aluno;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.util.ReportGenerator;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.border.TitledBorder;
 /**
  * Classe que gera relatório
  * @author jonas
@@ -49,15 +52,8 @@ public class GerarRelatorio extends JInternalFrame {
 		setBounds(100, 100, 656, 281);
 		
 		JPanel panel = new JPanel();
+		
 		getContentPane().add(panel, BorderLayout.CENTER);
-		ArrayList<Integer> nArray = new ArrayList<>();
-		List<Aluno> listaAlunos = DAOManager.alunoDAO.queryForAll();
-		for (int i = 0; i < listaAlunos.size(); i++) {
-			if(!listaAlunos.get(i).getNota().equals("0")){
-				comboBox.addItem(listaAlunos.get(i).getAssunto());
-				nArray.add(listaAlunos.get(i).getnUsuario());
-			}
-		}
 		
 		JButton btnNewButton = new JButton("Gerar Relat\u00F3rio");
 		btnNewButton.setBounds(447, 202, 154, 22);
@@ -70,19 +66,29 @@ public class GerarRelatorio extends JInternalFrame {
 		panel.setLayout(null);
 		panel.add(btnNewButton);
 		
-		JList list = new JList();
+		
+
+		
+		DefaultListModel<String> model = new DefaultListModel<String>();
+		JList<String> list = new JList<String>();
 		list.setBorder(new TitledBorder(null, "Selecione Projeto", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 		list.setBounds(22, 11, 362, 213);
 		panel.add(list);
+		list.setModel(model);
+		
+		ArrayList<Integer> nArray = new ArrayList<>();
+		List<Aluno> listaAlunos = DAOManager.alunoDAO.queryForAll();
+		for (int i = 0; i < listaAlunos.size(); i++) {
+			if(!listaAlunos.get(i).getNota().equals("0")){
+				model.addElement(listaAlunos.get(i).getAssunto());
+				nArray.add(listaAlunos.get(i).getnUsuario());
+			}
+		}
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setToolTipText("");
 		scrollPane.setBounds(22, 25, 298, 199);
 		panel.add(scrollPane);
-		
-		JComboBox<String> comboAvaliador1 = new JComboBox<String>();
-		comboAvaliador1.setBounds(403, 60, 227, 23);
-		panel.add(comboAvaliador1);
 		
 		JLabel avaliador1 = new JLabel("Avaliador 1");
 		avaliador1.setBounds(394, 41, 83, 22);
@@ -92,17 +98,32 @@ public class GerarRelatorio extends JInternalFrame {
 		avaliador2.setBounds(394, 94, 83, 22);
 		panel.add(avaliador2);
 		
-		JComboBox<String> comboAvaliador2 = new JComboBox<String>();
-		comboAvaliador2.setBounds(403, 112, 227, 23);
-		panel.add(comboAvaliador2);
-		
 		JLabel avaliador3 = new JLabel("Avaliador 3");
 		avaliador3.setBounds(403, 146, 83, 22);
 		panel.add(avaliador3);
 		
-		JComboBox<String> comboAvaliador3 = new JComboBox<String>();
-		comboAvaliador3.setBounds(403, 165, 227, 23);
-		panel.add(comboAvaliador3);
+		JLabel labelAval1 = new JLabel("");
+		labelAval1.setBounds(394, 61, 236, 27);
+		panel.add(labelAval1);
+		
+		JLabel labelAval2 = new JLabel("");
+		labelAval2.setBounds(394, 118, 236, 27);
+		panel.add(labelAval2);
+		
+		JLabel labelAval3 = new JLabel("");
+		labelAval3.setBounds(394, 166, 236, 27);
+		panel.add(labelAval3);
+		
+		
+		
+		MouseListener mouseListener = new MouseAdapter() {
+		    public void mouseClicked(MouseEvent e) {
+		       
+		        	System.out.println(list.getSelectedValue());
+
+		    }
+		};
+		list.addMouseListener(mouseListener);
 	}
 
 	@Override

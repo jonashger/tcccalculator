@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 
 import br.edu.unuesc.edi.tccalculator.db.Avaliador;
 import br.edu.unuesc.edi.tccalculator.db.DAOManager;
-import javax.swing.SwingConstants;
 /**
  * Classe Responsavel pelo cadastro de avaliadores
  * @author jonas
@@ -61,7 +60,7 @@ public class CadastroAvaliador extends JInternalFrame {
 				if (!(n<0)&& (n2<0)) {
 					Avaliador a = new Avaliador();
 					a.setAvaliador(avaliador);
-					JOptionPane.showMessageDialog(lblNewLabel, avaliador +" cadastrada com sucesso no sistema!");
+					JOptionPane.showMessageDialog(lblNewLabel, avaliador +" cadastrado(a) com sucesso no sistema!");
 					textField.setText("");
 					try {
 						DAOManager.avaliadorDAO.create(a);
