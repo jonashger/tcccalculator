@@ -9,5 +9,7 @@
 	<classpathentry kind="con" path="com.jaspersoft.server.JRS_CONTAINER"/>
 	<classpathentry kind="con" path="net.sf.jasperreports.JR_CONTAINER"/>
 	<classpathentry kind="con" path="net.sf.jasperreports.JR_DEPENDENCIES_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/sqlitejdbc-v056.jar"/>
+	<classpathentry kind="lib" path="libs/identity.secrets.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

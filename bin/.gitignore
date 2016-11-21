@@ -1,4 +1,6 @@
+/TCC1Reporta.jasper
+/.gitignore
+/relatorio/
 /br/
-/org/
-/reportTCC1.jrtx
-/reportTCC1.jrxml
+/DataAdapterTCC1.xml
+/TCC1Reporta.jrxml

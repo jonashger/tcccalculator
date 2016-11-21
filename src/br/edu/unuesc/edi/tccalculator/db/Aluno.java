@@ -86,7 +86,23 @@ public class Aluno {
 	private String ntAO;
 	@DatabaseField
 	private String ntAAA;
-
+	@DatabaseField
+	private String ntMdE01AA;
+	@DatabaseField
+	private String ntMdE02AA;
+	@DatabaseField
+	private String ntMdE03AA;
+	@DatabaseField
+	private String ntMdE01AP;
+	@DatabaseField
+	private String ntMdE02AP;
+	@DatabaseField
+	private String ntMdE03AP;
+	@DatabaseField
+	private String ntMdE04AP;
+	@DatabaseField
+	private String ntMdE05AP;
+	
 	
 	public String getAssunto() {
 		return assunto;
@@ -316,6 +332,54 @@ public class Aluno {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getNtMdE01AA() {
+		return ntMdE01AA;
+	}
+	public void setNtMdE01AA(String ntMdE01AA) {
+		this.ntMdE01AA = ntMdE01AA;
+	}
+	public String getNtMdE02AA() {
+		return ntMdE02AA;
+	}
+	public void setNtMdE02AA(String ntMdE02AA) {
+		this.ntMdE02AA = ntMdE02AA;
+	}
+	public String getNtMdE03AA() {
+		return ntMdE03AA;
+	}
+	public void setNtMdE03AA(String ntMdE03AA) {
+		this.ntMdE03AA = ntMdE03AA;
+	}
+	public String getNtMdE01AP() {
+		return ntMdE01AP;
+	}
+	public void setNtMdE01AP(String ntMdE01AP) {
+		this.ntMdE01AP = ntMdE01AP;
+	}
+	public String getNtMdE02AP() {
+		return ntMdE02AP;
+	}
+	public void setNtMdE02AP(String ntMdE02AP) {
+		this.ntMdE02AP = ntMdE02AP;
+	}
+	public String getNtMdE03AP() {
+		return ntMdE03AP;
+	}
+	public void setNtMdE03AP(String ntMdE03AP) {
+		this.ntMdE03AP = ntMdE03AP;
+	}
+	public String getNtMdE04AP() {
+		return ntMdE04AP;
+	}
+	public void setNtMdE04AP(String ntMdE04AP) {
+		this.ntMdE04AP = ntMdE04AP;
+	}
+	public String getNtMdE05AP() {
+		return ntMdE05AP;
+	}
+	public void setNtMdE05AP(String ntMdE05AP) {
+		this.ntMdE05AP = ntMdE05AP;
 	}
 	
 	

@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import br.edu.unuesc.edi.tccalculator.ui.cad.CadastroAvaliador;
+import br.edu.unuesc.edi.tccalculator.ui.relatorio.SelectTCC;
 import br.edu.unuesc.edi.tccalculator.ui.remove.Remove;
 /**
  * Home
@@ -256,25 +257,18 @@ public class Home extends JFrame {
 		mntmGerarRelatrioDe.setIcon(new ImageIcon(Home.class.getResource("/imagens/search.png")));
 		mntmGerarRelatrioDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GerarRelatorio cad = null;
-				try {
-					cad = new GerarRelatorio(janelas);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				SelectTCC cad = null;
+				cad = new SelectTCC(janelas);
 				for (int i = 0; i < janelas.getComponents().length; i++) {
 					if (janelas.getComponent(i).equals(cad)) {
-						cad = (GerarRelatorio) janelas.getComponent(i);
+						cad = (SelectTCC) janelas.getComponent(i);
 						cad.requestFocus();
 						cad.requestFocusInWindow();
 						return;
 
 					}
 				}
-
-				cad.setMinimumSize(new Dimension(350, 300));
-				janelas.add(cad).setBounds(10, 10, 656, 281);
+				janelas.add(cad).setBounds(10, 10, 450, 211);
 				cad.setVisible(true);
 			}
 		});

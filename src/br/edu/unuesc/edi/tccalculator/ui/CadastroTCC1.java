@@ -92,7 +92,9 @@ public class CadastroTCC1 extends JInternalFrame {
 	private JLabel lblAvaliador;
 	private JLabel lblAvaliador_2;
 	private JLabel lblAvaliador_1;
+	private ArrayList<String> listaMedias = null;
 	private ArrayList<String> lista = null;
+
 	/**
 	 * Launch the application.
 	 */
@@ -104,7 +106,8 @@ public class CadastroTCC1 extends JInternalFrame {
 	 * @throws SQLException
 	 * @throws NumberFormatException
 	 */
-	public CadastroTCC1(int usr, ArrayList<Integer> arrayIdAval) throws PropertyVetoException, NumberFormatException, SQLException {
+	public CadastroTCC1(int usr, ArrayList<Integer> arrayIdAval)
+			throws PropertyVetoException, NumberFormatException, SQLException {
 		setFrameIcon(new ImageIcon(CadastroTCC1.class.getResource("/imagens/Calculator2.png")));
 		setTitle(" C\u00E1lculo das Avalia\u00E7\u00F5es TCC1");
 		setSelected(true);
@@ -508,8 +511,18 @@ public class CadastroTCC1 extends JInternalFrame {
 				lista.add(txtAv03E3AA.getText());
 				lista.add(txtNotaAO.getText());
 				lista.add(txtNotaAAA.getText());
+				
+
+				listaMedias = new ArrayList<>();
+				listaMedias.add(txtMedA1AA.getText());
+				listaMedias.add(txtMedA2AA.getText());
+				listaMedias.add(txtMedA3AA.getText());
+				listaMedias.add(txtMedA1AP.getText());
+				listaMedias.add(txtMedA2AP.getText());
+				listaMedias.add(txtMedA3AP.getText());
+				listaMedias.add(txtMedA4AP.getText());
 				try {
-					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, arrayIdAval,lista);
+					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, arrayIdAval, lista,listaMedias);
 				} catch (SQLException e) {
 					System.out.println(e.getErrorCode());
 				}
@@ -560,10 +573,10 @@ public class CadastroTCC1 extends JInternalFrame {
 		lblAvaliador_1 = new JLabel("Avaliador 2:");
 		lblAvaliador_1.setBounds(150, 515, 69, 22);
 		getContentPane().add(lblAvaliador_1);
-		
+
 		Avaliador av1 = DAOManager.avaliadorDAO.queryForId(arrayIdAval.get(0));
 		lblAval1 = new JLabel(av1.getAvaliador());
-		lblAval1.setBounds(216, 482, 303, 22);	
+		lblAval1.setBounds(216, 482, 303, 22);
 		getContentPane().add(lblAval1);
 		Avaliador av2 = DAOManager.avaliadorDAO.queryForId(arrayIdAval.get(1));
 		lblAval2 = new JLabel(av2.getAvaliador());
@@ -573,7 +586,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		lblAval3 = new JLabel(av3.getAvaliador());
 		lblAval3.setBounds(216, 548, 303, 22);
 		getContentPane().add(lblAval3);
-		
+
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP,
 				txtAv1Ep2AP, txtAv2Ep2AP, txtAv3Ep2AP, txtAv1Ep3AP, txtAv2Ep3AP, txtAv3Ep3AP, txtAv1Ep4AP, txtAv2Ep4AP,
 				txtAv3Ep4AP, txtAv01E1AA, txtAv02E1AA, txtAv03E1AA, txtAv01E2AA, txtAv02E2AA, txtAv03E2AA, txtAv01E3AA,
@@ -628,7 +641,6 @@ public class CadastroTCC1 extends JInternalFrame {
 			double valorFinal2 = (valor1 + valor2 + valor3) / 3;
 			txtMedA2AP.setText(String.valueOf(valorFinal2));
 
-			
 			valor1 = ToDouble.init(txtAv1Ep3AP);
 			valor2 = ToDouble.init(txtAv2Ep3AP);
 			valor3 = ToDouble.init(txtAv3Ep3AP);
@@ -677,10 +689,11 @@ public class CadastroTCC1 extends JInternalFrame {
 			double notaFinalFinal = (valorFinalAA * 2 + valorFinalAP * 5 + ToDouble.init(txtNotaAO) * 1.5
 					+ ToDouble.init(txtNotaAAA) * 1.5) / 10;
 			txtNotaFinal.setText(String.valueOf(notaFinalFinal));
-		
+
+			
 			txtNotaFinalAA.repaint();
 			txtNotaFinalAP.repaint();
-			
+
 			return true;
 		}
 		return true;

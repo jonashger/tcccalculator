@@ -13,7 +13,7 @@ import br.edu.unuesc.edi.tccalculator.db.DAOManager;
  */
 public class CadastroNotaTCC {
 
-	public static boolean cadastroTCC(String nota,int id,ArrayList<Integer> lista,ArrayList<String> list) throws SQLException{
+	public static boolean cadastroTCC(String nota,int id,ArrayList<Integer> lista,ArrayList<String> list,ArrayList<String> listAluno) throws SQLException{
 	
 		System.out.println(lista);
 		Aluno aluno = DAOManager.alunoDAO.queryForId(id);
@@ -50,6 +50,14 @@ public class CadastroNotaTCC {
 		aluno.setNt03av03AA((String) list.get(23));	
 		aluno.setNtAAA((String) list.get(25));
 		aluno.setNtAO((String) list.get(24));	
+		aluno.setNtMdE01AA((String)listAluno.get(0));
+		aluno.setNtMdE02AA((String)listAluno.get(1));
+		aluno.setNtMdE03AA((String)listAluno.get(2));
+		aluno.setNtMdE01AP((String)listAluno.get(3));
+		aluno.setNtMdE02AP((String)listAluno.get(4));
+		aluno.setNtMdE03AP((String)listAluno.get(5));
+		aluno.setNtMdE04AP((String)listAluno.get(6));
+		aluno.setNtMdE05AP((String)listAluno.get(7));
 		double sta = Double.parseDouble(nota);
 		if(sta>=7){
 			aluno.setStatus("Aprovado");

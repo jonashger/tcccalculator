@@ -47,6 +47,7 @@ public class CadastroTCC3 extends JInternalFrame {
 	private JTextField txtAv2Ep2AP;
 	private JTextField txtAv2Ep3AP;
 	private JTextField txtAv3Ep3AP;
+	private ArrayList<String> listaMedias = null;
 	private JTextField txtAv3Ep2AP;
 	private JTextField txtAv3Ep1AP;
 	private JTextField txtMedA3AP;
@@ -528,8 +529,17 @@ public class CadastroTCC3 extends JInternalFrame {
 				lista.add(txtAv03E3AA.getText());
 				lista.add(txtNotaAO.getText());
 				lista.add(txtNotaAAA.getText());
+				listaMedias = new ArrayList<>();
+				listaMedias.add(txtMedA1AA.getText());
+				listaMedias.add(txtMedA2AA.getText());
+				listaMedias.add(txtMedA3AA.getText());
+				listaMedias.add(txtMedA1AP.getText());
+				listaMedias.add(txtMedA2AP.getText());
+				listaMedias.add(txtMedA3AP.getText());
+				listaMedias.add(txtMedA4AP.getText());
+				listaMedias.add(txtMedA5AP.getText());
 				try {
-					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, arrayIdAval,lista);
+					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, arrayIdAval,lista,listaMedias);
 		 		} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
