@@ -2,8 +2,8 @@ package br.edu.unuesc.edi.tccalculator.util.login;
 
 import java.sql.SQLException;
 
-import br.edu.unuesc.edi.tccalculator.db.DAOManager;
-import br.edu.unuesc.edi.tccalculator.db.Usuario;
+import br.edu.unoesc.edi.tccalculator.db.DAOManager;
+import br.edu.unoesc.edi.tccalculator.db.Usuario;
 /**
  * classe para validadação da senha e usuário para realizar o login
  * @author jonas

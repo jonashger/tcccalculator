@@ -2,8 +2,8 @@ package br.edu.unuesc.edi.tccalculator.util.login;
 
 import java.sql.SQLException;
 
-import br.edu.unuesc.edi.tccalculator.db.DAOManager;
-import br.edu.unuesc.edi.tccalculator.db.Usuario;
+import br.edu.unoesc.edi.tccalculator.db.DAOManager;
+import br.edu.unoesc.edi.tccalculator.db.Usuario;
 /**
  * Classe para realizar o cadastro de novo super user no sistema
  * @author jonas

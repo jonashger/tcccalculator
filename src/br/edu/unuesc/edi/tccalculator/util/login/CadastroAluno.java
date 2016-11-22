@@ -2,8 +2,8 @@ package br.edu.unuesc.edi.tccalculator.util.login;
 
 import java.sql.SQLException;
 
-import br.edu.unuesc.edi.tccalculator.db.Aluno;
-import br.edu.unuesc.edi.tccalculator.db.DAOManager;
+import br.edu.unoesc.edi.tccalculator.db.Aluno;
+import br.edu.unoesc.edi.tccalculator.db.DAOManager;
 /**
  * Classe que faz o cadastro do aluno no sistema
  * @author jonas
