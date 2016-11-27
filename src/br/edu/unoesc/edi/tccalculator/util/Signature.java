@@ -48,18 +48,14 @@ public class Signature extends JApplet {
 	private Button captureButton = new Button("Capturar");
 	private Graphics gc;
 	Graphics2D imageG = null;
-	private static int id;
+	private static String avaliador;
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see java.applet.Applet#init()
 	 */
-	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		super.init();
-
+	public void signature(String avalr) {
+		 avaliador = avalr;
 		setSize(600, 200);
 
 		image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -96,19 +92,11 @@ public class Signature extends JApplet {
 							new JScrollPane(new JTextArea()), new JScrollPane(new JTextArea())));
 					// cp.add(canvas);
 					
-/**				 int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a ID do Aluno?"));
-					List<Aluno> b = null;
-					try {
-						b = DAOManager.alunoDao.queryForAll();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 
-					File filetoSave = new File("c:\\Assinatura"+ b.get(id - 1).getNome() + ".jpeg");
-**/
+					File filetoSave = new File("avalidorSignature/"+ avaliador + ".jpeg");
+
 					//salva assinatura com nome especifico em C:
-					File filetoSave = new File("c:\\temp\\Assinatura.jpeg");
+				
 					// If the file does not exist or the user gives permission,
 					// save image to file.
 
@@ -207,11 +195,6 @@ public class Signature extends JApplet {
 	/**
 	 * 
 	 */
-	public Signature() {
-	}
 
-	public static void iniciar(int ide) {
-		id = ide;
-		Signature p = new Signature();
-	}
+
 }

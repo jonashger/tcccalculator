@@ -14,7 +14,7 @@ public class ValidaNumero {
 
 		if (Numero.getText().length() != 0) {
 			try {
-				valor = Double.parseDouble(Numero.getText());
+				valor = Double.parseDouble(Numero.getText().replace(",", "."));
 				if ((valor > 10)) {
 					return false;
 				}

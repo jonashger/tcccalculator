@@ -11,6 +11,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -30,6 +32,7 @@ import br.edu.unoesc.edi.tccalculator.db.Avaliador;
 import br.edu.unoesc.edi.tccalculator.db.DAOManager;
 import br.edu.unoesc.edi.tccalculator.tcc.CadastroNotaTCC;
 import br.edu.unoesc.edi.tccalculator.util.IeValidator;
+import br.edu.unoesc.edi.tccalculator.util.PassaCamposComEnter;
 import br.edu.unoesc.edi.tccalculator.util.ToDouble;
 import br.edu.unoesc.edi.tccalculator.util.ValidaNumero;
 
@@ -165,7 +168,6 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel.add(txtAv3Ep1AP);
 
 		txtMedA1AP = new JTextField();
-		((AbstractDocument) txtMedA1AP.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtMedA1AP.setBounds(598, 56, 86, 20);
 		panel.add(txtMedA1AP);
 		txtMedA1AP.setEditable(false);
@@ -184,8 +186,7 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel.add(txtAv3Ep2AP);
 
 		txtMedA2AP = new JTextField();
-		((AbstractDocument) txtMedA2AP.getDocument()).setDocumentFilter(new IeValidator(3));
-		txtMedA2AP.setBounds(598, 74, 86, 20);
+	    txtMedA2AP.setBounds(598, 74, 86, 20);
 		panel.add(txtMedA2AP);
 		txtMedA2AP.setEditable(false);
 
@@ -205,7 +206,6 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel.add(txtAv3Ep3AP);
 
 		txtMedA3AP = new JTextField();
-		((AbstractDocument) txtMedA3AP.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtMedA3AP.setBounds(598, 94, 86, 20);
 		panel.add(txtMedA3AP);
 		txtMedA3AP.setEditable(false);
@@ -226,7 +226,6 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel.add(txtAv3Ep4AP);
 
 		txtMedA4AP = new JTextField();
-		((AbstractDocument) txtMedA4AP.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtMedA4AP.setBounds(598, 113, 86, 20);
 		panel.add(txtMedA4AP);
 		txtMedA4AP.setEditable(false);
@@ -312,7 +311,6 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel_1.add(txtAv03E1AA);
 
 		txtMedA1AA = new JTextField();
-		((AbstractDocument) txtMedA1AA.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtMedA1AA.setBounds(594, 49, 86, 20);
 		panel_1.add(txtMedA1AA);
 		txtMedA1AA.setEditable(false);
@@ -333,7 +331,6 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel_1.add(txtAv01E2AA);
 
 		txtMedA2AA = new JTextField();
-		((AbstractDocument) txtMedA2AA.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtMedA2AA.setBounds(594, 67, 86, 20);
 		panel_1.add(txtMedA2AA);
 		txtMedA2AA.setEditable(false);
@@ -354,7 +351,6 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel_1.add(txtAv03E3AA);
 
 		txtMedA3AA = new JTextField();
-		((AbstractDocument) txtMedA3AA.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtMedA3AA.setBounds(594, 87, 86, 20);
 		panel_1.add(txtMedA3AA);
 		txtMedA3AA.setEditable(false);
@@ -439,19 +435,16 @@ public class CadastroTCC2 extends JInternalFrame {
 		lblRelatrioDeNotas.setForeground(Color.BLUE);
 
 		txtNotaFinalAP = new JTextField();
-		((AbstractDocument) txtNotaFinalAP.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtNotaFinalAP.setBounds(111, 35, 86, 20);
 		panel_4.add(txtNotaFinalAP);
 		txtNotaFinalAP.setEditable(false);
 
 		txtNotaFinalAA = new JTextField();
-		((AbstractDocument) txtNotaFinalAA.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtNotaFinalAA.setBounds(111, 60, 86, 20);
 		panel_4.add(txtNotaFinalAA);
 		txtNotaFinalAA.setEditable(false);
 
 		txtNotaFinal = new JTextField();
-		((AbstractDocument) txtNotaFinal.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtNotaFinal.setBounds(111, 92, 86, 20);
 		panel_4.add(txtNotaFinal);
 		txtNotaFinal.setEditable(false);
@@ -572,7 +565,12 @@ public class CadastroTCC2 extends JInternalFrame {
 				label_1.setBounds(216, 521, 303, 22);
 				getContentPane().add(label_1);
 				
-				
+				PassaCamposComEnter d = new PassaCamposComEnter();
+				d.passaCamposComEnter(panel);
+				d.passaCamposComEnter(panel_1);
+				d.passaCamposComEnter(panel_2);
+				d.passaCamposComEnter(panel_3);
+				d.passaCamposComEnter(panel_4);
 				
 				
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP,
@@ -620,46 +618,22 @@ public class CadastroTCC2 extends JInternalFrame {
 		}
 		if (pass) {
 			double valorEx1 = ToDouble.init(txtAv1Ep1AP);
-			double valor2 = ToDouble.init(txtAv2Ep1AP);
-			double valor3 = ToDouble.init(txtAv3Ep1AP);
-			double valorFinal1 = (valorEx1 + valor2 + valor3) / 3;
-			txtMedA1AP.setText(String.valueOf(valorFinal1));
-
-			double valor1 = ToDouble.init(txtAv1Ep2AP);
-			valor2 = ToDouble.init(txtAv2Ep2AP);
-			valor3 = ToDouble.init(txtAv3Ep2AP);
-			double valorFinal2 = (valor1 + valor2 + valor3) / 3;
-			txtMedA2AP.setText(String.valueOf(valorFinal2));
-
-			valor1 = ToDouble.init(txtAv1Ep3AP);
-			valor2 = ToDouble.init(txtAv2Ep3AP);
-			valor3 = ToDouble.init(txtAv3Ep3AP);
-			double valorFinal3 = (valor1 + valor2 + valor3) / 3;
-			txtMedA3AP.setText(String.valueOf(valorFinal3));
-
-			valor1 = ToDouble.init(txtAv1Ep4AP);
-			valor2 = ToDouble.init(txtAv2Ep4AP);
-			valor3 = ToDouble.init(txtAv3Ep4AP);
-			double valorFinal4 = (valor1 + valor2 + valor3) / 3;
-			txtMedA4AP.setText(String.valueOf(valorFinal4));
-
 			double valorEx2 = ToDouble.init(txtAv01E1AA);
-			valor2 = ToDouble.init(txtAv02E1AA);
-			valor3 = ToDouble.init(txtAv03E1AA);
-			double valorFinal5 = (valorEx2 + valor2 + valor3) / 3;
+			double valorFinal1=calculaMedia(txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP).doubleValue();
+			double valorFinal2=calculaMedia(txtAv1Ep2AP, txtAv2Ep2AP, txtAv3Ep2AP).doubleValue();
+			double valorFinal3=calculaMedia(txtAv1Ep3AP, txtAv2Ep3AP, txtAv3Ep3AP).doubleValue();
+			double valorFinal4=calculaMedia(txtAv1Ep4AP, txtAv2Ep4AP, txtAv3Ep4AP).doubleValue();
+			double valorFinal5=calculaMedia(txtAv01E1AA, txtAv02E1AA, txtAv03E1AA).doubleValue();
+			double valorFinal6=calculaMedia(txtAv01E2AA, txtAv02E2AA, txtAv03E2AA).doubleValue();
+			double valorFinal7=calculaMedia(txtAv01E3AA, txtAv02E3AA, txtAv03E3AA).doubleValue();
+			txtMedA1AP.setText(String.valueOf(valorFinal1));
+			txtMedA2AP.setText(String.valueOf(valorFinal2));
+			txtMedA3AP.setText(String.valueOf(valorFinal3));
+			txtMedA4AP.setText(String.valueOf(valorFinal4));
 			txtMedA1AA.setText(String.valueOf(valorFinal5));
-
-			valor1 = ToDouble.init(txtAv01E2AA);
-			valor2 = ToDouble.init(txtAv02E2AA);
-			valor3 = ToDouble.init(txtAv03E2AA);
-			double valorFinal6 = (valor1 + valor2 + valor3) / 3;
 			txtMedA2AA.setText(String.valueOf(valorFinal6));
-
-			valor1 = ToDouble.init(txtAv01E3AA);
-			valor2 = ToDouble.init(txtAv02E3AA);
-			valor3 = ToDouble.init(txtAv03E3AA);
-			double valorFinal7 = (valor1 + valor2 + valor3) / 3;
 			txtMedA3AA.setText(String.valueOf(valorFinal7));
+
 			double valorFinalAP = 0;
 			double valorFinalAA = 0;
 			if ((valorEx1 != 0)) {
@@ -674,18 +648,31 @@ public class CadastroTCC2 extends JInternalFrame {
 				System.err.println("wdw");
 				return;
 			}
-			txtNotaFinalAP.setText(String.valueOf(valorFinalAP));
-			txtNotaFinalAA.setText(String.valueOf(valorFinalAA));
+		
+			BigDecimal bd;
+		    bd= new BigDecimal(valorFinalAP).setScale(1, RoundingMode.HALF_EVEN);
+			txtNotaFinalAP.setText(String.valueOf(bd.doubleValue()));
+		    bd= new BigDecimal(valorFinalAA).setScale(1, RoundingMode.HALF_EVEN);
+			txtNotaFinalAA.setText(String.valueOf(bd.doubleValue()));
 			double notaFinalFinal = (valorFinalAA * 2 + valorFinalAP * 5 + ToDouble.init(txtNotaAO) * 1.5
 					+ ToDouble.init(txtNotaAAA) * 1.5) / 10;
-			txtNotaFinal.setText(String.valueOf(notaFinalFinal));
+		    bd= new BigDecimal(notaFinalFinal).setScale(1, RoundingMode.HALF_EVEN);
+			txtNotaFinal.setText(String.valueOf(bd.doubleValue()));
 
-			txtNotaFinalAA.repaint();
-			txtNotaFinalAP.repaint();
-			
-			
+			getContentPane().repaint();
+			getContentPane().revalidate();
 			
 		}
+	}
+	
+	public BigDecimal calculaMedia(JTextField n1,JTextField n2,JTextField n3){
+		BigDecimal bd;
+		double valorEx = ToDouble.init(n1);
+		double valor2 = ToDouble.init(n2);
+		double valor3 = ToDouble.init(n3);
+		double valorFinal = (valorEx + valor2 + valor3) / 3;
+	    bd= new BigDecimal(valorFinal).setScale(1, RoundingMode.HALF_EVEN);
+		return bd;
 	}
 
 	@Override

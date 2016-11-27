@@ -57,7 +57,12 @@ public class CadastroNotaTCC {
 		aluno.setNtMdE02AP((String)listAluno.get(4));
 		aluno.setNtMdE03AP((String)listAluno.get(5));
 		aluno.setNtMdE04AP((String)listAluno.get(6));
+		try{
 		aluno.setNtMdE05AP((String)listAluno.get(7));
+		}catch(Exception e){
+			aluno.setNtMdE05AP("0");
+		}
+		System.out.println(nota);
 		double sta = Double.parseDouble(nota);
 		if(sta>=7){
 			aluno.setStatus("Aprovado");

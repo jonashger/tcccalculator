@@ -124,7 +124,7 @@ public class GerarRelatorio extends JInternalFrame {
 		btnNewButton.setBounds(513, 196, 117, 22);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (list.isSelectionEmpty()) {
+				if (!list.isSelectionEmpty()) {
 					int id =listaAlunos.get(nArray.get(list.getSelectedIndex())-1).getnUsuario();
 					try {
 						ReportGenerator.test(id);
@@ -147,7 +147,9 @@ public class GerarRelatorio extends JInternalFrame {
 				if (list.isSelectionEmpty()) {
 					JOptionPane.showMessageDialog(null, "Selecione um Projeto");
 				}else{
-					Signature d = new Signature();
+					Signature s = new Signature();
+					s.signature("dwqdqqwdqw");
+					s.setVisible(true);
 				}
 			}
 		});

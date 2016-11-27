@@ -22,7 +22,7 @@ public class IeValidator extends FixedLenghtDocument {
             // armazena o caracter
             c = str.charAt(i);
             // se não for número ou ponto
-            if(!Character.isDigit(c) & c != ',')
+            if(!Character.isDigit(c) & c != '.')
                     n = 0;
         }
         // se n não for igual a zero, todos os caracteres são numéricos
@@ -41,7 +41,7 @@ public void replace(FilterBypass fb, int offset, int length, String str, Attribu
         c = str.charAt(i);
         
         // se não for número ou ponto
-        if(!Character.isDigit(c) & c != '.')
+        if(!Character.isDigit(c) & c != ',')
                 n = 0;
     }
     

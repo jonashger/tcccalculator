@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
+import javax.swing.WindowConstants;
+
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -36,9 +38,9 @@ public class ReportGenerator {
 		try {
 			JasperPrint print = JasperFillManager.fillReport(fileName, hm, jrRS);
 			System.out.println("Created file: " + outFileName);
-			JasperViewer viewer = new JasperViewer(print, true);
+			JasperViewer viewer = new JasperViewer(print, false);
 			viewer.setVisible(true);
-			viewer.setDefaultCloseOperation(viewer.DISPOSE_ON_CLOSE);
+			viewer.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
 		}
 

@@ -13,7 +13,7 @@ public class ToDouble {
 	 * @return valor retorna o valor do double
 	 */
 	public static double init(JTextField field){
-		double valor = Double.parseDouble(field.getText());
+		double valor = Double.parseDouble(field.getText().replace(",", "."));
 		return valor;
 	}
 }
