@@ -10,10 +10,18 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "curso")
 public class Curso {
 
+	/**
+	 * @DatabaseField Campos da classe que corresponde a uma coluna no banco de dados. 
+	 */
 	@DatabaseField(generatedId = true)
 	private Integer nCurso;
 	@DatabaseField
 	private String curso;
+	
+
+	/**
+	 * Criação dos Getters and Setters
+	 */
 	
 	public Integer getnCurso() {
 		return nCurso;

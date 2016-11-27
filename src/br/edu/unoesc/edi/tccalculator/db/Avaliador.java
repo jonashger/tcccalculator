@@ -10,10 +10,18 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "avaliador")
 public class Avaliador {
 
+	/**
+	 * @DatabaseField Campos da classe que corresponde a uma coluna no banco de dados. 
+	 */
 	@DatabaseField(generatedId = true)
 	private Integer nAvaliador;
 	@DatabaseField
 	private String avaliador;
+	
+	/**
+	 * Criação dos Getters and Setters
+	 * @return
+	 */
 	public Integer getnAvaliador() {
 		return nAvaliador;
 	}

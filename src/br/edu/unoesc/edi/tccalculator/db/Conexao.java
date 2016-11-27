@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 /**
- * conexao do db
+ * Classe conexão do DB
  * @author jonas
  *
  */

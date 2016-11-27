@@ -33,8 +33,7 @@ import br.edu.unoesc.edi.tccalculator.db.DAOManager;
 import br.edu.unuesc.edi.tccalculator.util.login.CadastroAluno;
 
 /**
- * Classe para cadatrar aluno
- * 
+ * Classe para cadatrar um Aluno 
  * @author matheus
  *
  */
@@ -42,6 +41,7 @@ public class CadastrarAluno extends JInternalFrame {
 	/**
 	 * 
 	 */
+	//declaração das variáveis
 	private static final long serialVersionUID = 1L;
 	private JTextField textAluno1;
 	private final JPanel contentPane = new JPanel();
@@ -68,7 +68,7 @@ public class CadastrarAluno extends JInternalFrame {
 	}
 
 	/**
-	 * Cria o Frame.
+	 * Criaçao do Frame.
 	 * 
 	 * @throws PropertyVetoException
 	 * @throws SQLException
@@ -82,22 +82,26 @@ public class CadastrarAluno extends JInternalFrame {
 		setMaximumSize(new Dimension(450, 300));
 		getContentPane().setLayout(null);
 		getContentPane().add(contentPane, BorderLayout.CENTER);
-
+		
+		//criação da janela, labels, botão...
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 424, 270);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
+		//cadatro aluno
 		JLabel lblCadastro = new JLabel("Aluno 1:");
 		lblCadastro.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCadastro.setBounds(28, 11, 82, 36);
 		panel.add(lblCadastro);
 
+		//curso
 		JLabel lblNewLabel = new JLabel("Curso:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(28, 73, 74, 36);
 		panel.add(lblNewLabel);
 
+		//combo box
 		JComboBox<String> curso = new JComboBox<>();
 		List<Curso> a = DAOManager.cursoDAO.queryForAll();
 		for (int i = 0; i < a.size(); i++) {
@@ -106,17 +110,20 @@ public class CadastrarAluno extends JInternalFrame {
 		curso.setBounds(89, 83, 166, 20);
 		panel.add(curso);
 
+		//campo para aluno
 		textAluno1 = new JTextField();
 		textAluno1.setBorder(new LineBorder(new Color(171, 173, 179)));
 		textAluno1.setBounds(89, 21, 166, 20);
 		panel.add(textAluno1);
 		textAluno1.setColumns(10);
 
+		//cadastrar
 		JButton btnCadastrar = new JButton("Cadastrar");
 
 		btnCadastrar.setBounds(263, 236, 151, 23);
 		panel.add(btnCadastrar);
 
+		//campo para a tese
 		JLabel lblTeseDefendida = new JLabel("Tese defendida:");
 		lblTeseDefendida.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTeseDefendida.setBounds(27, 152, 112, 36);
@@ -128,23 +135,27 @@ public class CadastrarAluno extends JInternalFrame {
 		panel.add(textAssunto);
 		getContentPane().add(panel);
 
+		//campo tcc tipo 1
 		JRadioButton radioTCCI = new JRadioButton("TCC I");
 		radioTCCI.setSelected(true);
 		buttonGroup.add(radioTCCI);
 		radioTCCI.setBounds(315, 36, 109, 23);
 		panel.add(radioTCCI);
 
+		//campo tcc tipo 2
 		JRadioButton radioTCCII = new JRadioButton("TCC II");
 		buttonGroup.add(radioTCCII);
 		radioTCCII.setBounds(315, 62, 109, 23);
 		panel.add(radioTCCII);
 		radioTCCII.setToolTipText("TESC");
 
+		//campo tcc tipo 3
 		JRadioButton radioTCCIII = new JRadioButton("TCC III");
 		buttonGroup.add(radioTCCIII);
 		radioTCCIII.setBounds(315, 87, 109, 23);
 		panel.add(radioTCCIII);
 
+		//campo do aluno
 		textAluno2 = new JTextField();
 		JButton btnAddAluno = new JButton("");
 		btnAddAluno.addActionListener(new ActionListener() {
@@ -166,10 +177,12 @@ public class CadastrarAluno extends JInternalFrame {
 				revalidate();
 			}
 		});
+		//imagem e local aluno
 		btnAddAluno.setIcon(new ImageIcon(CadastrarAluno.class.getResource("/imagens/more.png")));
 		btnAddAluno.setBounds(260, 11, 36, 36);
 		panel.add(btnAddAluno);
 
+		//campo do orientador
 		JLabel lblOrientador = new JLabel("Orientador:");
 		lblOrientador.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblOrientador.setBounds(27, 114, 112, 36);
@@ -180,6 +193,7 @@ public class CadastrarAluno extends JInternalFrame {
 		panel.add(txtOrientador);
 		txtOrientador.setColumns(10);
 
+		//Ação do cadastro
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 

@@ -39,6 +39,7 @@ public class RemoveAvaliador extends JInternalFrame {
 		setBounds(100, 100, 360, 362);
 		getContentPane().setLayout(null);
 
+		//avaliador removido
 		JLabel lblTxt = new JLabel("Selecione o avaliador que ser\u00E1 removido:");
 		lblTxt.setFont(new Font("Times New Roman", Font.PLAIN, 17));
 		lblTxt.setBounds(10, 11, 294, 28);
@@ -56,6 +57,7 @@ public class RemoveAvaliador extends JInternalFrame {
 			array.add(curso.get(i).getnAvaliador());
 		}
 
+		//caso escolha remover:
 		JLabel btnRemover = new JLabel("New label");
 		btnRemover.addMouseListener(new MouseAdapter() {
 			@Override

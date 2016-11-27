@@ -58,6 +58,7 @@ public class Home extends JFrame {
 	 */
 	public Home() {
 
+		//criação da janela
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Home.class.getResource("/imagens/logoimg.jpg")));
 		setTitle("TCCalculator");
 		setVisible(true);
@@ -65,6 +66,7 @@ public class Home extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);
 
+		//barra do menu
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setIgnoreRepaint(true);
 		menuBar.setAlignmentY(Component.BOTTOM_ALIGNMENT);
@@ -74,6 +76,7 @@ public class Home extends JFrame {
 		JMenu mnArquivo = new JMenu("Arquivo");
 		menuBar.add(mnArquivo);
 
+		//sair
 		JMenuItem mntmSair = new JMenuItem("Sair");
 		mntmSair.setIcon(new ImageIcon(Home.class.getResource("/imagens/logout.png")));
 		mntmSair.addActionListener(new ActionListener() {
@@ -83,9 +86,11 @@ public class Home extends JFrame {
 		});
 		mnArquivo.add(mntmSair);
 
+		//menu do cadastro
 		JMenu mnCadastrar = new JMenu("Cadastrar");
 		menuBar.add(mnCadastrar);
 
+		//menu cadastro, ação do cadastro
 		JMenuItem mnCadastrarAluno = new JMenuItem("Cadastrar TCC");
 		mnCadastrarAluno.setIcon(new ImageIcon(Home.class.getResource("/imagens/tccCad.png")));
 		mnCadastrarAluno.addActionListener(new ActionListener() {
@@ -115,6 +120,7 @@ public class Home extends JFrame {
 		});
 		mnCadastrar.add(mnCadastrarAluno);
 		
+		//menu para curso
 		JMenuItem mntmCurso = new JMenuItem("Curso");
 		mntmCurso.setIcon(new ImageIcon(Home.class.getResource("/imagens/studentd.png")));
 		mntmCurso.addActionListener(new ActionListener() {
@@ -137,6 +143,7 @@ public class Home extends JFrame {
 			}
 		});
 		
+		//menu do avaliador
 		JMenuItem mntmAvaliador = new JMenuItem("Avaliador");
 		mntmAvaliador.setIcon(new ImageIcon(Home.class.getResource("/imagens/classroom.png")));
 		mntmAvaliador.addActionListener(new ActionListener() {
@@ -160,9 +167,11 @@ public class Home extends JFrame {
 		mnCadastrar.add(mntmAvaliador);
 		mnCadastrar.add(mntmCurso);
 
+		//menu das notas/gravação
 		JMenu mnGravarNotas = new JMenu("Gravar Notas");
 		menuBar.add(mnGravarNotas);
 
+		//menu do tcc tipo 1
 		JMenuItem mntmTccI = new JMenuItem("TCC I");
 		mntmTccI.setIcon(new ImageIcon(Home.class.getResource("/imagens/one.png")));
 		mntmTccI.addActionListener(new ActionListener() {
@@ -192,6 +201,7 @@ public class Home extends JFrame {
 		});
 		mnGravarNotas.add(mntmTccI);
 
+		//menu do tcc tipo 2
 		JMenuItem mntmTccIi = new JMenuItem("TCC II");
 		mntmTccIi.setIcon(new ImageIcon(Home.class.getResource("/imagens/two.png")));
 		mntmTccIi.addActionListener(new ActionListener() {
@@ -221,6 +231,7 @@ public class Home extends JFrame {
 		});
 		mnGravarNotas.add(mntmTccIi);
 
+		//menu do tcc tipo 3
 		JMenuItem mntmTccIii = new JMenuItem("TCC III");
 		mntmTccIii.setIcon(new ImageIcon(Home.class.getResource("/imagens/three.png")));
 		mntmTccIii.addActionListener(new ActionListener() {
@@ -250,9 +261,11 @@ public class Home extends JFrame {
 		});
 		mnGravarNotas.add(mntmTccIii);
 
+		//menu do relatório
 		JMenu mnRelatrio = new JMenu("Relat\u00F3rio");
 		menuBar.add(mnRelatrio);
 
+		//menu para gerar relatório
 		JMenuItem mntmGerarRelatrioDe = new JMenuItem("Gerar Relat\u00F3rio de Aluno");
 		mntmGerarRelatrioDe.setIcon(new ImageIcon(Home.class.getResource("/imagens/search.png")));
 		mntmGerarRelatrioDe.addActionListener(new ActionListener() {
@@ -274,9 +287,11 @@ public class Home extends JFrame {
 		});
 		mnRelatrio.add(mntmGerarRelatrioDe);
 		
+		//remover
 		JMenu mnRemover = new JMenu("Remover");
 		menuBar.add(mnRemover);
 		
+		//menu remover/ação
 		JMenuItem mntmRemover = new JMenuItem("Remover");
 		mntmRemover.setIcon(new ImageIcon(Home.class.getResource("/imagens/remove.png")));
 		mntmRemover.addActionListener(new ActionListener() {
@@ -301,9 +316,11 @@ public class Home extends JFrame {
 		});
 		mnRemover.add(mntmRemover);
 
+		//menu sobre
 		JMenu mnSobre = new JMenu("Sobre");
 		menuBar.add(mnSobre);
 
+		//ação do sobre
 		JMenuItem mntmSobre = new JMenuItem("Sobre");
 		mntmSobre.setIcon(new ImageIcon(Home.class.getResource("/imagens/letter-i.png")));
 		mntmSobre.addActionListener(new ActionListener() {
@@ -313,6 +330,7 @@ public class Home extends JFrame {
 		});
 		mnSobre.add(mntmSobre);
 
+		//menu para ajuda
 		JMenuItem mntmAjuda = new JMenuItem("Ajuda");
 		mntmAjuda.setIcon(new ImageIcon(Home.class.getResource("/imagens/info.png")));
 		mntmAjuda.addActionListener(new ActionListener() {

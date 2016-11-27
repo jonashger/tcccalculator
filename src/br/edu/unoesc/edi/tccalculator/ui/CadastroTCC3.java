@@ -1,5 +1,7 @@
 package br.edu.unoesc.edi.tccalculator.ui;
 
+ java.awt.BorderLayout;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -32,13 +34,13 @@ import br.edu.unoesc.edi.tccalculator.util.PassaCamposComEnter;
 import br.edu.unoesc.edi.tccalculator.util.ToDouble;
 import br.edu.unoesc.edi.tccalculator.util.ValidaNumero;
 /**
- * Classe que representa o cadastro de tcc 3
+ * Classe que representa o cadastro de tcc tipo 3
  * @author matheus
  *
  */
 public class CadastroTCC3 extends JInternalFrame {
 
-
+	//variaveis
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
 	private final JPanel contentPane = new JPanel();
@@ -117,21 +119,26 @@ public class CadastroTCC3 extends JInternalFrame {
 		getContentPane().setLayout(null);
 		getContentPane().add(contentPane, BorderLayout.CENTER);
 
+		//janela
 		panel = new JPanel();
 		panel.setBounds(26, 10, 764, 169);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
+		//avaliação da monografia
 		JLabel lblmonografia = new JLabel("Avalia\u00E7\u00E3o da Monografia");
 		lblmonografia.setBounds(2, 0, 226, 21);
 		panel.add(lblmonografia);
 		lblmonografia.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+		//nota AP
 		JLabel lblNotasAP = new JLabel("Notas");
 		lblNotasAP.setBounds(559, 5, 72, 14);
 		panel.add(lblNotasAP);
 		lblNotasAP.setFont(new Font("Tahoma", Font.BOLD, 18));
 
+		//avaliadores da AP
+		
 		JLabel lblItensAvaliadosAA = new JLabel("Itens Avaliados");
 		lblItensAvaliadosAA.setBounds(92, 34, 121, 14);
 		panel.add(lblItensAvaliadosAA);
@@ -161,6 +168,9 @@ public class CadastroTCC3 extends JInternalFrame {
 		lblAvalizao.setBounds(0, 73, 401, 21);
 		panel.add(lblAvalizao);
 
+		/**
+		 * campo para inserções
+		 */
 		txtAv1Ep1AP = new JTextField();
 		txtAv1Ep1AP.setBounds(401, 59, 86, 20);
 		((AbstractDocument) txtAv1Ep1AP.getDocument()).setDocumentFilter(new IeValidator(3));
@@ -239,22 +249,29 @@ public class CadastroTCC3 extends JInternalFrame {
 		panel.add(txtMedA4AP);
 		txtMedA4AP.setEditable(false);
 
+		//qualidade do trabalho
 		JLabel lblQualidadeDo = new JLabel("1) Qualidade do trabalho, relev\u00E2ncia, coer\u00EAncia e aspectos metodol\u00F3gicos");
 		lblQualidadeDo.setBounds(0, 56, 391, 21);
 		panel.add(lblQualidadeDo);
 
+		//estrutura
 		JLabel lblMateriaisE = new JLabel("3) Adequa\u00E7\u00E3o da estrutura de cap\u00EDtulos (estrutura\u00E7\u00E3o l\u00F3gica da monografia)");
 		lblMateriaisE.setBounds(0, 93, 401, 21);
 		panel.add(lblMateriaisE);
 
+		//adequadação do tema
 		JLabel lblFormataoE = new JLabel("4) Adequa\u00E7\u00E3o do tema, abrang\u00EAncia e atualidade da bibliografia utilizada\r\n");
 		lblFormataoE.setBounds(0, 112, 401, 21);
 		panel.add(lblFormataoE);
 		
+		//articulação do texto
 		JLabel lblArticulacaotexto = new JLabel("5) Articula\u00E7\u00E3o do texto apresentado e a sua rela\u00E7\u00E3o com a pr\u00E1tica\r\n");
 		lblArticulacaotexto.setBounds(2, 129, 399, 25);
 		panel.add(lblArticulacaotexto);
 		
+		/**
+		 * Campos para texto
+		 */
 		txtAv1Ep5AP = new JTextField();
 		txtAv1Ep5AP.setBounds(401, 134, 86, 20);
 		panel.add(txtAv1Ep5AP);
@@ -277,16 +294,20 @@ public class CadastroTCC3 extends JInternalFrame {
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 
+		//AA
 		JLabel lblAA = new JLabel("Avalia\u00E7\u00E3o da Apresenta\u00E7\u00E3o - AA");
 		lblAA.setBounds(0, 0, 273, 21);
 		panel_1.add(lblAA);
 		lblAA.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+		//nota AA
 		JLabel lblNotasAA = new JLabel("Notas");
 		lblNotasAA.setBounds(565, 2, 72, 14);
 		panel_1.add(lblNotasAA);
 		lblNotasAA.setFont(new Font("Tahoma", Font.BOLD, 18));
 
+		//avaliadorees da AA
+		
 		JLabel lblitensAvaliadosAA = new JLabel("Itens Avaliados");
 		lblitensAvaliadosAA.setBounds(93, 27, 121, 14);
 		panel_1.add(lblitensAvaliadosAA);
@@ -312,19 +333,23 @@ public class CadastroTCC3 extends JInternalFrame {
 		panel_1.add(lblMediaAA);
 		lblMediaAA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
+		//tempo gasto
 		JLabel lblUtilizaoDo = new JLabel(
 				"1) Utiliza\u00E7\u00E3o do tempo dispon\u00EDvel");
 		lblUtilizaoDo.setBounds(3, 49, 332, 21);
 		panel_1.add(lblUtilizaoDo);
 
+		//dominio do conteudo
 		JLabel lblDominioDo = new JLabel("2) Dominio do conte\u00FAdo\r\n");
 		lblDominioDo.setBounds(3, 67, 333, 21);
 		panel_1.add(lblDominioDo);
 
+		//clareza
 		JLabel lblLinguagemclareza = new JLabel("3) Linguagem (clareza, flu\u00EAncia do assunto)");
 		lblLinguagemclareza.setBounds(3, 86, 332, 21);
 		panel_1.add(lblLinguagemclareza);
 
+		//campos de texto
 		txtAv01E1AA = new JTextField();
 		((AbstractDocument) txtAv01E1AA.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtAv01E1AA.setBounds(408, 49, 86, 20);
@@ -390,11 +415,13 @@ public class CadastroTCC3 extends JInternalFrame {
 		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 
+		//AO
 		JLabel lblAvaliacaoOrientador = new JLabel("Avalia\u00E7\u00E3o do Orientador - AO");
 		lblAvaliacaoOrientador.setBounds(0, 0, 273, 21);
 		panel_2.add(lblAvaliacaoOrientador);
 		lblAvaliacaoOrientador.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+		//nota AO
 		JLabel lblNotaAO = new JLabel("Nota");
 		lblNotaAO.setBounds(343, 2, 72, 14);
 		panel_2.add(lblNotaAO);
@@ -415,11 +442,13 @@ public class CadastroTCC3 extends JInternalFrame {
 		getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 
+		//AAA
 		JLabel lblAutoAvaliacaoAAA = new JLabel("Auto Avalia\u00E7\u00E3o do Acad\u00EAmico - AAA");
 		lblAutoAvaliacaoAAA.setBounds(0, 0, 305, 21);
 		panel_3.add(lblAutoAvaliacaoAAA);
 		lblAutoAvaliacaoAAA.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+		//nota AAA
 		JLabel lblNotaAAA = new JLabel("Nota");
 		lblNotaAAA.setBounds(341, 2, 62, 14);
 		panel_3.add(lblNotaAAA);
@@ -440,30 +469,35 @@ public class CadastroTCC3 extends JInternalFrame {
 		getContentPane().add(panel_4);
 		panel_4.setLayout(null);
 
+		//Nota final AP
 		JLabel lblNotaFinalAp = new JLabel("Nota AP:");
 		lblNotaFinalAp.setBounds(0, 36, 86, 14);
 		panel_4.add(lblNotaFinalAp);
 		lblNotaFinalAp.setForeground(Color.BLUE);
 		lblNotaFinalAp.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+		//Nota final AA
 		JLabel lblNotaFinalAa = new JLabel("Nota AA:");
 		lblNotaFinalAa.setBounds(0, 61, 98, 14);
 		panel_4.add(lblNotaFinalAa);
 		lblNotaFinalAa.setForeground(Color.BLUE);
 		lblNotaFinalAa.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+		//NOTA FINAL
 		JLabel lblNotaFinal = new JLabel("Nota Final:");
 		lblNotaFinal.setBounds(0, 93, 98, 14);
 		panel_4.add(lblNotaFinal);
 		lblNotaFinal.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNotaFinal.setForeground(Color.BLUE);
 
+		//relatorio da nota
 		JLabel lblRelatrioDeNotas = new JLabel("Relat\u00F3rio de Notas:");
 		lblRelatrioDeNotas.setBounds(0, 0, 171, 14);
 		panel_4.add(lblRelatrioDeNotas);
 		lblRelatrioDeNotas.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblRelatrioDeNotas.setForeground(Color.BLUE);
 
+		//campos de texto
 		txtNotaFinalAP = new JTextField();
 		txtNotaFinalAP.setBounds(111, 35, 86, 20);
 		panel_4.add(txtNotaFinalAP);
@@ -479,6 +513,7 @@ public class CadastroTCC3 extends JInternalFrame {
 		panel_4.add(txtNotaFinal);
 		txtNotaFinal.setEditable(false);
 
+		//botao para gerar media
 		JButton btnGerarMedias = new JButton("Gerar M\u00E9dias");
 		btnGerarMedias.setToolTipText("");
 		btnGerarMedias.addActionListener(new ActionListener() {
@@ -492,6 +527,7 @@ public class CadastroTCC3 extends JInternalFrame {
 		btnGerarMedias.setBounds(495, 566, 128, 32);
 		getContentPane().add(btnGerarMedias);
 
+		//validação dos campos de nota
 		btnGravarNotas = new JButton("Gravar Notas");
 		btnGravarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -606,6 +642,7 @@ public class CadastroTCC3 extends JInternalFrame {
 	}
 
 	public void gerarMedias() {
+		//validação dos campos da nota
 		ArrayList<Boolean> valida = new ArrayList<>();
 		valida.add(ValidaNumero.validaNumero(txtAv01E1AA));
 		valida.add(ValidaNumero.validaNumero(txtAv02E1AA));
@@ -663,6 +700,7 @@ public class CadastroTCC3 extends JInternalFrame {
 			txtMedA2AA.setText(String.valueOf(valorFinal6));
 			txtMedA3AA.setText(String.valueOf(valorFinal7));
 
+			//cálculo para nota
 			double valorFinalAP = 0;
 			double valorFinalAA = 0;
 			if ((valorEx1 != 0)) {

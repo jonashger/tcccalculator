@@ -13,6 +13,9 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "usuario")
 public class Usuario {
+	/**
+	 * Criação dos Getters and Setters
+	 */
 	public Integer getnUsuario() {
 		return nUsuario;
 	}
@@ -31,6 +34,9 @@ public class Usuario {
 	public void setUserPass(String userPass) {
 		this.userPass = userPass;
 	}
+	/**
+	 * @DatabaseField Campos da classe que corresponde a uma coluna no banco de dados. 
+	 */
 	@DatabaseField(generatedId = true)
 	private Integer nUsuario;
 

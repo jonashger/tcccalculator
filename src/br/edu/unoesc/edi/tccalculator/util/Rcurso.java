@@ -9,6 +9,8 @@ import br.edu.unoesc.edi.tccalculator.db.DAOManager;
 
 public class Rcurso {
 		
+	//getters and setters
+	
 		public static void removeTrabalho(int id) throws SQLException {
 			Aluno trabalho = DAOManager.alunoDAO.queryForId(id);
 			DAOManager.alunoDAO.delete(trabalho);

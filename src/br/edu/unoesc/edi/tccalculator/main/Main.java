@@ -17,7 +17,7 @@ import javax.swing.UIManager;
 
 import br.edu.unoesc.edi.tccalculator.ui.Login;
 /**
- * 
+ * Classe Main do projeto.
  * Splash Screen para carregar o sistema.
  *
  * @author Jonas

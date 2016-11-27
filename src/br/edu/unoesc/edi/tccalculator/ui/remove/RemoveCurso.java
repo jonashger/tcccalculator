@@ -58,6 +58,7 @@ public class RemoveCurso extends JInternalFrame {
 			array.add(curso.get(i).getnCurso());
 		}
 
+		//caso escolha remover curso:
 		JLabel btnRemover = new JLabel("New label");
 		btnRemover.addMouseListener(new MouseAdapter() {
 			@Override

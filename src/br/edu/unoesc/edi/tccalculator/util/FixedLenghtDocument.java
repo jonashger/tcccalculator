@@ -9,7 +9,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 /**
  *
- * @author Paulo Alonso
+ * @author m/j
  */
 public class FixedLenghtDocument extends DocumentFilter {
     private int iMaxLength;  

@@ -62,6 +62,7 @@ public class RemoveWork extends JInternalFrame {
 			array.add(curso.get(i).getnUsuario());
 		}
 
+		//caso escolha remover
 		JLabel btnRemover = new JLabel("New label");
 		btnRemover.addMouseListener(new MouseAdapter() {
 			@Override

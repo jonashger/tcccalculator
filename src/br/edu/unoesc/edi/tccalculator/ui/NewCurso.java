@@ -43,6 +43,7 @@ public class NewCurso extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public NewCurso() {
+		//janela para cadastro
 		setFrameIcon(new ImageIcon(NewCurso.class.getResource("/imagens/cadastroaluno].png")));
 		setTitle("Cadastro de Curso");
 		setIconifiable(true);
@@ -50,16 +51,19 @@ public class NewCurso extends JInternalFrame {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 
+		//curso
 		JLabel lblCurso = new JLabel("Curso:");
 		lblCurso.setFont(new Font("Tahoma", Font.ITALIC, 17));
 		lblCurso.setBounds(10, 191, 78, 27);
 		getContentPane().add(lblCurso);
 
+		//campo para curso
 		nomeCurso = new JTextField();
 		nomeCurso.setBounds(72, 191, 352, 27);
 		getContentPane().add(nomeCurso);
 		nomeCurso.setColumns(10);
 
+		//botão para salvar dados inseridos
 		JButton btnNewButton = new JButton("Salvar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,6 +85,7 @@ public class NewCurso extends JInternalFrame {
 		btnNewButton.setBounds(261, 229, 163, 30);
 		getContentPane().add(btnNewButton);
 
+		//setando imagem 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(NewCurso.class.getResource("/imagens/curso.png")));
 		lblNewLabel.setBounds(98, 11, 250, 173);

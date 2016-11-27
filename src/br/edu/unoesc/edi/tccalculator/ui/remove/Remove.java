@@ -31,14 +31,17 @@ public class Remove extends JInternalFrame {
 
 		JLabel btnTrabalho = new JLabel("Remover Aluno");
 
+		//remover trabalho
 		btnTrabalho.setToolTipText("Remover Trabalho");
 		btnTrabalho.setIcon(new ImageIcon(Remove.class.getResource("/imagens/job-search.png")));
 		btnTrabalho.setBounds(10, 11, 128, 128);
 		getContentPane().add(btnTrabalho);
 		btnTrabalho.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
+		//remover aluno
 		JLabel btnAvaliador = new JLabel("Remover Aluno");
 
+		//avaliador
 		btnAvaliador.setIcon(new ImageIcon(Remove.class.getResource("/imagens/student.png")));
 		btnAvaliador.setToolTipText("Remover Trabalho");
 		btnAvaliador.setBounds(181, 11, 128, 128);
@@ -46,16 +49,19 @@ public class Remove extends JInternalFrame {
 
 		btnAvaliador.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
+		//remover trabalho
 		JLabel lblRemoverTrabalho = new JLabel("Remover Trabalho");
 		lblRemoverTrabalho.setFont(new Font("Book Antiqua", Font.PLAIN, 17));
 		lblRemoverTrabalho.setBounds(10, 150, 146, 43);
 		getContentPane().add(lblRemoverTrabalho);
 
+		//remover o avaliador
 		JLabel lblRemoverAvaliador = new JLabel("Remover Avaliador");
 		lblRemoverAvaliador.setFont(new Font("Book Antiqua", Font.PLAIN, 17));
 		lblRemoverAvaliador.setBounds(181, 150, 149, 43);
 		getContentPane().add(lblRemoverAvaliador);
 
+		//remover aluno, 
 		JLabel btnCurso = new JLabel("Remover Aluno");
 		btnCurso.setIcon(new ImageIcon(Remove.class.getResource("/imagens/scholarship.png")));
 		btnCurso.setToolTipText("Remover Trabalho");
@@ -64,11 +70,13 @@ public class Remove extends JInternalFrame {
 
 		btnCurso.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
+		//remover curso
 		JLabel lblRemoverCurso = new JLabel("Remover Curso");
 		lblRemoverCurso.setFont(new Font("Book Antiqua", Font.PLAIN, 17));
 		lblRemoverCurso.setBounds(364, 150, 117, 43);
 		getContentPane().add(lblRemoverCurso);
 
+		//ação de clique do trabalho
 		btnTrabalho.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -95,6 +103,7 @@ public class Remove extends JInternalFrame {
 				dispose();
 			}
 		});
+		//ação de clique no avaliador
 		btnAvaliador.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -120,6 +129,8 @@ public class Remove extends JInternalFrame {
 				avalia.setVisible(true);
 			}
 		});
+
+		//ação do clique no curso
 		btnCurso.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

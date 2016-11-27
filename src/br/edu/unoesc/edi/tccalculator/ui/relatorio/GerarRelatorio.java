@@ -25,7 +25,7 @@ import br.edu.unoesc.edi.tccalculator.db.Aluno;
 import br.edu.unoesc.edi.tccalculator.db.DAOManager;
 
 /**
- * Classe que gera relatório
+ * Classe que vai gerar o  relatório
  * 
  * @author jonas
  *
@@ -83,6 +83,8 @@ public class GerarRelatorio extends JInternalFrame {
 		scrollPane.setBounds(22, 25, 298, 199);
 		panel.add(scrollPane);
 
+		//avaliadores
+		
 		JLabel avaliador1 = new JLabel("Avaliador 1");
 		avaliador1.setBounds(394, 41, 83, 22);
 		panel.add(avaliador1);
@@ -119,6 +121,7 @@ public class GerarRelatorio extends JInternalFrame {
 		};
 		list.addMouseListener(mouseListener);
 		
+		//botao do relatorio
 		JButton btnNewButton = new JButton("Gerar Relat\u00F3rio");
 		btnNewButton.setBounds(513, 196, 117, 22);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -145,6 +148,8 @@ public class GerarRelatorio extends JInternalFrame {
 		panel.setLayout(null);
 		panel.add(btnNewButton);
 		
+		
+		//assinatura
 		JButton btnAssinatura = new JButton("Assinatura\r\n");
 		btnAssinatura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

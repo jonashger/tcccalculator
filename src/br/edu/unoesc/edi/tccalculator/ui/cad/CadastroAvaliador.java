@@ -34,10 +34,12 @@ public class CadastroAvaliador extends JInternalFrame {
 		setBounds(100, 100, 513, 193);
 		getContentPane().setLayout(null);
 		
+		//nome do avaliador
 		JLabel lblNomeDoAvaliador = new JLabel("Nome do Avaliador:");
 		lblNomeDoAvaliador.setBounds(10, 72, 94, 26);
 		getContentPane().add(lblNomeDoAvaliador);
 		
+		//descriçao da janela
 		JLabel lblNewLabel = new JLabel("<html>Nesta tela \u00E9 possivel realizar o cadastro de avaliadores para ser realizado o cadastro de notas!");
 		lblNewLabel.setBounds(10, 11, 497, 26);
 		getContentPane().add(lblNewLabel);
@@ -47,6 +49,7 @@ public class CadastroAvaliador extends JInternalFrame {
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		//botao para cadastro
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -75,6 +78,7 @@ public class CadastroAvaliador extends JInternalFrame {
 		btnCadastrar.setBounds(264, 129, 89, 23);
 		getContentPane().add(btnCadastrar);
 		
+		//botao para limpas os campos
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -83,6 +87,10 @@ public class CadastroAvaliador extends JInternalFrame {
 		});
 		btnLimpar.setBounds(141, 129, 89, 23);
 		getContentPane().add(btnLimpar);
+		
+		/**
+		 * Botões são apenas para enfeite da janela, não fazem nada, não são clicáveis, só para embelezar a tela
+		 */
 		
 		JButton button_1 = new JButton("");
 		button_1.setEnabled(false);

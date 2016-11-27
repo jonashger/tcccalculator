@@ -11,7 +11,7 @@ import com.j256.ormlite.table.TableUtils;
  *
  */
 public class DAOManager {
-	
+	//variáveis a serem utilizadas para o banco 
 	public static Dao<Usuario, Integer> usuarioDAO;
 	public static Dao<Aluno, Integer> alunoDAO;
 	public static Dao<Curso, Integer> cursoDAO;

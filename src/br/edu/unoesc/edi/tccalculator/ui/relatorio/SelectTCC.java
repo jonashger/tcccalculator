@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 public class SelectTCC extends JInternalFrame {
 	/**
-	 * 
+	 * Classe à selecionar tcc
 	 */
 	private static final long serialVersionUID = 1L;
 	private  String nTcc = null;
@@ -26,6 +26,8 @@ public class SelectTCC extends JInternalFrame {
 		setClosable(true);
 		setBounds(100, 100, 450, 211);
 		getContentPane().setLayout(null);
+		
+		//botões
 		
 		JLabel btn1 = new JLabel("");
 		btn1.setIcon(new ImageIcon(SelectTCC.class.getResource("/imagens/number-1.png")));
@@ -68,6 +70,8 @@ public class SelectTCC extends JInternalFrame {
 		});
 		
 		
+		//tipos do tcc (1,2,3)
+		
 		JLabel lblTcc = new JLabel("TCC 1");
 		lblTcc.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
 		lblTcc.setBounds(59, 150, 44, 25);
@@ -85,6 +89,7 @@ public class SelectTCC extends JInternalFrame {
 
 	}
 	
+	//método para gerar o relatório
 	private void gerarRelatorio(){
 		GerarRelatorio cad = null;
 		try {

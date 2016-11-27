@@ -16,6 +16,7 @@ public class CadastroNotaTCC {
 	public static boolean cadastroTCC(String nota,int id,ArrayList<Integer> lista,ArrayList<String> list,ArrayList<String> listAluno) throws SQLException{
 		String a ="";
 		System.out.println(lista);
+		//setamento do aluno e avaliador
 		Aluno aluno = DAOManager.alunoDAO.queryForId(id);
 		aluno.setNota(nota);
 		Avaliador aval = DAOManager.avaliadorDAO.queryForId(lista.get(0));
@@ -57,6 +58,7 @@ public class CadastroNotaTCC {
 		aluno.setNtMdE02AP((String)listAluno.get(4));
 		aluno.setNtMdE03AP((String)listAluno.get(5));
 		aluno.setNtMdE04AP((String)listAluno.get(6));
+		//Aluno aprovado/reprovado
 		try{
 		aluno.setNtMdE05AP((String)listAluno.get(7));
 		}catch(Exception e){

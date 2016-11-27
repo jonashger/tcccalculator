@@ -7,7 +7,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 /**
  *
- * @author Paulo Alonso
+ * @author m/j
  */
 public class IeValidator extends FixedLenghtDocument {
     public IeValidator(int maxLenght) {

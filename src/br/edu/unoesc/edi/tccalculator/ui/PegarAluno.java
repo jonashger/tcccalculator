@@ -179,9 +179,13 @@ public class PegarAluno extends JInternalFrame {
 
 			}
 		});
+		//botao notas
 		btnGravarNotas.setBounds(500, 186, 138, 29);
 		getContentPane().add(btnGravarNotas);
 		
+		/**
+		 * campos de avaliador
+		 */
 		JLabel lblAvaliador = new JLabel("Avaliador 1");
 		lblAvaliador.setBounds(399, 37, 83, 22);
 		getContentPane().add(lblAvaliador);

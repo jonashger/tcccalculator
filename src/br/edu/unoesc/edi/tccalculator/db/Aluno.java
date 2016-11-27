@@ -10,6 +10,9 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "usuarioAluno")
 
 public class Aluno {
+	/**
+	 * @DatabaseField Campos da classe que corresponde a uma coluna no banco de dados. 
+	 */
 	@DatabaseField(generatedId = true)
 	private Integer nUsuario;
 	@DatabaseField
@@ -103,7 +106,10 @@ public class Aluno {
 	@DatabaseField
 	private String ntMdE05AP;
 	
-	
+	/**
+	 * Criação dos Getters and Setters
+	 * @return
+	 */
 	public String getAssunto() {
 		return assunto;
 	}

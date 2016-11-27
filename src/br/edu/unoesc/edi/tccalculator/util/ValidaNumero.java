@@ -12,6 +12,7 @@ public class ValidaNumero {
 	public static boolean validaNumero(JTextField Numero) {
 		double valor;
 
+		//faz validação do numero
 		if (Numero.getText().length() != 0) {
 			try {
 				valor = Double.parseDouble(Numero.getText().replace(",", "."));

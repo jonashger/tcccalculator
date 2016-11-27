@@ -39,6 +39,7 @@ public class CadastrarUser extends JDialog {
 	/**
 	 * 
 	 */
+	//variáveis
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textFieldUser;
 	private  JPasswordField  textFieldSenha;
@@ -63,6 +64,7 @@ public class CadastrarUser extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
+	//classe para cadastro
 	public CadastrarUser() {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarUser.class.getResource("/imagens/logoimg.jpg")));
@@ -74,19 +76,25 @@ public class CadastrarUser extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
+		//criação da janela, botao...
 		JLabel lblCadastrarNovoUsu = new JLabel("<html>Lembre-se que necessitar\u00E1 de usu\u00E1rio especial para poder cadastrar novo usu\u00E1rio!");
 		lblCadastrarNovoUsu.setBounds(10, 11, 414, 27);
 		contentPanel.add(lblCadastrarNovoUsu);
 		{
+			//campo usuario
 			JLabel lblUsurio = new JLabel("Usu\u00E1rio");
 			lblUsurio.setBounds(139, 162, 46, 14);
 			contentPanel.add(lblUsurio);
 		}
 		{
+			//campo senha
 			JLabel lblSenha = new JLabel("Senha");
 			lblSenha.setBounds(139, 187, 46, 14);
 			contentPanel.add(lblSenha);
 		}
+		/**
+		 * Campo de texto
+		 */
 		{
 			textFieldUser = new JTextField();
 			textFieldUser.setBounds(195, 159, 86, 20);
@@ -99,6 +107,7 @@ public class CadastrarUser extends JDialog {
 			contentPanel.add(textFieldSenha);
 			textFieldSenha.setColumns(10);
 		}
+		//campos do usuario 
 		{
 			JLabel lblNovoUsurio = new JLabel("Novo Usu\u00E1rio");
 			lblNovoUsurio.setBounds(176, 137, 71, 14);
@@ -109,6 +118,9 @@ public class CadastrarUser extends JDialog {
 			lblUsurioEspecial.setBounds(176, 42, 105, 14);
 			contentPanel.add(lblUsurioEspecial);
 		}
+		/**
+		 * campos para texto
+		 */
 		{
 			textFieldUserEspecial = new JTextField();
 			textFieldUserEspecial.setColumns(10);
@@ -132,6 +144,7 @@ public class CadastrarUser extends JDialog {
 			contentPanel.add(labelEspecial);
 		}
 		{
+			//botão dok
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
@@ -194,6 +207,7 @@ public class CadastrarUser extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
+				//cancelar
 				cancelButton = new JButton("Cancel");
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
