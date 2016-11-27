@@ -23,7 +23,7 @@ public class ReportGenerator {
 	private static final String pwd = "";
 
 	public static void test(int id) throws ClassNotFoundException, SQLException {
-		String fileName = "src/relatorio/TCC1Reporta.jasper";
+		String fileName = "src/relatorio/TCCReporta.jasper";
 		String outFileName = "test.pdf";
 		HashMap<String, Object> hm = new HashMap<String, Object>();
 		Class.forName(driver);
