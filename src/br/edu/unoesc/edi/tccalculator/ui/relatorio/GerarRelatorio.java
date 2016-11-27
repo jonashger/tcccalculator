@@ -23,7 +23,6 @@ import javax.swing.border.TitledBorder;
 
 import br.edu.unoesc.edi.tccalculator.db.Aluno;
 import br.edu.unoesc.edi.tccalculator.db.DAOManager;
-import br.edu.unoesc.edi.tccalculator.util.Signature;
 
 /**
  * Classe que gera relatório
@@ -126,8 +125,13 @@ public class GerarRelatorio extends JInternalFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if (!list.isSelectionEmpty()) {
 					int id =listaAlunos.get(nArray.get(list.getSelectedIndex())-1).getnUsuario();
+					String tcc = listaAlunos.get(nArray.get(list.getSelectedIndex())-1).getTcc();
+					
 					try {
-						ReportGenerator.test(id);
+						if (tcc.equals("tcc3")) {
+							ReportGenerator.tcc3(id);
+						}else
+						ReportGenerator.tcc1e2(id);
 					} catch (ClassNotFoundException | SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -146,10 +150,8 @@ public class GerarRelatorio extends JInternalFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if (list.isSelectionEmpty()) {
 					JOptionPane.showMessageDialog(null, "Selecione um Projeto");
-				}else{
-					Signature s = new Signature();
-					s.signature("dwqdqqwdqw");
-					s.setVisible(true);
+				}else{	
+					JOptionPane.showMessageDialog(null,"Em Breve, Aguarde!!");
 				}
 			}
 		});

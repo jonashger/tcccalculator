@@ -636,18 +636,11 @@ public class CadastroTCC2 extends JInternalFrame {
 
 			double valorFinalAP = 0;
 			double valorFinalAA = 0;
-			if ((valorEx1 != 0)) {
+			
 				valorFinalAP = (2 * valorFinal1 + 3 * valorFinal2 + 3 * valorFinal3 + 2 * valorFinal4) / 10;
-			} else {
-				System.err.println("dwd");
-				return;
-			}
-			if (valorEx2 != 0) {
+		
 				valorFinalAA = (valorFinal5 * 2 + 6 * valorFinal6 + 2 * valorFinal7) / 10;
-			} else {
-				System.err.println("wdw");
-				return;
-			}
+			
 		
 			BigDecimal bd;
 		    bd= new BigDecimal(valorFinalAP).setScale(1, RoundingMode.HALF_EVEN);

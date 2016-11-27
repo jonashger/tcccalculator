@@ -663,7 +663,8 @@ public class CadastroTCC1 extends JInternalFrame {
 			}
 			BigDecimal bd;
 		    bd= new BigDecimal(valorFinalAP).setScale(1, RoundingMode.HALF_EVEN);
-			txtNotaFinalAP.setText(String.valueOf(bd.doubleValue()));
+		    System.out.println(bd.doubleValue());
+		    txtNotaFinalAP.setText(String.valueOf(bd.doubleValue()));
 		    bd= new BigDecimal(valorFinalAA).setScale(1, RoundingMode.HALF_EVEN);
 			txtNotaFinalAA.setText(String.valueOf(bd.doubleValue()));
 			double notaFinalFinal = (valorFinalAA * 2 + valorFinalAP * 5 + ToDouble.init(txtNotaAO) * 1.5

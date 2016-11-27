@@ -28,6 +28,7 @@ import br.edu.unoesc.edi.tccalculator.db.Avaliador;
 import br.edu.unoesc.edi.tccalculator.db.DAOManager;
 import br.edu.unoesc.edi.tccalculator.tcc.CadastroNotaTCC;
 import br.edu.unoesc.edi.tccalculator.util.IeValidator;
+import br.edu.unoesc.edi.tccalculator.util.PassaCamposComEnter;
 import br.edu.unoesc.edi.tccalculator.util.ToDouble;
 import br.edu.unoesc.edi.tccalculator.util.ValidaNumero;
 /**
@@ -464,19 +465,16 @@ public class CadastroTCC3 extends JInternalFrame {
 		lblRelatrioDeNotas.setForeground(Color.BLUE);
 
 		txtNotaFinalAP = new JTextField();
-		((AbstractDocument) txtNotaFinalAP.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtNotaFinalAP.setBounds(111, 35, 86, 20);
 		panel_4.add(txtNotaFinalAP);
 		txtNotaFinalAP.setEditable(false);
 
 		txtNotaFinalAA = new JTextField();
-		((AbstractDocument) txtNotaFinalAA.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtNotaFinalAA.setBounds(111, 60, 86, 20);
 		panel_4.add(txtNotaFinalAA);
 		txtNotaFinalAA.setEditable(false);
 
 		txtNotaFinal = new JTextField();
-		((AbstractDocument) txtNotaFinal.getDocument()).setDocumentFilter(new IeValidator(3));
 		txtNotaFinal.setBounds(111, 92, 86, 20);
 		panel_4.add(txtNotaFinal);
 		txtNotaFinal.setEditable(false);
@@ -582,6 +580,13 @@ public class CadastroTCC3 extends JInternalFrame {
 				lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblNewLabel.setBounds(330, 446, 86, 22);
 				getContentPane().add(lblNewLabel);
+
+				PassaCamposComEnter d = new PassaCamposComEnter();
+				d.passaCamposComEnter(panel);
+				d.passaCamposComEnter(panel_1);
+				d.passaCamposComEnter(panel_2);
+				d.passaCamposComEnter(panel_3);
+				d.passaCamposComEnter(panel_4);
 				
 
 				Avaliador av1 = DAOManager.avaliadorDAO.queryForId(arrayIdAval.get(0));
@@ -682,6 +687,10 @@ public class CadastroTCC3 extends JInternalFrame {
 		    bd= new BigDecimal(notaFinalFinal).setScale(1, RoundingMode.HALF_EVEN);
 			txtNotaFinal.setText(String.valueOf(bd.doubleValue()));
 
+			getContentPane().repaint();
+			getContentPane().revalidate();
+			getContentPane().repaint();
+			getContentPane().revalidate();
 			getContentPane().repaint();
 			getContentPane().revalidate();
 			
