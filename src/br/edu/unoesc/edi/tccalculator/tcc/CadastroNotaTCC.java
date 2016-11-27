@@ -14,7 +14,7 @@ import br.edu.unoesc.edi.tccalculator.db.DAOManager;
 public class CadastroNotaTCC {
 
 	public static boolean cadastroTCC(String nota,int id,ArrayList<Integer> lista,ArrayList<String> list,ArrayList<String> listAluno) throws SQLException{
-	
+		String a ="";
 		System.out.println(lista);
 		Aluno aluno = DAOManager.alunoDAO.queryForId(id);
 		aluno.setNota(nota);

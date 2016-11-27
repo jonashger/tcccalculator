@@ -7,10 +7,10 @@
 	<classpathentry exported="true" kind="lib" path="libs/ormlite-jdbc-5.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/sqlite-jdbc-3.8.11.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/sqlitejdbc-v056.jar"/>
-	<classpathentry kind="lib" path="libs/commons-digester-2.1.jar"/>
-	<classpathentry kind="lib" path="libs/jasperreports-6.3.1.jar"/>
-	<classpathentry kind="lib" path="libs/joda-time-2.0.jar"/>
-	<classpathentry kind="lib" path="libs/org.apache.commons.collections_3.2.2.v201511171945.jar"/>
-	<classpathentry kind="lib" path="libs/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/commons-digester-2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/jasperreports-6.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/joda-time-2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/org.apache.commons.collections_3.2.2.v201511171945.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
