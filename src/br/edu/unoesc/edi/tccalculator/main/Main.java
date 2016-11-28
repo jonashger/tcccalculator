@@ -70,6 +70,7 @@ public class Main extends JWindow {
     public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {   
         // Mostra uma imagem com o título da aplicação, envia os milessimos SplashScreen
         Main splash = new Main(200);
+        
         /**
          * Faz o setamento do look and feel
          */
@@ -82,6 +83,7 @@ public class Main extends JWindow {
         catch (Exception e) {
            // handle exception
         }
+        //tela de splash
         splash.showSplashAndExit();        
     }
 }

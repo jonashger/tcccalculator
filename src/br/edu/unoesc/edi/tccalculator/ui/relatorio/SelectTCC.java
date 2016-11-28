@@ -72,16 +72,19 @@ public class SelectTCC extends JInternalFrame {
 		
 		//tipos do tcc (1,2,3)
 		
+		//tipo 1
 		JLabel lblTcc = new JLabel("TCC 1");
 		lblTcc.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
 		lblTcc.setBounds(59, 150, 44, 25);
 		getContentPane().add(lblTcc);
 		
+		//tipo 2
 		JLabel lblTcc_1 = new JLabel("TCC 2");
 		lblTcc_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
 		lblTcc_1.setBounds(199, 150, 44, 25);
 		getContentPane().add(lblTcc_1);
 		
+		//tipo 3
 		JLabel lblTcc_2 = new JLabel("TCC 3");
 		lblTcc_2.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
 		lblTcc_2.setBounds(335, 150, 44, 25);

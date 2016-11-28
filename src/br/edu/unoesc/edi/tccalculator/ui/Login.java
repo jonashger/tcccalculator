@@ -2,6 +2,7 @@ package br.edu.unoesc.edi.tccalculator.ui;
 
 /**
  * Classe para fazer loguin no sistema
+
  * @author m
  */
 import java.awt.BorderLayout;
@@ -87,14 +88,14 @@ public class Login extends JFrame {
 		lblSenhaIncorreta.setBounds(299, 193, 133, 25);
 		panel.add(lblSenhaIncorreta);
 
-		// botao para entrar no sistema
+		// botão para entrar no sistema
 		JButton btnEntrar = new JButton("");
 		btnEntrar.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 			}
 		});
-		// botao entrar, validação á ação
+		// botão entrar, validação á ação
 		btnEntrar.setMnemonic(KeyEvent.VK_ENTER);
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -126,7 +127,7 @@ public class Login extends JFrame {
 
 			}
 		});
-		// botao para entrada
+		// botão para entrada
 		btnEntrar.setIcon(new ImageIcon(Login.class.getResource("/imagens/login.jpg")));
 		btnEntrar.setBounds(332, 215, 109, 36);
 		panel.add(btnEntrar);
@@ -153,13 +154,13 @@ public class Login extends JFrame {
 		lblSenha.setBounds(237, 179, 46, 14);
 		panel.add(lblSenha);
 
-		// icone para o botão de login
+		// ícone para o botão de login
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Login.class.getResource("/imagens/login_logo.png")));
 		label.setBounds(195, 29, 279, 100);
 		panel.add(label);
 
-		// icone para o botão da pessoa
+		// ícone para o botão da pessoa
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(Login.class.getResource("/imagens/boneco-not.jpg")));
 		label_1.setBounds(0, 11, 204, 251);

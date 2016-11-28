@@ -59,7 +59,7 @@ public class About extends JDialog {
 		lblNewLabel.setBounds(10, 11, 414, 206);
 		contentPanel.add(lblNewLabel);
 		{
-			//icone 
+			//ícone 
 			JLabel label = new JLabel("");
 			label.setIcon(new ImageIcon("C:\\Users\\jonas\\git\\tccalculator\\resources\\Calculator2.png"));
 			label.setBounds(258, 112, 120, 105);

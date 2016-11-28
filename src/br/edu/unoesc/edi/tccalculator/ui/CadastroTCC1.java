@@ -42,7 +42,8 @@ public class CadastroTCC1 extends JInternalFrame {
 	/**
 	 * 
 	 */
-	// variaveis
+	
+	// variaveis a serem utilizadas
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
@@ -144,6 +145,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		/**
 		 * campo dos avaliadores
 		 */
+		
 		JLabel lblItensAvaliadosAA = new JLabel("Itens Avaliados");
 		lblItensAvaliadosAA.setBounds(92, 34, 121, 14);
 		panel.add(lblItensAvaliadosAA);

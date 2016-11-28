@@ -36,17 +36,20 @@ public class RemoveWork extends JInternalFrame {
 		List<Aluno> curso = DAOManager.alunoDAO.queryForAll();
 		ArrayList<Integer> array = new ArrayList<>();
 	
+		//setando a imagem, posicionamento da janela...
 		setTitle("Remover Trabalho");
 		setFrameIcon(new ImageIcon(RemoveWork.class.getResource("/imagens/delete.png")));
 		setClosable(true);
 		setBounds(100, 100, 360, 362);
 		getContentPane().setLayout(null);
 
+		//campo para trabalho remvido
 		JLabel lblTxt = new JLabel("Selecione o trabalho que ser\u00E1 removido:");
 		lblTxt.setFont(new Font("Times New Roman", Font.PLAIN, 17));
 		lblTxt.setBounds(10, 11, 299, 28);
 		getContentPane().add(lblTxt);
 		
+		//Lista
 		JList<String> list = new JList<String>();
 		DefaultListModel<String> model = new DefaultListModel<String>();
 		list.setModel(model);
@@ -62,7 +65,7 @@ public class RemoveWork extends JInternalFrame {
 			array.add(curso.get(i).getnUsuario());
 		}
 
-		//caso escolha remover
+		//caso escolha remover:
 		JLabel btnRemover = new JLabel("New label");
 		btnRemover.addMouseListener(new MouseAdapter() {
 			@Override

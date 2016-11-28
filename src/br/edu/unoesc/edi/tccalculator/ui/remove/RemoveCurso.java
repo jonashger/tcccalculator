@@ -36,23 +36,27 @@ public class RemoveCurso extends JInternalFrame {
 		List<Curso> curso = DAOManager.cursoDAO.queryForAll();
 		ArrayList<Integer> array = new ArrayList<>();
 	
+		//setando a imagem, posicionamento da janela...
 		setTitle("Remover Curso");
 		setFrameIcon(new ImageIcon(RemoveCurso.class.getResource("/imagens/delete.png")));
 		setClosable(true);
 		setBounds(100, 100, 360, 362);
 		getContentPane().setLayout(null);
 
+		//campo para selecionar curso
 		JLabel lblTxt = new JLabel("Selecione o curso que ser\u00E1 removido:");
 		lblTxt.setFont(new Font("Times New Roman", Font.PLAIN, 17));
 		lblTxt.setBounds(10, 11, 273, 28);
 		getContentPane().add(lblTxt);
 
+		//Lista
 		JList<String> list = new JList<String>();
 		DefaultListModel<String> model = new DefaultListModel<String>();
 		list.setModel(model);
 		list.setBounds(10, 48, 324, 230);
 		getContentPane().add(list);
 
+		//percorrimento
 		for (int i = 0; i < curso.size(); i++) {
 			model.addElement(curso.get(i).getCurso());
 			array.add(curso.get(i).getnCurso());
@@ -76,6 +80,7 @@ public class RemoveCurso extends JInternalFrame {
 				}
 			}
 		});
+		//botão remoção
 		btnRemover.setIcon(new ImageIcon(RemoveCurso.class.getResource("/imagens/btnRemover.png")));
 		btnRemover.setBounds(209, 289, 125, 34);
 		btnRemover.setCursor(new Cursor(Cursor.HAND_CURSOR));

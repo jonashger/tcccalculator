@@ -28,6 +28,7 @@ public class CadastroAvaliador extends JInternalFrame {
 
 
 	public CadastroAvaliador() {
+		//setando o imagem, posicionamento da jenela...
 		setTitle("Cadastro de Avaliador");
 		setFrameIcon(new ImageIcon(CadastroAvaliador.class.getResource("/imagens/cadastroaluno].png")));
 		setClosable(true);
@@ -49,7 +50,7 @@ public class CadastroAvaliador extends JInternalFrame {
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		//botao para cadastro
+		//botão para cadastro
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,7 +79,7 @@ public class CadastroAvaliador extends JInternalFrame {
 		btnCadastrar.setBounds(264, 129, 89, 23);
 		getContentPane().add(btnCadastrar);
 		
-		//botao para limpas os campos
+		//botão para limpar os campos
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

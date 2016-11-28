@@ -49,7 +49,8 @@ public class CadastroTCC3 extends JInternalFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//variaveis
+	
+	//variaveis a serem utilizadas
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
 	private final JPanel contentPane = new JPanel();

@@ -77,6 +77,7 @@ public class GerarRelatorio extends JInternalFrame {
 				}
 			}
 		}
+		//scroll
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setToolTipText("");
 		scrollPane.setBounds(22, 25, 298, 199);

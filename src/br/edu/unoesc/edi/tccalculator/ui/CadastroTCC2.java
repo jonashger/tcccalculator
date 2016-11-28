@@ -43,7 +43,8 @@ public class CadastroTCC2 extends JInternalFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//variaveis
+	
+	//variaveis a serem utilizadas
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
 	private final JPanel contentPane = new JPanel();
@@ -139,7 +140,9 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel.add(lblItensAvaliadosAA);
 		lblItensAvaliadosAA.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
-		//avaliadores  AP
+		/**
+		 * avaliadores  AP
+		 */
 		JLabel lblAvaliadorAP = new JLabel("Avaliador 1");
 		lblAvaliadorAP.setBounds(335, 38, 72, 14);
 		panel.add(lblAvaliadorAP);
@@ -251,12 +254,12 @@ public class CadastroTCC2 extends JInternalFrame {
 		lblQualidadeDo.setBounds(0, 56, 332, 21);
 		panel.add(lblQualidadeDo);
 
-		//crnograma
+		//cronograma
 		JLabel lblMateriaisE = new JLabel("3) Desenvolvimento: cumprimento do cronograma ");
 		lblMateriaisE.setBounds(0, 93, 332, 21);
 		panel.add(lblMateriaisE);
 
-		//articulação
+		//articulação do texto
 		JLabel lblFormataoE = new JLabel("4) Articula\u00E7\u00E3o do texto apresentado e a sua rela\u00E7\u00E3o com a pr\u00E1tica\r\n");
 		lblFormataoE.setBounds(0, 112, 332, 21);
 		panel.add(lblFormataoE);
@@ -277,7 +280,9 @@ public class CadastroTCC2 extends JInternalFrame {
 		panel_1.add(lblNotasAA);
 		lblNotasAA.setFont(new Font("Tahoma", Font.BOLD, 18));
 
-		//avaliadores AA
+		/**
+		 * avaliadores AA
+		 */
 		JLabel lblitensAvaliadosAA = new JLabel("Itens Avaliados");
 		lblitensAvaliadosAA.setBounds(93, 27, 121, 14);
 		panel_1.add(lblitensAvaliadosAA);
@@ -558,7 +563,7 @@ public class CadastroTCC2 extends JInternalFrame {
 		getContentPane().add(btnGravarNotas);
 
 
-		
+		//aluno
 		lblNomeAluno = new JLabel();
 		lblNomeAluno.setBounds(86, 568, 440, 22);
 		getContentPane().add(lblNomeAluno);
@@ -623,6 +628,7 @@ public class CadastroTCC2 extends JInternalFrame {
 	/**
 	 * Gera as médias dos alunos
 	 */
+	 
 	//validação dos campos para as notas do aluno
 	public void gerarMedias() {
 		ArrayList<Boolean> valida = new ArrayList<>();

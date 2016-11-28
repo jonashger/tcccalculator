@@ -39,7 +39,8 @@ public class CadastrarUser extends JDialog {
 	/**
 	 * 
 	 */
-	//variáveis
+	
+	//variáveis a serem utilizadas
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textFieldUser;
 	private  JPasswordField  textFieldSenha;
@@ -64,6 +65,7 @@ public class CadastrarUser extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
+	
 	//classe para cadastro
 	public CadastrarUser() {
 		setResizable(false);
@@ -76,7 +78,7 @@ public class CadastrarUser extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		//criação da janela, botao...
+		//criação da janela, botao, posicionamento...
 		JLabel lblCadastrarNovoUsu = new JLabel("<html>Lembre-se que necessitar\u00E1 de usu\u00E1rio especial para poder cadastrar novo usu\u00E1rio!");
 		lblCadastrarNovoUsu.setBounds(10, 11, 414, 27);
 		contentPanel.add(lblCadastrarNovoUsu);
@@ -144,7 +146,7 @@ public class CadastrarUser extends JDialog {
 			contentPanel.add(labelEspecial);
 		}
 		{
-			//botão dok
+			//botão do ok
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);

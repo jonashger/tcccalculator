@@ -40,6 +40,7 @@ public class PegarAluno extends JInternalFrame {
 	/**
 	 * 
 	 */
+	//setando avaliadores e o cadastro do aluno para nulo
 	JDesktopPane cadastroAluno = null;
 	JComboBox<String> avaliador1 = null;
 	JComboBox<String> avaliador2 = null;
@@ -63,6 +64,7 @@ public class PegarAluno extends JInternalFrame {
 		
 		DefaultListModel<String> model = new DefaultListModel<String>();
 	
+		//lista
 		JList<String> list = new JList<String>();
 		list.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		list.setBorder(new TitledBorder(null, "Selecionar Trabalho", TitledBorder.LEFT, TitledBorder.TOP, null, null));
@@ -95,6 +97,7 @@ public class PegarAluno extends JInternalFrame {
 		}	
 		}
 
+		//botão para gravar as notas
 		JButton btnGravarNotas = new JButton("Gravar Notas");
 		btnGravarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -176,7 +179,7 @@ public class PegarAluno extends JInternalFrame {
 
 			}
 		});
-		//botao notas
+		//botão notas
 		btnGravarNotas.setBounds(500, 186, 138, 29);
 		getContentPane().add(btnGravarNotas);
 		

@@ -41,7 +41,7 @@ public class CadastrarAluno extends JInternalFrame {
 	/**
 	 * 
 	 */
-	//declaração das variáveis
+	//declaração das variáveis a serem utilizadas
 	private static final long serialVersionUID = 1L;
 	private JTextField textAluno1;
 	private final JPanel contentPane = new JPanel();
@@ -134,6 +134,7 @@ public class CadastrarAluno extends JInternalFrame {
 		lblTeseDefendida.setBounds(27, 152, 112, 36);
 		panel.add(lblTeseDefendida);
 
+		//campo de texto
 		textAssunto = new JEditorPane();
 		textAssunto.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textAssunto.setBounds(28, 187, 386, 36);
@@ -193,6 +194,7 @@ public class CadastrarAluno extends JInternalFrame {
 		lblOrientador.setBounds(27, 114, 112, 36);
 		panel.add(lblOrientador);
 
+		//campo de texto para orientador
 		txtOrientador = new JTextField();
 		txtOrientador.setBounds(121, 124, 217, 20);
 		panel.add(txtOrientador);
