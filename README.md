@@ -14,6 +14,8 @@ Professor: Roberson Junior Fernandes Alves.
 
 Trabalho: TCCalculator, Sistema para controle de notas de trabalho de conclusão de curso(tcc).
 
+Estrutura de Dados: Lista
+
 Bibliotecas: usado a API JasperReports
 
 "A Biblioteca JasperReports é o mais popular mecanismo de relatórios open source do mundo. É totalmente escrito em Java e é capaz de usar dados provenientes de qualquer tipo de fonte de dados e produzir documentos de pixel-perfect que podem ser visualizados, impressos ou exportados em uma variedade de formatos de documentos, incluindo HTML, PDF, Excel, OpenOffice e Word".
