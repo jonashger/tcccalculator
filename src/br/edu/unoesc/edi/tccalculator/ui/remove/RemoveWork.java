@@ -30,7 +30,7 @@ public class RemoveWork extends JInternalFrame {
 	private static final long serialVersionUID = 1L;
 /**
  * Classe Principal - Frame
- * @throws SQLException
+ * @throws SQLException trata dos erros do algoritmo sql
  */
 	public RemoveWork() throws SQLException {
 		List<Aluno> curso = DAOManager.alunoDAO.queryForAll();

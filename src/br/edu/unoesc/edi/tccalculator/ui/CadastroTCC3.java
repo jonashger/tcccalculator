@@ -1,6 +1,11 @@
 package br.edu.unoesc.edi.tccalculator.ui;
 
- java.awt.BorderLayout;
+
+/**
+ * classe que representa o cadastro de tcc2
+
+ * @author matheus
+ */
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,6 +45,10 @@ import br.edu.unoesc.edi.tccalculator.util.ValidaNumero;
  */
 public class CadastroTCC3 extends JInternalFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//variaveis
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
@@ -99,14 +108,16 @@ public class CadastroTCC3 extends JInternalFrame {
 	private JLabel lblAvaliador_2;
 	private JLabel lblNewLabel;
 	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
 	 * 
+	 * @param usr id do usuario da tabela
+	 * @param arrayIdAval array dos ids de avaliacoes
 	 * @throws PropertyVetoException
-	 * @throws SQLException 
+	 *             trata dos erros do algoritmo
+	 * @throws SQLException
+	 *             trata dos erros do sql
+	 * @throws NumberFormatException
+	 *             trata dos erros do numberformat
+	 * 
 	 */
 	public CadastroTCC3(int usr, ArrayList<Integer> arrayIdAval) throws PropertyVetoException, SQLException {
 		setFrameIcon(

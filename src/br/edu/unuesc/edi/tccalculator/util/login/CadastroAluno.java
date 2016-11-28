@@ -18,8 +18,10 @@ public class CadastroAluno {
 	 * @param curso curso que estaja fazendo seu tcc
 	 * @param tese Tese a ser defendida
 	 * @param tcc em qual tcc esta fazendo - 1, 2 ou 3
-	 * @return
+	 * @param orient nome do orientador
 	 */
+	
+
 	public static void init(String usr,String usr2,String curso, String tese,String tcc,String orient) {
 		Aluno a = new Aluno();
 		a.setAluno(usr);

@@ -16,7 +16,7 @@ public class LoginPass {
 	 * @param senha senha informada tranformada em sha-256 e que for 
 	  		transformada tambem em Hexadecimal
 	 * @return verdadeiro se as informações estão salvas no Banco de Dados. falso não está
-	 * @throws SQLException
+	 * @throws SQLException trata dos erros do Sql
 	 */
 	public static boolean login(String usr,String senha) throws SQLException {
 

@@ -20,7 +20,7 @@ public class Avaliador {
 	
 	/**
 	 * Criação dos Getters and Setters
-	 * @return
+	 * @return gets das variaveis
 	 */
 	public Integer getnAvaliador() {
 		return nAvaliador;

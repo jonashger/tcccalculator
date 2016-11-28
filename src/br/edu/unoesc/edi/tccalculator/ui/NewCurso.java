@@ -21,6 +21,10 @@ import br.edu.unoesc.edi.tccalculator.db.DAOManager;
  *
  */
 public class NewCurso extends JInternalFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField nomeCurso;
 
 	/**

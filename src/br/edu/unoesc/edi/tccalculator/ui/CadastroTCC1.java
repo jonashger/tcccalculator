@@ -42,7 +42,7 @@ public class CadastroTCC1 extends JInternalFrame {
 	/**
 	 * 
 	 */
-	//variaveis
+	// variaveis
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
@@ -100,17 +100,18 @@ public class CadastroTCC1 extends JInternalFrame {
 	private ArrayList<String> lista = null;
 
 	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
 	 * 
+	 * @param usr id do usuario da tabela
+	 * @param arrayIdAval array dos ids de avaliacoes
 	 * @throws PropertyVetoException
+	 *             trata dos erros do algoritmo
 	 * @throws SQLException
+	 *             trata dos erros do sql
 	 * @throws NumberFormatException
+	 *             trata dos erros do numberformat
+	 * 
 	 */
-	//janela
+	// janela
 	public CadastroTCC1(int usr, ArrayList<Integer> arrayIdAval)
 			throws PropertyVetoException, NumberFormatException, SQLException {
 		setFrameIcon(new ImageIcon(CadastroTCC1.class.getResource("/imagens/Calculator2.png")));
@@ -121,20 +122,20 @@ public class CadastroTCC1 extends JInternalFrame {
 		setBounds(100, 100, 743, 644);
 		getContentPane().setLayout(null);
 		getContentPane().add(contentPane, BorderLayout.CENTER);
-		
-		//janela
+
+		// janela
 		panel = new JPanel();
 		panel.setBounds(26, 10, 684, 133);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		//descrição
+		// descrição
 		JLabel lblAP = new JLabel("Avalia\u00E7\u00E3o do Projeto - AP");
 		lblAP.setBounds(2, 0, 226, 21);
 		panel.add(lblAP);
 		lblAP.setFont(new Font("Tahoma", Font.BOLD, 16));
 
-		//campo notas
+		// campo notas
 		JLabel lblNotasAP = new JLabel("Notas");
 		lblNotasAP.setBounds(481, 2, 72, 14);
 		panel.add(lblNotasAP);
@@ -163,7 +164,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		panel.add(lblAvaliador3AP);
 		lblAvaliador3AP.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		//campo da média
+		// campo da média
 		JLabel lblMediaAP = new JLabel("M\u00E9dia");
 		lblMediaAP.setBounds(628, 39, 46, 14);
 		panel.add(lblMediaAP);
@@ -191,7 +192,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		txtAv3Ep1AP.setBounds(507, 56, 86, 20);
 		panel.add(txtAv3Ep1AP);
 
-		//campo da média
+		// campo da média
 		txtMedA1AP = new JTextField();
 		txtMedA1AP.setBounds(598, 56, 86, 20);
 		panel.add(txtMedA1AP);
@@ -308,24 +309,24 @@ public class CadastroTCC1 extends JInternalFrame {
 		panel_1.add(lblAvaliador3AA);
 		lblAvaliador3AA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		//média
+		// média
 		JLabel lblMediaAA = new JLabel("M\u00E9dia");
 		lblMediaAA.setBounds(624, 27, 46, 14);
 		panel_1.add(lblMediaAA);
 		lblMediaAA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		//campo para objetivos
+		// campo para objetivos
 		JLabel label_1 = new JLabel(
 				"1) Formula\u00E7\u00E3o clara da introdu\u00E7\u00E3o, objetivos e justificativa.");
 		label_1.setBounds(3, 49, 332, 21);
 		panel_1.add(label_1);
 
-		//campo da fundamentação
+		// campo da fundamentação
 		JLabel label_2 = new JLabel("2) Fundamenta\u00E7\u00E3o Te\u00F3rica.");
 		label_2.setBounds(3, 67, 333, 21);
 		panel_1.add(label_2);
 
-		//campo dos materias
+		// campo dos materias
 		JLabel label_3 = new JLabel("3) Materiais e M\u00E9todos.");
 		label_3.setBounds(3, 86, 332, 21);
 		panel_1.add(label_3);
@@ -398,13 +399,13 @@ public class CadastroTCC1 extends JInternalFrame {
 		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 
-		//AO
+		// AO
 		JLabel lblAvaliacaoOrientador = new JLabel("Avalia\u00E7\u00E3o do Orientador - AO");
 		lblAvaliacaoOrientador.setBounds(0, 0, 273, 21);
 		panel_2.add(lblAvaliacaoOrientador);
 		lblAvaliacaoOrientador.setFont(new Font("Tahoma", Font.BOLD, 16));
 
-		//nota
+		// nota
 		JLabel lblNotaAO = new JLabel("Nota");
 		lblNotaAO.setBounds(343, 2, 72, 14);
 		panel_2.add(lblNotaAO);
@@ -425,13 +426,13 @@ public class CadastroTCC1 extends JInternalFrame {
 		getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 
-		//AAA
+		// AAA
 		JLabel lblAutoAvaliacaoAAA = new JLabel("Auto Avalia\u00E7\u00E3o do Acad\u00EAmico - AAA");
 		lblAutoAvaliacaoAAA.setBounds(0, 0, 305, 21);
 		panel_3.add(lblAutoAvaliacaoAAA);
 		lblAutoAvaliacaoAAA.setFont(new Font("Tahoma", Font.BOLD, 16));
 
-		//nota
+		// nota
 		JLabel lblNotaAAA = new JLabel("Nota");
 		lblNotaAAA.setBounds(341, 2, 62, 14);
 		panel_3.add(lblNotaAAA);
@@ -452,28 +453,28 @@ public class CadastroTCC1 extends JInternalFrame {
 		getContentPane().add(panel_4);
 		panel_4.setLayout(null);
 
-		//nota finalAP
+		// nota finalAP
 		JLabel lblNotaFinalAp = new JLabel("Nota AP:");
 		lblNotaFinalAp.setBounds(0, 36, 86, 14);
 		panel_4.add(lblNotaFinalAp);
 		lblNotaFinalAp.setForeground(Color.BLUE);
 		lblNotaFinalAp.setFont(new Font("Tahoma", Font.BOLD, 16));
 
-		//nota final AA
+		// nota final AA
 		JLabel lblNotaFinalAa = new JLabel("Nota AA:");
 		lblNotaFinalAa.setBounds(0, 61, 98, 14);
 		panel_4.add(lblNotaFinalAa);
 		lblNotaFinalAa.setForeground(Color.BLUE);
 		lblNotaFinalAa.setFont(new Font("Tahoma", Font.BOLD, 16));
 
-		//nota geral final
+		// nota geral final
 		JLabel lblNotaFinal = new JLabel("Nota Final:");
 		lblNotaFinal.setBounds(0, 93, 98, 14);
 		panel_4.add(lblNotaFinal);
 		lblNotaFinal.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNotaFinal.setForeground(Color.BLUE);
 
-		//relatorio da nota
+		// relatorio da nota
 		JLabel lblRelatrioDeNotas = new JLabel("Relat\u00F3rio de Notas:");
 		lblRelatrioDeNotas.setBounds(0, 0, 171, 14);
 		panel_4.add(lblRelatrioDeNotas);
@@ -498,7 +499,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		panel_4.add(txtNotaFinal);
 		txtNotaFinal.setEditable(false);
 
-		//botao para gerar média
+		// botao para gerar média
 		JButton btnGerarMedias = new JButton("Gerar M\u00E9dias");
 		btnGerarMedias.setToolTipText("");
 		btnGerarMedias.addActionListener(new ActionListener() {
@@ -511,7 +512,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		btnGerarMedias.setBounds(451, 581, 128, 32);
 		getContentPane().add(btnGerarMedias);
 
-		//gravação nota
+		// gravação nota
 		btnGravarNotas = new JButton("Gravar Notas");
 		btnGravarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -543,7 +544,6 @@ public class CadastroTCC1 extends JInternalFrame {
 				lista.add(txtAv03E3AA.getText());
 				lista.add(txtNotaAO.getText());
 				lista.add(txtNotaAAA.getText());
-				
 
 				listaMedias = new ArrayList<>();
 				listaMedias.add(txtMedA1AA.getText());
@@ -554,7 +554,7 @@ public class CadastroTCC1 extends JInternalFrame {
 				listaMedias.add(txtMedA3AP.getText());
 				listaMedias.add(txtMedA4AP.getText());
 				try {
-					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, arrayIdAval, lista,listaMedias);
+					CadastroNotaTCC.cadastroTCC(txtNotaFinal.getText(), usr, arrayIdAval, lista, listaMedias);
 				} catch (SQLException e) {
 					System.out.println(e.getErrorCode());
 				}
@@ -589,7 +589,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		panel_5.add(lblNomeAluno);
 		lblNomeAluno.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
-		//avaliadores
+		// avaliadores
 		lblNomeDosAvaliadores = new JLabel("Nome dos Avaliadores");
 		lblNomeDosAvaliadores.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNomeDosAvaliadores.setBounds(287, 454, 165, 22);
@@ -626,7 +626,7 @@ public class CadastroTCC1 extends JInternalFrame {
 		d.passaCamposComEnter(panel_2);
 		d.passaCamposComEnter(panel_3);
 		d.passaCamposComEnter(panel_4);
-		
+
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP,
 				txtAv1Ep2AP, txtAv2Ep2AP, txtAv3Ep2AP, txtAv1Ep3AP, txtAv2Ep3AP, txtAv3Ep3AP, txtAv1Ep4AP, txtAv2Ep4AP,
 				txtAv3Ep4AP, txtAv01E1AA, txtAv02E1AA, txtAv03E1AA, txtAv01E2AA, txtAv02E2AA, txtAv03E2AA, txtAv01E3AA,
@@ -634,7 +634,7 @@ public class CadastroTCC1 extends JInternalFrame {
 
 	}
 
-	//validação das notas
+	// validação das notas
 	public boolean gerarMedias() {
 		ArrayList<Boolean> valida = new ArrayList<>();
 		valida.add(ValidaNumero.validaNumero(txtAv01E1AA));
@@ -672,13 +672,13 @@ public class CadastroTCC1 extends JInternalFrame {
 		if (pass) {
 			double valorEx1 = ToDouble.init(txtAv1Ep1AP);
 			double valorEx2 = ToDouble.init(txtAv01E1AA);
-			double valorFinal1=calculaMedia(txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP).doubleValue();
-			double valorFinal2=calculaMedia(txtAv1Ep2AP, txtAv2Ep2AP, txtAv3Ep2AP).doubleValue();
-			double valorFinal3=calculaMedia(txtAv1Ep3AP, txtAv2Ep3AP, txtAv3Ep3AP).doubleValue();
-			double valorFinal4=calculaMedia(txtAv1Ep4AP, txtAv2Ep4AP, txtAv3Ep4AP).doubleValue();
-			double valorFinal5=calculaMedia(txtAv01E1AA, txtAv02E1AA, txtAv03E1AA).doubleValue();
-			double valorFinal6=calculaMedia(txtAv01E2AA, txtAv02E2AA, txtAv03E2AA).doubleValue();
-			double valorFinal7=calculaMedia(txtAv01E3AA, txtAv02E3AA, txtAv03E3AA).doubleValue();
+			double valorFinal1 = calculaMedia(txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP).doubleValue();
+			double valorFinal2 = calculaMedia(txtAv1Ep2AP, txtAv2Ep2AP, txtAv3Ep2AP).doubleValue();
+			double valorFinal3 = calculaMedia(txtAv1Ep3AP, txtAv2Ep3AP, txtAv3Ep3AP).doubleValue();
+			double valorFinal4 = calculaMedia(txtAv1Ep4AP, txtAv2Ep4AP, txtAv3Ep4AP).doubleValue();
+			double valorFinal5 = calculaMedia(txtAv01E1AA, txtAv02E1AA, txtAv03E1AA).doubleValue();
+			double valorFinal6 = calculaMedia(txtAv01E2AA, txtAv02E2AA, txtAv03E2AA).doubleValue();
+			double valorFinal7 = calculaMedia(txtAv01E3AA, txtAv02E3AA, txtAv03E3AA).doubleValue();
 			txtMedA1AP.setText(String.valueOf(valorFinal1));
 			txtMedA2AP.setText(String.valueOf(valorFinal2));
 			txtMedA3AP.setText(String.valueOf(valorFinal3));
@@ -687,7 +687,7 @@ public class CadastroTCC1 extends JInternalFrame {
 			txtMedA2AA.setText(String.valueOf(valorFinal6));
 			txtMedA3AA.setText(String.valueOf(valorFinal7));
 
-			//cálculo para not
+			// cálculo para not
 			double valorFinalAP = 0;
 			double valorFinalAA = 0;
 			if ((valorEx1 != 0)) {
@@ -703,35 +703,37 @@ public class CadastroTCC1 extends JInternalFrame {
 				return false;
 			}
 			BigDecimal bd;
-		    bd= new BigDecimal(valorFinalAP).setScale(1, RoundingMode.HALF_EVEN);
-		    System.out.println(bd.doubleValue());
-		    txtNotaFinalAP.setText(String.valueOf(bd.doubleValue()));
-		    bd= new BigDecimal(valorFinalAA).setScale(1, RoundingMode.HALF_EVEN);
+			bd = new BigDecimal(valorFinalAP).setScale(1, RoundingMode.HALF_EVEN);
+			System.out.println(bd.doubleValue());
+			txtNotaFinalAP.setText(String.valueOf(bd.doubleValue()));
+			bd = new BigDecimal(valorFinalAA).setScale(1, RoundingMode.HALF_EVEN);
 			txtNotaFinalAA.setText(String.valueOf(bd.doubleValue()));
 			double notaFinalFinal = (valorFinalAA * 2 + valorFinalAP * 5 + ToDouble.init(txtNotaAO) * 1.5
 					+ ToDouble.init(txtNotaAAA) * 1.5) / 10;
-		    bd= new BigDecimal(notaFinalFinal).setScale(1, RoundingMode.HALF_EVEN);
+			bd = new BigDecimal(notaFinalFinal).setScale(1, RoundingMode.HALF_EVEN);
 			txtNotaFinal.setText(String.valueOf(bd.doubleValue()));
-			
+
 			getContentPane().repaint();
 			getContentPane().revalidate();
 			getContentPane().repaint();
 			getContentPane().revalidate();
 			return true;
-		}else{
+		} else {
 			System.out.println("Erro na gravacao");
 		}
 		return true;
 	}
-	public BigDecimal calculaMedia(JTextField n1,JTextField n2,JTextField n3){
+
+	public BigDecimal calculaMedia(JTextField n1, JTextField n2, JTextField n3) {
 		BigDecimal bd;
 		double valorEx = ToDouble.init(n1);
 		double valor2 = ToDouble.init(n2);
 		double valor3 = ToDouble.init(n3);
 		double valorFinal = (valorEx + valor2 + valor3) / 3;
-	    bd= new BigDecimal(valorFinal).setScale(1, RoundingMode.HALF_EVEN);
+		bd = new BigDecimal(valorFinal).setScale(1, RoundingMode.HALF_EVEN);
 		return bd;
 	}
+
 	@Override
 	public boolean equals(Object cad) {
 		return (cad instanceof CadastroTCC1);

@@ -68,12 +68,17 @@ public class CadastrarAluno extends JInternalFrame {
 	}
 
 	/**
-	 * Criaçao do Frame.
 	 * 
+	 * @param usr id do usuario da tabela
+	 * @param arrayIdAval array dos ids de avaliacoes
 	 * @throws PropertyVetoException
+	 *             trata dos erros do algoritmo
 	 * @throws SQLException
-	 */
-	public CadastrarAluno() throws PropertyVetoException, SQLException {
+	 *             trata dos erros do sql
+	 * @throws NumberFormatException
+	 *             trata dos erros do numberformat
+	 * 
+	 */	public CadastrarAluno() throws PropertyVetoException, SQLException {
 		setSelected(true);
 		setFrameIcon(new ImageIcon(CadastrarAluno.class.getResource("/imagens/cadastroaluno].png")));
 		setClosable(true);

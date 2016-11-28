@@ -39,6 +39,10 @@ import br.edu.unoesc.edi.tccalculator.util.ValidaNumero;
 
 public class CadastroTCC2 extends JInternalFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//variaveis
 	private JTextField txtNotaFinalAP;
 	private JTextField txtNotaFinalAA;
@@ -90,16 +94,17 @@ public class CadastroTCC2 extends JInternalFrame {
 	private JLabel label;
 	private JLabel label_1;
 	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
 	 * 
+	 * @param usr id do usuario da tabela
+	 * @param arrayIdAval array dos ids de avaliacoes
 	 * @throws PropertyVetoException
-	 * @throws SQLException 
-	 */
-	public CadastroTCC2(int usr, ArrayList<Integer> arrayIdAval) throws PropertyVetoException, SQLException {
+	 *             trata dos erros do algoritmo
+	 * @throws SQLException
+	 *             trata dos erros do sql
+	 * @throws NumberFormatException
+	 *             trata dos erros do numberformat
+	 * 
+	 */	public CadastroTCC2(int usr, ArrayList<Integer> arrayIdAval) throws PropertyVetoException, SQLException {
 		setFrameIcon(
 				new ImageIcon(CadastroTCC1.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
 		setTitle(" C\u00E1lculo das Avalia\u00E7\u00F5es TCC2");
@@ -654,8 +659,6 @@ public class CadastroTCC2 extends JInternalFrame {
 			}
 		}
 		if (pass) {
-			double valorEx1 = ToDouble.init(txtAv1Ep1AP);
-			double valorEx2 = ToDouble.init(txtAv01E1AA);
 			double valorFinal1=calculaMedia(txtAv1Ep1AP, txtAv2Ep1AP, txtAv3Ep1AP).doubleValue();
 			double valorFinal2=calculaMedia(txtAv1Ep2AP, txtAv2Ep2AP, txtAv3Ep2AP).doubleValue();
 			double valorFinal3=calculaMedia(txtAv1Ep3AP, txtAv2Ep3AP, txtAv3Ep3AP).doubleValue();

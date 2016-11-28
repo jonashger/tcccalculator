@@ -1,8 +1,5 @@
 package br.edu.unoesc.edi.tccalculator.ui.relatorio;
-/**
- * classe que represente o chamando do jasper report
 
- */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,6 +14,12 @@ import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+
+/**
+ * classe que represente o chamando do jasper report
+
+ */
+
 
 public class ReportGenerator {
 

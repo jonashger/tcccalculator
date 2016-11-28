@@ -30,7 +30,7 @@ public class RemoveCurso extends JInternalFrame {
 	private static final long serialVersionUID = 1L;
 /**
  * Classe Principal - Frame
- * @throws SQLException
+ * @throws SQLException trata dos erros do sql
  */
 	public RemoveCurso() throws SQLException {
 		List<Curso> curso = DAOManager.cursoDAO.queryForAll();

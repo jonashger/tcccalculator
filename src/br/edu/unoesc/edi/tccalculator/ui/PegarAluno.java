@@ -47,15 +47,12 @@ public class PegarAluno extends JInternalFrame {
 	ArrayList<Integer> idAvaliadores  =null;
 
 	/**
-	 * Launch the application.
 	 * 
+	 * @param pane JDesktopPane da janela principal
+	 * @param tcc tcc para ser carregado nas list
+	 * @throws SQLException trata dos  erros de sql
 	 */
 
-	/**
-	 * Create the frame.
-	 * 
-	 * @throws SQLException
-	 */
 	public PegarAluno(JDesktopPane pane, String tcc) throws SQLException {
 		setFrameIcon(new ImageIcon(PegarAluno.class.getResource("/imagens/more.png")));
 		setTitle("Aluno para " + tcc);

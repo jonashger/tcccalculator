@@ -15,8 +15,8 @@ import java.security.NoSuchAlgorithmException;
 		   * 
 		   * @param senha senha para ser encriptada
 		   * @return retorna a senha em hexadecimal
-		   * @throws NoSuchAlgorithmException
-		   * @throws UnsupportedEncodingException
+		   * @throws NoSuchAlgorithmException trata dos erros do algoritmo
+		   * @throws UnsupportedEncodingException trata dos erros de encodificação
 		   */
 	   public static String login(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException{
 	            {     

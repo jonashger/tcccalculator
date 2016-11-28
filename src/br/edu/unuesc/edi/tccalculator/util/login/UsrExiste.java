@@ -14,7 +14,7 @@ public class UsrExiste {
 	 * 
 	 * @param usr nome do usuário para verificar se existe
 	 * @return verdadeiro para usuário existente e falso ao contrário
-	 * @throws SQLException
+	 * @throws SQLException trata dos erros do sql
 	 */
 	public static boolean login(String usr) throws SQLException {
 

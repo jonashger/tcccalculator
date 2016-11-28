@@ -21,6 +21,8 @@ public class Curso {
 
 	/**
 	 * Criação dos Getters and Setters
+	 * @return gets das variaveis
+	 * 
 	 */
 	
 	public Integer getnCurso() {

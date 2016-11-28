@@ -40,15 +40,14 @@ public class GerarRelatorio extends JInternalFrame {
 	/**
 	 * Launch the application.
 	 */
-
-	/**
-	 * Create the frame.
-	 * 
-	 * @throws SQLException
-	 */
 	
 
-	 
+	 /**
+	  * Gera o relatório de seu respectivo tcc
+	  * @param nTcc informa qual tcc (I,II,III)
+	  *  @throws SQLException faz o tratamento dos erros de SQL
+	  */
+
 	public GerarRelatorio(String nTcc) throws SQLException {
 		setTitle("Projeto " + nTcc);
 		setFrameIcon(new ImageIcon(GerarRelatorio.class.getResource("/imagens/logoimg.jpg")));

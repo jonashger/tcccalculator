@@ -6,16 +6,14 @@ import com.j256.ormlite.table.DatabaseTable;
 /**
  * Classe que reprenta um USUARIO MASTER
  * 
- * @author 
+ * @author Jonas
  * @since 31/08/2016
  *
  */
 
 @DatabaseTable(tableName = "usuario")
 public class Usuario {
-	/**
-	 * Criação dos Getters and Setters
-	 */
+	
 	public Integer getnUsuario() {
 		return nUsuario;
 	}
